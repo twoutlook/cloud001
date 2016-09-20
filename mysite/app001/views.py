@@ -24,6 +24,9 @@ from .models import Item008
 from .models import Item009
 from .models import Item010
 
+# 2016/09/20
+from .models import Item011
+
 
 
 
@@ -346,6 +349,20 @@ def item010(request):
     context = {'current_user':request.user,'page_title':'ITEM010-富甲-压铸在制订单','item_list': item_list,'subtotal':subtotal}
     #使用ITEM005  template
     return render(request, 'app001/item010.html', context)     
+
+# share same template but different model
+def item011(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    subtotal=Item011.objects.values('f01').annotate(sumf07=Sum('f07'),sumf10=Sum('f10'))   
+    
+        
+    item_list = Item011.objects.order_by('f01','f02','f03','f04')[:400]
+    context = {'current_user':request.user,'page_title':'ITEM010-富鈦-压铸在制订单','item_list': item_list,'subtotal':subtotal}
+    #使用ITEM005  template
+    return render(request, 'app001/item010.html', context)     
+
 
 
 def dev001(request):
