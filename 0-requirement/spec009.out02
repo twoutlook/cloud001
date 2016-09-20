@@ -1,0 +1,21 @@
+<!--### 顯示需求基模版-->
+    <tr><th>1</th><th>外部主件</th><th>格林柱</th><td> [v]格林柱</td><td></td><td></td><td></td><td colspan='2'> [v]磨損 [v]無法修復</td></tr>
+    <tr><th>2</th><th></th><th>機架底座</th><td> [v]機架底座</td><td></td><td></td><td></td><td colspan='2'> [v]磨損 [v]裂縫 [v]漏油</td></tr>
+    <tr><th>3</th><th></th><th>模板(定)</th><td> [v]模板(定)</td><td></td><td></td><td></td><td colspan='2'> [v]平面變型 [v]無法修復</td></tr>
+    <tr><th>4</th><th></th><th>模板(動)</th><td> [v]模板(動)</td><td></td><td></td><td></td><td colspan='2'> [v]平面變型 [v]無法修復</td></tr>
+    <tr><th>5</th><th></th><th>合模</th><td> [v]油路板 [v]合模油缸</td><td></td><td></td><td></td><td colspan='2'> [v]合模缸漏油 [v]合模缸螺旋斷裂 [v]合模活塞磨損 [v]無法修復</td></tr>
+    <tr><th>6</th><th></th><th>曲軸</th><td> [v]曲轴销 [v]衬套</td><td></td><td></td><td></td><td colspan='2'> [v]磨損 [v]無法修復</td></tr>
+    <tr><th>7</th><th></th><th>鋼帶</th><td> [v]鋼帶</td><td></td><td></td><td></td><td colspan='2'> [v]磨損 [v]斷裂 [v]無法修復</td></tr>
+    <tr><th>8</th><th></th><th>保温炉</th><td> [v]炉盖 [v]加热管 [v]电线 [v]感温棒</td><td></td><td></td><td></td><td colspan='2'> [v]磨損 [v]斷裂 [v]無法修復 [v]炉盖损坏 [v]加热管断 [v]电路断 [v]温度不准</td></tr>
+    <tr><th>9</th><th>控制系统</th><th>膜厚調節</th><td> [v]开关</td><td></td><td></td><td></td><td colspan='2'> [v]開關損壞 [v]線路不通 [v]短路 [v]無法修復</td></tr>
+    <tr><th>10</th><th></th><th>主电箱</th><td> [v]电路板 [v]保险丝 [v]保温炉控制器</td><td></td><td></td><td></td><td colspan='2'> [v]保险丝烧坏 [v]線路不通 [v]無法修復</td></tr>
+    <tr><th>11</th><th></th><th>操作面板</th><td> [v]控制面板</td><td></td><td></td><td></td><td colspan='2'> [v]按键损坏 [v]系统坏 [v]無法修復</td></tr>
+    <tr><th>12</th><th>压射系统</th><th></th><td> [v]行程开关 [v]射杆连接板 [v]料管 [v]射杆接头</td><td></td><td></td><td></td><td colspan='2'> [v]無壓力 [v]線路不通 [v]壓射缸漏油 [v]射杆彎曲 [v]连接板断裂 [v]开关无信号 [v]料管磨损 [v]接头断</td></tr>
+    <tr><th>13</th><th>澆注系統</th><th></th><td> [v]链条齿轮 [v]链条 [v]铜套 [v]编码器 [v]接触开关</td><td></td><td></td><td></td><td colspan='2'> [v]链条断 [v]齿轮滑牙斷 [v]編碼器異常 [v]銅套磨損</td></tr>
+    <tr><th>14</th><th>油壓系統</th><th></th><td> [v]油管 [v]過濾網 [v]油箱 [v]馬達 [v]電磁閥</td><td></td><td></td><td></td><td colspan='2'> [v]破損 [v]斷裂 [v]接頭滑絲 [v]堵塞 [v]油品變質 [v]磨損 [v]軸心斷裂 [v]線路不通 [v]閥心斷裂</td></tr>
+    <tr><th>15</th><th>潤滑系統</th><th></th><td> [v]油嘴 [v]分油器 [v]油管 [v]油泵</td><td></td><td></td><td></td><td colspan='2'> [v]管道不通 [v]管道斷裂 [v]泵心磨損</td></tr>
+    <tr><th>16</th><th>氮氣</th><th></th><td> [v]氮气钢瓶 [v]氮气瓶油封 [v]轴承带</td><td></td><td></td><td></td><td colspan='2'> [v]鋼瓶裂縫 [v]壓力過高 [v]壓力過低 [v]磨损</td></tr>
+    <tr><th>17</th><th>锁模系统</th><th></th><td> [v]电子尺</td><td></td><td></td><td></td><td colspan='2'> [v]读数不准</td></tr>
+    <tr><th>18</th><th>自動噴霧</th><th></th><td> [v]雾化器 [v]喷雾机板 [v]铜管 [v]电磁阀 [v]缓冲器</td><td></td><td></td><td></td><td colspan='2'> [v]霧化器損壞 [v]線路不通 [v]緩衝彈簧斷裂 [v]喷头螺丝滑牙 [v]断裂 [v]漏水</td></tr>
+    <tr><th>19</th><th>自動取出</th><th></th><td> [v]取件机手臂 [v]缓冲器 [v]夹手 [v]轴承 [v]马达</td><td></td><td></td><td></td><td colspan='2'> [v]手臂断裂 [v]夹手磨损 [v]缓冲器坏 [v]手臂轴承坏 [v]内部烧坏</td></tr>
+    <tr><th>20</th><th>模具</th><th></th><td> [v]模芯 [v]顶针 [v]滑块 [v]定模仁 [v]动模仁 [v]油缸</td><td></td><td></td><td></td><td colspan='2'> [v]尺寸NG [v]模崩 [v]模芯斷 [v]顶针斷 [v]重覆修模 [v]待修模</td></tr>

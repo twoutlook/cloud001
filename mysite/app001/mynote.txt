@@ -1,0 +1,11 @@
+pip3 install django-import-export
+pip3 install django-bootstrap3
+pip3 install django-ipware
+
+
+python3 manage.py runserver $IP:$PORT
+
+1. add class Item010(models.Model) to modles.py
+2. to register Item010, need to import 
+3. python3 manage.py makemigrations
+python3 manage.py migrate

@@ -1,0 +1,66 @@
+{% extends 'app001/base.html' %}
+{% block content %}
+{% if item_list %}
+備註︰可使用組合鍵 Ctrl-- 縮小字體，或是組合鍵 Ctrl++ 放大字體
+<table >
+    <tr>
+        <th>id</th>
+        <th>f01</th>
+        <th>f02</th>
+        <th>f03</th>
+        <th>f04</th>
+        <th>f05</th>
+        <th>f06</th>
+        <th>f07</th>
+        <th>f08</th>
+        <th>f09</th>
+        <th>f10</th>
+        <th>f11</th>
+        <th>f12</th>
+    </tr>
+    <tr>
+        <th>筆數編號</th>
+        <th>客戶</th>
+        <th>量產訂單號</th>
+        <th>產品代碼</th>
+        <th>產品名稱</th>
+        <th>計劃交期</th>
+        <th>訂單預交量</th>
+        <th>已交量</th>
+        <th>未交量</th>
+        <th>備庫量</th>
+        <th>欠備庫量</th>
+        <th>客訴量</th>
+        <th>模具壽命</th>
+    </tr>
+<!--http://stackoverflow.com/questions/7737146/django-template-date-format-->
+<!--https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date-->
+    {% for item in item_list %}
+    <tr>
+        <th>{{ item.id }}</th>
+        <td>{{ item.f01 }}</td>
+        <td>{{ item.f02 }}</td>
+        <td>{{ item.f03 }}</td>
+        <td>{{ item.f04 }}</td>
+        <td>{{ item.f05|date:"Y-m-d"  }}</td>
+        <td>{{ item.f06 }}</td>
+        <td>{{ item.f07 }}</td>
+        <td>{{ item.f08 }}</td>
+        <td>{{ item.f09 }}</td>
+        <td>{{ item.f10 }}</td>
+        <td>{{ item.f11 }}</td>
+        <td>{{ item.f12 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<div class='template_name'>template: item002</div>
+{% else %}
+    <p><mark>目前無資料!</mark></p>
+{% endif %}
+
+{% endblock %}
+    
+
+
+
+

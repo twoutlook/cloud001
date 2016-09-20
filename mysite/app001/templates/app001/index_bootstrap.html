@@ -1,0 +1,39 @@
+{% extends 'app001/base_index_bootstrap.html' %}
+
+{% block content %}
+<!--<div class='template_name'>項目啟動日期︰2016-08-13</div>-->
+        {% if item_list %}
+        <table class="table table-hover">
+     
+            {% for item in item_list %}
+            <tr>
+                <!--<th>{{ item.field1 }}</th>-->
+                <!--<td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>-->
+                <td class='text_left'><a class="btn btn-info btn-lg" class='item_list' href='../{{ item.field2 }}'>{{ item.field1 }}</a>
+                
+                <br><b>輔導上線 - 管理人員 - 資料維護:</b><br> {{ item.field5 }}
+                <br><b>補充說明:</b><br>{{ item.field6 }}
+                
+                
+                </td>
+                <!--<td>{{ item.field3 }}</td>-->
+                <!--<td>{{ item.field4 }}</td>-->
+                <!--<td class='text_left'>{{ item.field5 }}</td>-->
+                <!--<td  class='text_left'>{{ item.field6 }}</td>-->
+            </tr>
+            {% endfor %}
+
+        </table
+        
+        {% else %}
+        <button class="btn btn-lg btn-danger" disabled='disabled'>您尚未登入</button>
+        
+        <h3>
+        <p>有權限查看資料人員，請由此&nbsp;<a class="btn btn-default btn-lg" target='_blank' href='/admin/login/?next=/app001/index_bootstrap'>登入查看</a></p>
+        <p>維護資料人員，請由此&nbsp;<a  class="btn btn-warning btn-lg" target='_blank' href='/admin'>登入維護</a></p>
+    
+        </h3>
+        
+        {% endif %}
+
+{% endblock %}

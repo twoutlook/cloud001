@@ -1,0 +1,7 @@
+db.sqlite3
+
+#static includes all app's static
+# Mark, 2016-09-20 11:30 encounter no any static files at all
+# It's okay to include all static folder 
+#
+#static

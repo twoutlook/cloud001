@@ -1,0 +1,52 @@
+{% extends 'app001/base.html' %}
+{% block content %}
+<table>
+    <tr>
+        <th>幾號機</th>
+      <td><b><mark>  {{ item001.headera }}</b></mark></td>
+      
+    <!--</tr>-->
+       
+    <!--<tr>-->
+        <th>噸位</th>
+        <td> {{ item001.headerb }}</td>
+        <th>人員</th>
+        <td>  {{ item001.headerc }}</td>
+        <th>日期</th>
+        <td> {{ item001.headerd |date:"Y-m-d" }}</td>
+    </tr>
+    <tr>
+        <th>部位</th>
+        <th>組成</th>
+        <th>零件</th>
+        <th>進度一</th>
+        <th>進度二</th>
+        <th>進度三</th>
+        <th colspan='2'>備註說明</th>
+    </tr>
+
+<tr><th>外部主件</th><th>格林柱</th><td>格林柱</td><td></td><td></td><td></td><td colspan='2'>磨損|無法修復</td></tr>
+    <tr><th></th><th>機架底座</th><td>機架底座</td><td></td><td></td><td></td><td colspan='2'>磨損|裂縫|漏油</td></tr>
+    <tr><th></th><th>模板(定)</th><td>模板(定)</td><td></td><td></td><td></td><td colspan='2'>平面變型|無法修復</td></tr>
+    <tr><th></th><th>模板(動)</th><td>模板(動)</td><td></td><td></td><td></td><td colspan='2'>平面變型|無法修復</td></tr>
+    <tr><th></th><th>合模</th><td>油路板|合模油缸油路板|合模油缸</td><td></td><td></td><td></td><td colspan='2'>合模缸漏油|合模 缸螺旋斷裂|合模活塞磨損|無法修 復</td></tr>
+    <tr><th></th><th>曲軸</th><td>曲轴销|衬套曲轴销|衬套</td><td></td><td></td><td></td><td colspan='2'>磨損|無法修復</td></tr>
+    <tr><th></th><th>鋼帶</th><td>鋼帶</td><td></td><td></td><td></td><td colspan='2'>磨損|斷裂|無法修復</td></tr>
+    <tr><th></th><th>保温炉</th><td>炉盖|加热管|电线|感温棒</td><td></td><td></td><td></td><td colspan='2'>磨損|斷裂|無法修復|炉盖损坏|加热管断|电路断|温度不准</td></tr>
+    <tr><th>控制系统</th><th>膜厚調節</th><td>开关</td><td></td><td></td><td></td><td colspan='2'>開關損壞|線路不通|短路|無法修 復</td></tr>
+    <tr><th></th><th>主电箱</th><td>电路板|保险丝|保温炉控制器电路板|保险丝|保温炉控制器</td><td></td><td></td><td></td><td colspan='2'>保险丝烧坏|線路不通|無法修復</td></tr>
+    <tr><th></th><th>操作面板</th><td>控制面板</td><td></td><td></td><td></td><td colspan='2'>按键损坏|系统坏|無法修復</td></tr>
+    <tr><th>压射系统</th><th></th><td>行程开关|射杆 连接板|料管|射杆接头</td><td></td><td></td><td></td><td colspan='2'>無壓力| 線路不通|壓射缸漏油|射杆彎曲|连接板断裂|开关无信号|料管磨损|接头断</td></tr>
+    <tr><th>澆注系統</th><th></th><td>链条齿轮|链条|铜套|编码器|接触开关</td><td></td><td></td><td></td><td colspan='2'>链条断| 齿轮滑牙斷|編碼器異常|銅套磨損</td></tr>
+    <tr><th>油壓系統</th><th></th><td>,油管|過濾網|油箱|馬達|電磁閥</td><td></td><td></td><td></td><td colspan='2'>破損|斷裂|接 頭滑絲|堵塞|油品變質|磨損|軸心斷裂|線路不通|閥心斷裂</td></tr>
+    <tr><th>潤滑系統</th><th></th><td>油嘴|分油器|油管|油泵</td><td></td><td></td><td></td><td colspan='2'>管道不通|管 道斷裂|泵心磨損</td></tr>
+    <tr><th>氮氣</th><th></th><td>氮气钢瓶|氮气瓶油封 轴承带</td><td></td><td></td><td></td><td colspan='2'>鋼瓶裂縫|壓力過高|壓力過低|磨损</td></tr>
+    <tr><th>锁模系统</th><th></th><td>电子尺</td><td></td><td></td><td></td><td colspan='2'>读数不准</td></tr>
+    <tr><th>自動噴霧</th><th></th><td>雾化器|喷雾机板|铜管|电磁阀|缓冲器</td><td></td><td></td><td></td><td colspan='2'>霧化器損壞|線路不通|緩衝彈簧斷裂|喷头螺丝滑牙|断裂|漏水</td></tr>
+    <tr><th>自動取出</th><th></th><td>取件机手臂|缓冲器|夹手|轴承|马达</td><td></td><td></td><td></td><td colspan='2'>手臂断裂| 夹手磨损|缓冲器坏|手臂轴承坏|内部烧坏</td></tr>
+    <tr><th>模具</th><th></th><td>模芯|顶针|滑块|定模仁|动模仁|油缸</td><td></td><td></td><td></td><td colspan='2'>尺寸NG|模崩| 模芯斷|顶针斷|重覆修模|待修模</td></tr>
+
+</table>
+<div class='template_name'>template: item008detail | created by: Mark | latest update: 2016-08-26</div>
+{% endblock %}
+

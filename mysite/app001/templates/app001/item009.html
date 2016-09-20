@@ -1,0 +1,46 @@
+{% extends 'app001/base.html' %}
+{% block content %}                                            
+
+{% if item_list %}
+    <table>
+    
+    
+    <tr>
+    <th>幾號機</th>
+    <th>噸位</th>
+    <th>人員</th>
+    <th>日期</th>
+    
+    </tr>
+    
+    {% for item in item_list %}
+    <tr>
+     <!--('壓鑄機', {'fields': ['field1', 'field1a',]}),-->
+     <!--   ('結構', {'fields': [ 'field2a1','field2a2','field2a3','field2a4','field2a5','field2a6',], 'classes': ['collapse']}),-->
+     <!--   ('液壓油', {'fields': [ 'field2b1','field2b2','field2b3','field2b4',], 'classes': ['collapse']}),-->
+     <!--   ('潤滑等', {'fields': [ 'field2c1','field2d1','field2e1','field2f1','field2g1','field2h1',], 'classes': ['collapse']}),-->
+     <!--   ('零件', {'fields': [ 'field3',], 'classes': ['collapse']}),-->
+     <!--   ('進度', {'fields': [ 'field4a','field4b','field4c',], 'classes': ['collapse']}),-->
+    <td  ><a class='item_list' target='_blank' href='{{ item.id }}'>{{ item.headera }}</a></td>
+    <td>{{ item.headerb }}</td>
+    <td>{{ item.headerc }}</td>
+    <td>{{ item.headerd|date:"Y-m-d" }}</td>
+    
+
+
+<!--#--- code2 for model.py (end) ------->
+</tr>
+    {% endfor %}
+
+    </table>
+{% else %}
+    <p>無資料顯示，需要權限並<mark><a target='_blank' href='../../admin/login/?next=/app001/'>登入</a></mark>才能查看。</p>
+   <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>。</p>
+
+{% endif %}
+<div class='template_name'>template: item008 | created by: Mark | latest update: 2016-08-26</div>
+{% endblock %}
+
+
+
+

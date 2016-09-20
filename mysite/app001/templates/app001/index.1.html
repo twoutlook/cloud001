@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>app001</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app001/style.css' %}" />
+
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="logo"><img src="/static/app001/images/logo.jpg" alt="logo" title="logo" /></div>
+    </div>
+    <div class='info'>
+        <div class='current_user'>當前用戶: {{ current_user }} &nbsp;<a href="/app001/logout">登出</a>
+        </div>
+
+        <h1>
+{{ page_title }}
+    
+</h1>
+
+
+        {% if item_list %}
+        <table>
+            <tr>
+                <th></th>
+                <th>佈告編號</th>
+                <th>廠別</th>
+                <th>資料名稱</th>
+                <th>輔導上線人員--管理人員--資料維護人員</th>
+                <th>補充說明</th>
+                
+            </tr>
+            
+            {% for item in item_list %}
+            <tr>
+                <th>{{ item.field1 }}</th>
+                <!--<td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>-->
+                <td><a href='{{ item.field2 }}'>{{ item.field2 }}</a></td>
+                <td>{{ item.field3 }}</td>
+                <td>{{ item.field4 }}</td>
+                <td>{{ item.field5 }}</td>
+                <td>{{ item.field6 }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% else %}
+        <h3>
+        <p>有權限查看資料人員，請由此<mark><a target='_blank' href='../admin/login/?next=/app001/'>登入</a></mark>查看。</p>
+        <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>維護。</p>
+    
+        </h3>
+        
+        {% endif %}
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+{% extends 'app001/base.html' %}
+{% block content %}
+說明︰兩層分組，第一層為客戶，第二層為產品，<mark><b>不</b>顯示產品名稱在細項裡</mark>。
+<!--https://gist.github.com/ChrisLTD/957014-->
+{% regroup item_list by f01 as cust_list %}
+  {% for cust in cust_list %}
+
+  <br><h3>{{ cust.grouper }}</h3>
+  {% regroup cust.list by f03 as part_list %}
+    {% for part in part_list %}
+      {% regroup part.list by f04 as partname_list %}
+        {% for partname in partname_list %}
+  
+    <div class="second_group">
+      <b>產品編號︰</b>{{ part.grouper }}<br>
+      <b>產品名稱︰</b>{{ partname.grouper }}
+   
+<table>
+    <tr>
+        <th>量產訂單號</th>
+        <!--<th>產品代碼</th>-->
+        <!--<th>產品名稱</th>-->
+        <th>計劃交期</th>
+        <th>訂單量</th>
+        <th>已交量</th>
+        <th>未交量</th>
+        <!--<th>備庫量</th>-->
+        <th>欠備庫量</th>
+        <!--<th>客訴量</th>-->
+        <!--<th>模具壽命</th>-->
+    </tr>
+    {% for item in partname.list %}
+    <tr>
+        <td>{{ item.f02 }}          </td>
+        <!--<td>{{ item.f03 }}           </td>-->
+        <!--<td>{{ item.f04 }}             </td>-->
+        <td>{{ item.f05|date:"Y-m-d" }}</td>
+        <td>{{ item.f06 }}     </td>
+        <td>{{ item.f07 }}        </td>
+        <td>{{ item.f08 }}        </td>
+        <!--<td>{{ item.f09 }}  </td>-->
+        <td>{{ item.f10 }}   </td>
+        <!--<td>{{ item.f11 }}     </td>-->
+        <!--<td>{{ item.f12 }}    </td>-->
+    </tr>
+    {% endfor %}
+</table>
+       {% for x in part.list|slice:":1"  %}
+ <b> 進度一︰</b>進度一的簡述...<br>
+<b> 進度二︰</b>進度二的簡述...<br>
+<b> 進度三︰</b>進度三的簡述...<br>
+    {% endfor %}
+<hr>
+</div>
+{% endfor %}
+
+    {% endfor %}
+{% endfor %}
+
+
+
+
+<div class='template_name'>template: item004d</div>
+<div class='template_name'>created by Mark, 2016-08-25</div>
+{% endblock %}
+    

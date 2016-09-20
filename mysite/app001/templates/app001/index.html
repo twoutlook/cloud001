@@ -1,0 +1,81 @@
+{% extends 'app001/base_index.html' %}
+
+{% block content %}
+<div class='template_name'>項目啟動日期︰2016-08-13</div>
+        {% if item_list %}
+        <table>
+            <tr>
+                <!--<th></th>-->
+                <th>佈告編號</th>
+                <!--<th>廠別</th>-->
+                <!--<th>資料名稱</th>-->
+                <th>輔導上線人員 - 管理人員 - 資料維護人員</th>
+                <th>補充說明</th>
+                
+            </tr>
+            
+            {% for item in item_list %}
+            <tr>
+                <!--<th>{{ item.field1 }}</th>-->
+                <!--<td><a target='_blank' href='{{ item.field2 }}'>{{ item.field2 }}</a></td>-->
+                <td class='text_left'><a class='item_list' href='{{ item.field2 }}'>{{ item.field1 }}</a></td>
+                <!--<td>{{ item.field3 }}</td>-->
+                <!--<td>{{ item.field4 }}</td>-->
+                <td class='text_left'>{{ item.field5 }}</td>
+                <td  class='text_left'>{{ item.field6 }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <div class='notice'>
+            
+        <mark>
+            
+        請使用最新版 Firefox 火狐浏览器，官網下載，
+        <a target='_blank' href='http://www.firefox.com.cn/download/'>http://www.firefox.com.cn/download/</a>
+        </mark>
+        </div>
+        
+        <div class='explain-spec'>
+            <h3>欠料明细資料維護說明︰</h3>
+            <ul>
+                <li>可以單筆在線維護，也可以整批上傳更新</li>
+                <li>整批上傳更新可以使用 Excel的 xls 檔案類型。</li>
+                <li>可以透過導出獲得Excel的模版。
+                <ul>
+                <li>欄位名稱不要變動。</li>
+<li>日期應採用文本的"2016-08-29"格式。</li>
+<li>可以多次上傳更新。 </li>
+                             
+                </ul>
+                
+                </li>
+             </ul> 
+            <h3>壓鑄機資料維護說明︰</h3>
+            <ul>
+                <li>除了表頭壓鑄機基本信息外，由左而右，AB兩欄是固定[部位][組成]。</li>
+                <li>C欄是[零件]採固定列表勾選，可複選。</li>
+                <li>DEF欄分別是[進度一][進度二][進度三]，純文本輸入，</li>
+                <li>G欄[備註說明]有兩部份，
+                <ul>
+                <li>第一部份勾選為是否正常，預設值為正常。</li>
+<li>第二部份是不正常說明列表勾選，可複選。</li>
+<li>當[備註說明]為正常時，所有不正常說明都不顯示。 </li>
+                             
+                </ul>
+                </li>
+           </ul>
+         
+        </div>
+        
+        
+        {% else %}
+        <h3>
+        <p>有權限查看資料人員，請由此<mark><a target='_blank' href='../admin/login/?next=/app001/'>登入</a></mark>查看。</p>
+        <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>維護。</p>
+    
+        </h3>
+        
+        {% endif %}
+
+{% endblock %}

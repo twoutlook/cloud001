@@ -1,0 +1,449 @@
+
+
+
+<tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th><th>20</th></tr>
+
+
+### 顯示需求基模版
+    <tr><th>1</th><th>外部主件</th><th>格林柱</th><td>格林柱</td><td></td><td></td><td></td><td colspan='2'>磨損.無法修復</td></tr>
+    <tr><th>2</th><th></th><th>機架底座</th><td>機架底座</td><td></td><td></td><td></td><td colspan='2'>磨損.裂縫.漏油</td></tr>
+    <tr><th>3</th><th></th><th>模板(定)</th><td>模板(定)</td><td></td><td></td><td></td><td colspan='2'>平面變型.無法修復</td></tr>
+    <tr><th>4</th><th></th><th>模板(動)</th><td>模板(動)</td><td></td><td></td><td></td><td colspan='2'>平面變型.無法修復</td></tr>
+    <tr><th>5</th><th></th><th>合模</th><td>油路板.合模油缸</td><td></td><td></td><td></td><td colspan='2'>合模缸漏油.合模缸螺旋斷裂.合模活塞磨損.無法修復</td></tr>
+    <tr><th>6</th><th></th><th>曲軸</th><td>曲轴销.衬套</td><td></td><td></td><td></td><td colspan='2'>磨損.無法修復</td></tr>
+    <tr><th>7</th><th></th><th>鋼帶</th><td>鋼帶</td><td></td><td></td><td></td><td colspan='2'>磨損.斷裂.無法修復</td></tr>
+    <tr><th>8</th><th></th><th>保温炉</th><td>炉盖.加热管.电线.感温棒</td><td></td><td></td><td></td><td colspan='2'>磨損.斷裂.無法修復.炉盖损坏.加热管断.电路断.温度不准</td></tr>
+    <tr><th>9</th><th>控制系统</th><th>膜厚調節</th><td>开关</td><td></td><td></td><td></td><td colspan='2'>開關損壞.線路不通.短路.無法修復</td></tr>
+    <tr><th>10</th><th></th><th>主电箱</th><td>电路板.保险丝.保温炉控制器</td><td></td><td></td><td></td><td colspan='2'>保险丝烧坏.線路不通.無法修復</td></tr>
+    <tr><th>11</th><th></th><th>操作面板</th><td>控制面板</td><td></td><td></td><td></td><td colspan='2'>按键损坏.系统坏.無法修復</td></tr>
+    <tr><th>12</th><th>压射系统</th><th></th><td>行程开关.射杆连接板.料管.射杆接头</td><td></td><td></td><td></td><td colspan='2'>無壓力.線路不通.壓射缸漏油.射杆彎曲.连接板断裂.开关无信号.料管磨损.接头断</td></tr>
+    <tr><th>13</th><th>澆注系統</th><th></th><td>链条齿轮.链条.铜套.编码器.接触开关</td><td></td><td></td><td></td><td colspan='2'>链条断.齿轮滑牙斷.編碼器異常.銅套磨損</td></tr>
+    <tr><th>14</th><th>油壓系統</th><th></th><td>油管.過濾網.油箱.馬達.電磁閥</td><td></td><td></td><td></td><td colspan='2'>破損.斷裂.接頭滑絲.堵塞.油品變質.磨損.軸心斷裂.線路不通.閥心斷裂</td></tr>
+    <tr><th>15</th><th>潤滑系統</th><th></th><td>油嘴.分油器.油管.油泵</td><td></td><td></td><td></td><td colspan='2'>管道不通.管道斷裂.泵心磨損</td></tr>
+    <tr><th>16</th><th>氮氣</th><th></th><td>氮气钢瓶.氮气瓶油封.轴承带</td><td></td><td></td><td></td><td colspan='2'>鋼瓶裂縫.壓力過高.壓力過低.磨损</td></tr>
+    <tr><th>17</th><th>锁模系统</th><th></th><td>电子尺</td><td></td><td></td><td></td><td colspan='2'>读数不准</td></tr>
+    <tr><th>18</th><th>自動噴霧</th><th></th><td>雾化器.喷雾机板.铜管.电磁阀.缓冲器</td><td></td><td></td><td></td><td colspan='2'>霧化器損壞.線路不通.緩衝彈簧斷裂.喷头螺丝滑牙.断裂.漏水</td></tr>
+    <tr><th>19</th><th>自動取出</th><th></th><td>取件机手臂.缓冲器.夹手.轴承.马达</td><td></td><td></td><td></td><td colspan='2'>手臂断裂.夹手磨损.缓冲器坏.手臂轴承坏.内部烧坏</td></tr>
+    <tr><th>20</th><th>模具</th><th></th><td>模芯.顶针.滑块.定模仁.动模仁.油缸</td><td></td><td></td><td></td><td colspan='2'>尺寸NG.模崩.模芯斷.顶针斷.重覆修模.待修模</td></tr>
+
+
+
+### source code for models
+    row01c00 = models.CharField(default=".",max_length=99,verbose_name="外部主件 格林柱 零件")
+    row01c01 = models.NullBooleanField(verbose_name="外部主件 格林柱 零件 => 格林柱")
+    row01d00 = models.CharField(default=".",max_length=99,verbose_name="外部主件 格林柱 進度一")
+    row01e00 = models.CharField(default=".",max_length=99,verbose_name="外部主件 格林柱 進度二")
+    row01f00 = models.CharField(default=".",max_length=99,verbose_name="外部主件 格林柱 進度三")
+    row01g00 = models.NullBooleanField(verbose_name="外部主件 格林柱 備註說明  正常")
+    row01g01 = models.NullBooleanField(verbose_name="外部主件 格林柱 備註說明 => 磨損")
+    row01g02 = models.NullBooleanField(verbose_name="外部主件 格林柱 備註說明 => 無法修復")
+    row02c00 = models.CharField(default=".",max_length=99,verbose_name=" 機架底座 零件")
+    row02c01 = models.NullBooleanField(verbose_name=" 機架底座 零件 => 機架底座")
+    row02d00 = models.CharField(default=".",max_length=99,verbose_name=" 機架底座 進度一")
+    row02e00 = models.CharField(default=".",max_length=99,verbose_name=" 機架底座 進度二")
+    row02f00 = models.CharField(default=".",max_length=99,verbose_name=" 機架底座 進度三")
+    row02g00 = models.NullBooleanField(verbose_name=" 機架底座 備註說明  正常")
+    row02g01 = models.NullBooleanField(verbose_name=" 機架底座 備註說明 => 磨損")
+    row02g02 = models.NullBooleanField(verbose_name=" 機架底座 備註說明 => 裂縫")
+    row02g03 = models.NullBooleanField(verbose_name=" 機架底座 備註說明 => 漏油")
+    row03c00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(定) 零件")
+    row03c01 = models.NullBooleanField(verbose_name=" 模板(定) 零件 => 模板(定)")
+    row03d00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(定) 進度一")
+    row03e00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(定) 進度二")
+    row03f00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(定) 進度三")
+    row03g00 = models.NullBooleanField(verbose_name=" 模板(定) 備註說明  正常")
+    row03g01 = models.NullBooleanField(verbose_name=" 模板(定) 備註說明 => 平面變型")
+    row03g02 = models.NullBooleanField(verbose_name=" 模板(定) 備註說明 => 無法修復")
+    row04c00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(動) 零件")
+    row04c01 = models.NullBooleanField(verbose_name=" 模板(動) 零件 => 模板(動)")
+    row04d00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(動) 進度一")
+    row04e00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(動) 進度二")
+    row04f00 = models.CharField(default=".",max_length=99,verbose_name=" 模板(動) 進度三")
+    row04g00 = models.NullBooleanField(verbose_name=" 模板(動) 備註說明  正常")
+    row04g01 = models.NullBooleanField(verbose_name=" 模板(動) 備註說明 => 平面變型")
+    row04g02 = models.NullBooleanField(verbose_name=" 模板(動) 備註說明 => 無法修復")
+    row05c00 = models.CharField(default=".",max_length=99,verbose_name=" 合模 零件")
+    row05c01 = models.NullBooleanField(verbose_name=" 合模 零件 => 油路板")
+    row05c02 = models.NullBooleanField(verbose_name=" 合模 零件 => 合模油缸")
+    row05d00 = models.CharField(default=".",max_length=99,verbose_name=" 合模 進度一")
+    row05e00 = models.CharField(default=".",max_length=99,verbose_name=" 合模 進度二")
+    row05f00 = models.CharField(default=".",max_length=99,verbose_name=" 合模 進度三")
+    row05g00 = models.NullBooleanField(verbose_name=" 合模 備註說明  正常")
+    row05g01 = models.NullBooleanField(verbose_name=" 合模 備註說明 => 合模缸漏油")
+    row05g02 = models.NullBooleanField(verbose_name=" 合模 備註說明 => 合模缸螺旋斷裂")
+    row05g03 = models.NullBooleanField(verbose_name=" 合模 備註說明 => 合模活塞磨損")
+    row05g04 = models.NullBooleanField(verbose_name=" 合模 備註說明 => 無法修復")
+    row06c00 = models.CharField(default=".",max_length=99,verbose_name=" 曲軸 零件")
+    row06c01 = models.NullBooleanField(verbose_name=" 曲軸 零件 => 曲轴销")
+    row06c02 = models.NullBooleanField(verbose_name=" 曲軸 零件 => 衬套")
+    row06d00 = models.CharField(default=".",max_length=99,verbose_name=" 曲軸 進度一")
+    row06e00 = models.CharField(default=".",max_length=99,verbose_name=" 曲軸 進度二")
+    row06f00 = models.CharField(default=".",max_length=99,verbose_name=" 曲軸 進度三")
+    row06g00 = models.NullBooleanField(verbose_name=" 曲軸 備註說明  正常")
+    row06g01 = models.NullBooleanField(verbose_name=" 曲軸 備註說明 => 磨損")
+    row06g02 = models.NullBooleanField(verbose_name=" 曲軸 備註說明 => 無法修復")
+    row07c00 = models.CharField(default=".",max_length=99,verbose_name=" 鋼帶 零件")
+    row07c01 = models.NullBooleanField(verbose_name=" 鋼帶 零件 => 鋼帶")
+    row07d00 = models.CharField(default=".",max_length=99,verbose_name=" 鋼帶 進度一")
+    row07e00 = models.CharField(default=".",max_length=99,verbose_name=" 鋼帶 進度二")
+    row07f00 = models.CharField(default=".",max_length=99,verbose_name=" 鋼帶 進度三")
+    row07g00 = models.NullBooleanField(verbose_name=" 鋼帶 備註說明  正常")
+    row07g01 = models.NullBooleanField(verbose_name=" 鋼帶 備註說明 => 磨損")
+    row07g02 = models.NullBooleanField(verbose_name=" 鋼帶 備註說明 => 斷裂")
+    row07g03 = models.NullBooleanField(verbose_name=" 鋼帶 備註說明 => 無法修復")
+    row08c00 = models.CharField(default=".",max_length=99,verbose_name=" 保温炉 零件")
+    row08c01 = models.NullBooleanField(verbose_name=" 保温炉 零件 => 炉盖")
+    row08c02 = models.NullBooleanField(verbose_name=" 保温炉 零件 => 加热管")
+    row08c03 = models.NullBooleanField(verbose_name=" 保温炉 零件 => 电线")
+    row08c04 = models.NullBooleanField(verbose_name=" 保温炉 零件 => 感温棒")
+    row08d00 = models.CharField(default=".",max_length=99,verbose_name=" 保温炉 進度一")
+    row08e00 = models.CharField(default=".",max_length=99,verbose_name=" 保温炉 進度二")
+    row08f00 = models.CharField(default=".",max_length=99,verbose_name=" 保温炉 進度三")
+    row08g00 = models.NullBooleanField(verbose_name=" 保温炉 備註說明  正常")
+    row08g01 = models.NullBooleanField(verbose_name=" 保温炉 備註說明 => 磨損")
+    row08g02 = models.NullBooleanField(verbose_name=" 保温炉 備註說明 => 斷裂")
+    row08g03 = models.NullBooleanField(verbose_name=" 保温炉 備註說明 => 無法修復")
+    row08g04 = models.NullBooleanField(verbose_name=" 保温炉 備註說明 => 炉盖损坏")
+    row08g05 = models.NullBooleanField(verbose_name=" 保温炉 備註說明 => 加热管断")
+    row08g06 = models.NullBooleanField(verbose_name=" 保温炉 備註說明 => 电路断")
+    row08g07 = models.NullBooleanField(verbose_name=" 保温炉 備註說明 => 温度不准")
+    row09c00 = models.CharField(default=".",max_length=99,verbose_name="控制系统 膜厚調節 零件")
+    row09c01 = models.NullBooleanField(verbose_name="控制系统 膜厚調節 零件 => 开关")
+    row09d00 = models.CharField(default=".",max_length=99,verbose_name="控制系统 膜厚調節 進度一")
+    row09e00 = models.CharField(default=".",max_length=99,verbose_name="控制系统 膜厚調節 進度二")
+    row09f00 = models.CharField(default=".",max_length=99,verbose_name="控制系统 膜厚調節 進度三")
+    row09g00 = models.NullBooleanField(verbose_name="控制系统 膜厚調節 備註說明  正常")
+    row09g01 = models.NullBooleanField(verbose_name="控制系统 膜厚調節 備註說明 => 開關損壞")
+    row09g02 = models.NullBooleanField(verbose_name="控制系统 膜厚調節 備註說明 => 線路不通")
+    row09g03 = models.NullBooleanField(verbose_name="控制系统 膜厚調節 備註說明 => 短路")
+    row09g04 = models.NullBooleanField(verbose_name="控制系统 膜厚調節 備註說明 => 無法修復")
+    row10c00 = models.CharField(default=".",max_length=99,verbose_name=" 主电箱 零件")
+    row10c01 = models.NullBooleanField(verbose_name=" 主电箱 零件 => 电路板")
+    row10c02 = models.NullBooleanField(verbose_name=" 主电箱 零件 => 保险丝")
+    row10c03 = models.NullBooleanField(verbose_name=" 主电箱 零件 => 保温炉控制器")
+    row10d00 = models.CharField(default=".",max_length=99,verbose_name=" 主电箱 進度一")
+    row10e00 = models.CharField(default=".",max_length=99,verbose_name=" 主电箱 進度二")
+    row10f00 = models.CharField(default=".",max_length=99,verbose_name=" 主电箱 進度三")
+    row10g00 = models.NullBooleanField(verbose_name=" 主电箱 備註說明  正常")
+    row10g01 = models.NullBooleanField(verbose_name=" 主电箱 備註說明 => 保险丝烧坏")
+    row10g02 = models.NullBooleanField(verbose_name=" 主电箱 備註說明 => 線路不通")
+    row10g03 = models.NullBooleanField(verbose_name=" 主电箱 備註說明 => 無法修復")
+    row11c00 = models.CharField(default=".",max_length=99,verbose_name=" 操作面板 零件")
+    row11c01 = models.NullBooleanField(verbose_name=" 操作面板 零件 => 控制面板")
+    row11d00 = models.CharField(default=".",max_length=99,verbose_name=" 操作面板 進度一")
+    row11e00 = models.CharField(default=".",max_length=99,verbose_name=" 操作面板 進度二")
+    row11f00 = models.CharField(default=".",max_length=99,verbose_name=" 操作面板 進度三")
+    row11g00 = models.NullBooleanField(verbose_name=" 操作面板 備註說明  正常")
+    row11g01 = models.NullBooleanField(verbose_name=" 操作面板 備註說明 => 按键损坏")
+    row11g02 = models.NullBooleanField(verbose_name=" 操作面板 備註說明 => 系统坏")
+    row11g03 = models.NullBooleanField(verbose_name=" 操作面板 備註說明 => 無法修復")
+    row12c00 = models.CharField(default=".",max_length=99,verbose_name="压射系统  零件")
+    row12c01 = models.NullBooleanField(verbose_name="压射系统  零件 => 行程开关")
+    row12c02 = models.NullBooleanField(verbose_name="压射系统  零件 => 射杆连接板")
+    row12c03 = models.NullBooleanField(verbose_name="压射系统  零件 => 料管")
+    row12c04 = models.NullBooleanField(verbose_name="压射系统  零件 => 射杆接头")
+    row12d00 = models.CharField(default=".",max_length=99,verbose_name="压射系统  進度一")
+    row12e00 = models.CharField(default=".",max_length=99,verbose_name="压射系统  進度二")
+    row12f00 = models.CharField(default=".",max_length=99,verbose_name="压射系统  進度三")
+    row12g00 = models.NullBooleanField(verbose_name="压射系统  備註說明  正常")
+    row12g01 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 無壓力")
+    row12g02 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 線路不通")
+    row12g03 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 壓射缸漏油")
+    row12g04 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 射杆彎曲")
+    row12g05 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 连接板断裂")
+    row12g06 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 开关无信号")
+    row12g07 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 料管磨损")
+    row12g08 = models.NullBooleanField(verbose_name="压射系统  備註說明 => 接头断")
+    row13c00 = models.CharField(default=".",max_length=99,verbose_name="澆注系統  零件")
+    row13c01 = models.NullBooleanField(verbose_name="澆注系統  零件 => 链条齿轮")
+    row13c02 = models.NullBooleanField(verbose_name="澆注系統  零件 => 链条")
+    row13c03 = models.NullBooleanField(verbose_name="澆注系統  零件 => 铜套")
+    row13c04 = models.NullBooleanField(verbose_name="澆注系統  零件 => 编码器")
+    row13c05 = models.NullBooleanField(verbose_name="澆注系統  零件 => 接触开关")
+    row13d00 = models.CharField(default=".",max_length=99,verbose_name="澆注系統  進度一")
+    row13e00 = models.CharField(default=".",max_length=99,verbose_name="澆注系統  進度二")
+    row13f00 = models.CharField(default=".",max_length=99,verbose_name="澆注系統  進度三")
+    row13g00 = models.NullBooleanField(verbose_name="澆注系統  備註說明  正常")
+    row13g01 = models.NullBooleanField(verbose_name="澆注系統  備註說明 => 链条断")
+    row13g02 = models.NullBooleanField(verbose_name="澆注系統  備註說明 => 齿轮滑牙斷")
+    row13g03 = models.NullBooleanField(verbose_name="澆注系統  備註說明 => 編碼器異常")
+    row13g04 = models.NullBooleanField(verbose_name="澆注系統  備註說明 => 銅套磨損")
+    row14c00 = models.CharField(default=".",max_length=99,verbose_name="油壓系統  零件")
+    row14c01 = models.NullBooleanField(verbose_name="油壓系統  零件 => 油管")
+    row14c02 = models.NullBooleanField(verbose_name="油壓系統  零件 => 過濾網")
+    row14c03 = models.NullBooleanField(verbose_name="油壓系統  零件 => 油箱")
+    row14c04 = models.NullBooleanField(verbose_name="油壓系統  零件 => 馬達")
+    row14c05 = models.NullBooleanField(verbose_name="油壓系統  零件 => 電磁閥")
+    row14d00 = models.CharField(default=".",max_length=99,verbose_name="油壓系統  進度一")
+    row14e00 = models.CharField(default=".",max_length=99,verbose_name="油壓系統  進度二")
+    row14f00 = models.CharField(default=".",max_length=99,verbose_name="油壓系統  進度三")
+    row14g00 = models.NullBooleanField(verbose_name="油壓系統  備註說明  正常")
+    row14g01 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 破損")
+    row14g02 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 斷裂")
+    row14g03 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 接頭滑絲")
+    row14g04 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 堵塞")
+    row14g05 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 油品變質")
+    row14g06 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 磨損")
+    row14g07 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 軸心斷裂")
+    row14g08 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 線路不通")
+    row14g09 = models.NullBooleanField(verbose_name="油壓系統  備註說明 => 閥心斷裂")
+    row15c00 = models.CharField(default=".",max_length=99,verbose_name="潤滑系統  零件")
+    row15c01 = models.NullBooleanField(verbose_name="潤滑系統  零件 => 油嘴")
+    row15c02 = models.NullBooleanField(verbose_name="潤滑系統  零件 => 分油器")
+    row15c03 = models.NullBooleanField(verbose_name="潤滑系統  零件 => 油管")
+    row15c04 = models.NullBooleanField(verbose_name="潤滑系統  零件 => 油泵")
+    row15d00 = models.CharField(default=".",max_length=99,verbose_name="潤滑系統  進度一")
+    row15e00 = models.CharField(default=".",max_length=99,verbose_name="潤滑系統  進度二")
+    row15f00 = models.CharField(default=".",max_length=99,verbose_name="潤滑系統  進度三")
+    row15g00 = models.NullBooleanField(verbose_name="潤滑系統  備註說明  正常")
+    row15g01 = models.NullBooleanField(verbose_name="潤滑系統  備註說明 => 管道不通")
+    row15g02 = models.NullBooleanField(verbose_name="潤滑系統  備註說明 => 管道斷裂")
+    row15g03 = models.NullBooleanField(verbose_name="潤滑系統  備註說明 => 泵心磨損")
+    row16c00 = models.CharField(default=".",max_length=99,verbose_name="氮氣  零件")
+    row16c01 = models.NullBooleanField(verbose_name="氮氣  零件 => 氮气钢瓶")
+    row16c02 = models.NullBooleanField(verbose_name="氮氣  零件 => 氮气瓶油封")
+    row16c03 = models.NullBooleanField(verbose_name="氮氣  零件 => 轴承带")
+    row16d00 = models.CharField(default=".",max_length=99,verbose_name="氮氣  進度一")
+    row16e00 = models.CharField(default=".",max_length=99,verbose_name="氮氣  進度二")
+    row16f00 = models.CharField(default=".",max_length=99,verbose_name="氮氣  進度三")
+    row16g00 = models.NullBooleanField(verbose_name="氮氣  備註說明  正常")
+    row16g01 = models.NullBooleanField(verbose_name="氮氣  備註說明 => 鋼瓶裂縫")
+    row16g02 = models.NullBooleanField(verbose_name="氮氣  備註說明 => 壓力過高")
+    row16g03 = models.NullBooleanField(verbose_name="氮氣  備註說明 => 壓力過低")
+    row16g04 = models.NullBooleanField(verbose_name="氮氣  備註說明 => 磨损")
+    row17c00 = models.CharField(default=".",max_length=99,verbose_name="锁模系统  零件")
+    row17c01 = models.NullBooleanField(verbose_name="锁模系统  零件 => 电子尺")
+    row17d00 = models.CharField(default=".",max_length=99,verbose_name="锁模系统  進度一")
+    row17e00 = models.CharField(default=".",max_length=99,verbose_name="锁模系统  進度二")
+    row17f00 = models.CharField(default=".",max_length=99,verbose_name="锁模系统  進度三")
+    row17g00 = models.NullBooleanField(verbose_name="锁模系统  備註說明  正常")
+    row17g01 = models.NullBooleanField(verbose_name="锁模系统  備註說明 => 读数不准")
+    row18c00 = models.CharField(default=".",max_length=99,verbose_name="自動噴霧  零件")
+    row18c01 = models.NullBooleanField(verbose_name="自動噴霧  零件 => 雾化器")
+    row18c02 = models.NullBooleanField(verbose_name="自動噴霧  零件 => 喷雾机板")
+    row18c03 = models.NullBooleanField(verbose_name="自動噴霧  零件 => 铜管")
+    row18c04 = models.NullBooleanField(verbose_name="自動噴霧  零件 => 电磁阀")
+    row18c05 = models.NullBooleanField(verbose_name="自動噴霧  零件 => 缓冲器")
+    row18d00 = models.CharField(default=".",max_length=99,verbose_name="自動噴霧  進度一")
+    row18e00 = models.CharField(default=".",max_length=99,verbose_name="自動噴霧  進度二")
+    row18f00 = models.CharField(default=".",max_length=99,verbose_name="自動噴霧  進度三")
+    row18g00 = models.NullBooleanField(verbose_name="自動噴霧  備註說明  正常")
+    row18g01 = models.NullBooleanField(verbose_name="自動噴霧  備註說明 => 霧化器損壞")
+    row18g02 = models.NullBooleanField(verbose_name="自動噴霧  備註說明 => 線路不通")
+    row18g03 = models.NullBooleanField(verbose_name="自動噴霧  備註說明 => 緩衝彈簧斷裂")
+    row18g04 = models.NullBooleanField(verbose_name="自動噴霧  備註說明 => 喷头螺丝滑牙")
+    row18g05 = models.NullBooleanField(verbose_name="自動噴霧  備註說明 => 断裂")
+    row18g06 = models.NullBooleanField(verbose_name="自動噴霧  備註說明 => 漏水")
+    row19c00 = models.CharField(default=".",max_length=99,verbose_name="自動取出  零件")
+    row19c01 = models.NullBooleanField(verbose_name="自動取出  零件 => 取件机手臂")
+    row19c02 = models.NullBooleanField(verbose_name="自動取出  零件 => 缓冲器")
+    row19c03 = models.NullBooleanField(verbose_name="自動取出  零件 => 夹手")
+    row19c04 = models.NullBooleanField(verbose_name="自動取出  零件 => 轴承")
+    row19c05 = models.NullBooleanField(verbose_name="自動取出  零件 => 马达")
+    row19d00 = models.CharField(default=".",max_length=99,verbose_name="自動取出  進度一")
+    row19e00 = models.CharField(default=".",max_length=99,verbose_name="自動取出  進度二")
+    row19f00 = models.CharField(default=".",max_length=99,verbose_name="自動取出  進度三")
+    row19g00 = models.NullBooleanField(verbose_name="自動取出  備註說明  正常")
+    row19g01 = models.NullBooleanField(verbose_name="自動取出  備註說明 => 手臂断裂")
+    row19g02 = models.NullBooleanField(verbose_name="自動取出  備註說明 => 夹手磨损")
+    row19g03 = models.NullBooleanField(verbose_name="自動取出  備註說明 => 缓冲器坏")
+    row19g04 = models.NullBooleanField(verbose_name="自動取出  備註說明 => 手臂轴承坏")
+    row19g05 = models.NullBooleanField(verbose_name="自動取出  備註說明 => 内部烧坏")
+    row20c00 = models.CharField(default=".",max_length=99,verbose_name="模具  零件")
+    row20c01 = models.NullBooleanField(verbose_name="模具  零件 => 模芯")
+    row20c02 = models.NullBooleanField(verbose_name="模具  零件 => 顶针")
+    row20c03 = models.NullBooleanField(verbose_name="模具  零件 => 滑块")
+    row20c04 = models.NullBooleanField(verbose_name="模具  零件 => 定模仁")
+    row20c05 = models.NullBooleanField(verbose_name="模具  零件 => 动模仁")
+    row20c06 = models.NullBooleanField(verbose_name="模具  零件 => 油缸")
+    row20d00 = models.CharField(default=".",max_length=99,verbose_name="模具  進度一")
+    row20e00 = models.CharField(default=".",max_length=99,verbose_name="模具  進度二")
+    row20f00 = models.CharField(default=".",max_length=99,verbose_name="模具  進度三")
+    row20g00 = models.NullBooleanField(verbose_name="模具  備註說明  正常")
+    row20g01 = models.NullBooleanField(verbose_name="模具  備註說明 => 尺寸NG")
+    row20g02 = models.NullBooleanField(verbose_name="模具  備註說明 => 模崩")
+    row20g03 = models.NullBooleanField(verbose_name="模具  備註說明 => 模芯斷")
+    row20g04 = models.NullBooleanField(verbose_name="模具  備註說明 => 顶针斷")
+    row20g05 = models.NullBooleanField(verbose_name="模具  備註說明 => 重覆修模")
+    row20g06 = models.NullBooleanField(verbose_name="模具  備註說明 => 待修模")
+
+
+
+<-- source code for template, generated by make-source-code.py  -->
+    <tr><th>1</th><th>外部主件</th><th>格林柱</th><td> {{data.row01c00}} 
+      {% if data.row01c01 %}格林柱{% endif %}</td><td> {{data.row01d00}} </td><td> {{data.row01e00}} </td><td> {{data.row01f00}} </td><td colspan='2'>
+      {% if data.row01g00 %}正常{% else %} **不正常** 
+      {% if data.row01g01 %}磨損{% endif %}
+      {% if data.row01g02 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>2</th><th></th><th>機架底座</th><td> {{data.row02c00}} 
+      {% if data.row02c01 %}機架底座{% endif %}</td><td> {{data.row02d00}} </td><td> {{data.row02e00}} </td><td> {{data.row02f00}} </td><td colspan='2'>
+      {% if data.row02g00 %}正常{% else %} **不正常** 
+      {% if data.row02g01 %}磨損{% endif %}
+      {% if data.row02g02 %}裂縫{% endif %}
+      {% if data.row02g03 %}漏油{% endif %}{% endif %}</td></tr>
+    <tr><th>3</th><th></th><th>模板(定)</th><td> {{data.row03c00}} 
+      {% if data.row03c01 %}模板(定){% endif %}</td><td> {{data.row03d00}} </td><td> {{data.row03e00}} </td><td> {{data.row03f00}} </td><td colspan='2'>
+      {% if data.row03g00 %}正常{% else %} **不正常** 
+      {% if data.row03g01 %}平面變型{% endif %}
+      {% if data.row03g02 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>4</th><th></th><th>模板(動)</th><td> {{data.row04c00}} 
+      {% if data.row04c01 %}模板(動){% endif %}</td><td> {{data.row04d00}} </td><td> {{data.row04e00}} </td><td> {{data.row04f00}} </td><td colspan='2'>
+      {% if data.row04g00 %}正常{% else %} **不正常** 
+      {% if data.row04g01 %}平面變型{% endif %}
+      {% if data.row04g02 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>5</th><th></th><th>合模</th><td> {{data.row05c00}} 
+      {% if data.row05c01 %}油路板{% endif %}
+      {% if data.row05c02 %}合模油缸{% endif %}</td><td> {{data.row05d00}} </td><td> {{data.row05e00}} </td><td> {{data.row05f00}} </td><td colspan='2'>
+      {% if data.row05g00 %}正常{% else %} **不正常** 
+      {% if data.row05g01 %}合模缸漏油{% endif %}
+      {% if data.row05g02 %}合模缸螺旋斷裂{% endif %}
+      {% if data.row05g03 %}合模活塞磨損{% endif %}
+      {% if data.row05g04 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>6</th><th></th><th>曲軸</th><td> {{data.row06c00}} 
+      {% if data.row06c01 %}曲轴销{% endif %}
+      {% if data.row06c02 %}衬套{% endif %}</td><td> {{data.row06d00}} </td><td> {{data.row06e00}} </td><td> {{data.row06f00}} </td><td colspan='2'>
+      {% if data.row06g00 %}正常{% else %} **不正常** 
+      {% if data.row06g01 %}磨損{% endif %}
+      {% if data.row06g02 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>7</th><th></th><th>鋼帶</th><td> {{data.row07c00}} 
+      {% if data.row07c01 %}鋼帶{% endif %}</td><td> {{data.row07d00}} </td><td> {{data.row07e00}} </td><td> {{data.row07f00}} </td><td colspan='2'>
+      {% if data.row07g00 %}正常{% else %} **不正常** 
+      {% if data.row07g01 %}磨損{% endif %}
+      {% if data.row07g02 %}斷裂{% endif %}
+      {% if data.row07g03 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>8</th><th></th><th>保温炉</th><td> {{data.row08c00}} 
+      {% if data.row08c01 %}炉盖{% endif %}
+      {% if data.row08c02 %}加热管{% endif %}
+      {% if data.row08c03 %}电线{% endif %}
+      {% if data.row08c04 %}感温棒{% endif %}</td><td> {{data.row08d00}} </td><td> {{data.row08e00}} </td><td> {{data.row08f00}} </td><td colspan='2'>
+      {% if data.row08g00 %}正常{% else %} **不正常** 
+      {% if data.row08g01 %}磨損{% endif %}
+      {% if data.row08g02 %}斷裂{% endif %}
+      {% if data.row08g03 %}無法修復{% endif %}
+      {% if data.row08g04 %}炉盖损坏{% endif %}
+      {% if data.row08g05 %}加热管断{% endif %}
+      {% if data.row08g06 %}电路断{% endif %}
+      {% if data.row08g07 %}温度不准{% endif %}{% endif %}</td></tr>
+    <tr><th>9</th><th>控制系统</th><th>膜厚調節</th><td> {{data.row09c00}} 
+      {% if data.row09c01 %}开关{% endif %}</td><td> {{data.row09d00}} </td><td> {{data.row09e00}} </td><td> {{data.row09f00}} </td><td colspan='2'>
+      {% if data.row09g00 %}正常{% else %} **不正常** 
+      {% if data.row09g01 %}開關損壞{% endif %}
+      {% if data.row09g02 %}線路不通{% endif %}
+      {% if data.row09g03 %}短路{% endif %}
+      {% if data.row09g04 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>10</th><th></th><th>主电箱</th><td> {{data.row10c00}} 
+      {% if data.row10c01 %}电路板{% endif %}
+      {% if data.row10c02 %}保险丝{% endif %}
+      {% if data.row10c03 %}保温炉控制器{% endif %}</td><td> {{data.row10d00}} </td><td> {{data.row10e00}} </td><td> {{data.row10f00}} </td><td colspan='2'>
+      {% if data.row10g00 %}正常{% else %} **不正常** 
+      {% if data.row10g01 %}保险丝烧坏{% endif %}
+      {% if data.row10g02 %}線路不通{% endif %}
+      {% if data.row10g03 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>11</th><th></th><th>操作面板</th><td> {{data.row11c00}} 
+      {% if data.row11c01 %}控制面板{% endif %}</td><td> {{data.row11d00}} </td><td> {{data.row11e00}} </td><td> {{data.row11f00}} </td><td colspan='2'>
+      {% if data.row11g00 %}正常{% else %} **不正常** 
+      {% if data.row11g01 %}按键损坏{% endif %}
+      {% if data.row11g02 %}系统坏{% endif %}
+      {% if data.row11g03 %}無法修復{% endif %}{% endif %}</td></tr>
+    <tr><th>12</th><th>压射系统</th><th></th><td> {{data.row12c00}} 
+      {% if data.row12c01 %}行程开关{% endif %}
+      {% if data.row12c02 %}射杆连接板{% endif %}
+      {% if data.row12c03 %}料管{% endif %}
+      {% if data.row12c04 %}射杆接头{% endif %}</td><td> {{data.row12d00}} </td><td> {{data.row12e00}} </td><td> {{data.row12f00}} </td><td colspan='2'>
+      {% if data.row12g00 %}正常{% else %} **不正常** 
+      {% if data.row12g01 %}無壓力{% endif %}
+      {% if data.row12g02 %}線路不通{% endif %}
+      {% if data.row12g03 %}壓射缸漏油{% endif %}
+      {% if data.row12g04 %}射杆彎曲{% endif %}
+      {% if data.row12g05 %}连接板断裂{% endif %}
+      {% if data.row12g06 %}开关无信号{% endif %}
+      {% if data.row12g07 %}料管磨损{% endif %}
+      {% if data.row12g08 %}接头断{% endif %}{% endif %}</td></tr>
+    <tr><th>13</th><th>澆注系統</th><th></th><td> {{data.row13c00}} 
+      {% if data.row13c01 %}链条齿轮{% endif %}
+      {% if data.row13c02 %}链条{% endif %}
+      {% if data.row13c03 %}铜套{% endif %}
+      {% if data.row13c04 %}编码器{% endif %}
+      {% if data.row13c05 %}接触开关{% endif %}</td><td> {{data.row13d00}} </td><td> {{data.row13e00}} </td><td> {{data.row13f00}} </td><td colspan='2'>
+      {% if data.row13g00 %}正常{% else %} **不正常** 
+      {% if data.row13g01 %}链条断{% endif %}
+      {% if data.row13g02 %}齿轮滑牙斷{% endif %}
+      {% if data.row13g03 %}編碼器異常{% endif %}
+      {% if data.row13g04 %}銅套磨損{% endif %}{% endif %}</td></tr>
+    <tr><th>14</th><th>油壓系統</th><th></th><td> {{data.row14c00}} 
+      {% if data.row14c01 %}油管{% endif %}
+      {% if data.row14c02 %}過濾網{% endif %}
+      {% if data.row14c03 %}油箱{% endif %}
+      {% if data.row14c04 %}馬達{% endif %}
+      {% if data.row14c05 %}電磁閥{% endif %}</td><td> {{data.row14d00}} </td><td> {{data.row14e00}} </td><td> {{data.row14f00}} </td><td colspan='2'>
+      {% if data.row14g00 %}正常{% else %} **不正常** 
+      {% if data.row14g01 %}破損{% endif %}
+      {% if data.row14g02 %}斷裂{% endif %}
+      {% if data.row14g03 %}接頭滑絲{% endif %}
+      {% if data.row14g04 %}堵塞{% endif %}
+      {% if data.row14g05 %}油品變質{% endif %}
+      {% if data.row14g06 %}磨損{% endif %}
+      {% if data.row14g07 %}軸心斷裂{% endif %}
+      {% if data.row14g08 %}線路不通{% endif %}
+      {% if data.row14g09 %}閥心斷裂{% endif %}{% endif %}</td></tr>
+    <tr><th>15</th><th>潤滑系統</th><th></th><td> {{data.row15c00}} 
+      {% if data.row15c01 %}油嘴{% endif %}
+      {% if data.row15c02 %}分油器{% endif %}
+      {% if data.row15c03 %}油管{% endif %}
+      {% if data.row15c04 %}油泵{% endif %}</td><td> {{data.row15d00}} </td><td> {{data.row15e00}} </td><td> {{data.row15f00}} </td><td colspan='2'>
+      {% if data.row15g00 %}正常{% else %} **不正常** 
+      {% if data.row15g01 %}管道不通{% endif %}
+      {% if data.row15g02 %}管道斷裂{% endif %}
+      {% if data.row15g03 %}泵心磨損{% endif %}{% endif %}</td></tr>
+    <tr><th>16</th><th>氮氣</th><th></th><td> {{data.row16c00}} 
+      {% if data.row16c01 %}氮气钢瓶{% endif %}
+      {% if data.row16c02 %}氮气瓶油封{% endif %}
+      {% if data.row16c03 %}轴承带{% endif %}</td><td> {{data.row16d00}} </td><td> {{data.row16e00}} </td><td> {{data.row16f00}} </td><td colspan='2'>
+      {% if data.row16g00 %}正常{% else %} **不正常** 
+      {% if data.row16g01 %}鋼瓶裂縫{% endif %}
+      {% if data.row16g02 %}壓力過高{% endif %}
+      {% if data.row16g03 %}壓力過低{% endif %}
+      {% if data.row16g04 %}磨损{% endif %}{% endif %}</td></tr>
+    <tr><th>17</th><th>锁模系统</th><th></th><td> {{data.row17c00}} 
+      {% if data.row17c01 %}电子尺{% endif %}</td><td> {{data.row17d00}} </td><td> {{data.row17e00}} </td><td> {{data.row17f00}} </td><td colspan='2'>
+      {% if data.row17g00 %}正常{% else %} **不正常** 
+      {% if data.row17g01 %}读数不准{% endif %}{% endif %}</td></tr>
+    <tr><th>18</th><th>自動噴霧</th><th></th><td> {{data.row18c00}} 
+      {% if data.row18c01 %}雾化器{% endif %}
+      {% if data.row18c02 %}喷雾机板{% endif %}
+      {% if data.row18c03 %}铜管{% endif %}
+      {% if data.row18c04 %}电磁阀{% endif %}
+      {% if data.row18c05 %}缓冲器{% endif %}</td><td> {{data.row18d00}} </td><td> {{data.row18e00}} </td><td> {{data.row18f00}} </td><td colspan='2'>
+      {% if data.row18g00 %}正常{% else %} **不正常** 
+      {% if data.row18g01 %}霧化器損壞{% endif %}
+      {% if data.row18g02 %}線路不通{% endif %}
+      {% if data.row18g03 %}緩衝彈簧斷裂{% endif %}
+      {% if data.row18g04 %}喷头螺丝滑牙{% endif %}
+      {% if data.row18g05 %}断裂{% endif %}
+      {% if data.row18g06 %}漏水{% endif %}{% endif %}</td></tr>
+    <tr><th>19</th><th>自動取出</th><th></th><td> {{data.row19c00}} 
+      {% if data.row19c01 %}取件机手臂{% endif %}
+      {% if data.row19c02 %}缓冲器{% endif %}
+      {% if data.row19c03 %}夹手{% endif %}
+      {% if data.row19c04 %}轴承{% endif %}
+      {% if data.row19c05 %}马达{% endif %}</td><td> {{data.row19d00}} </td><td> {{data.row19e00}} </td><td> {{data.row19f00}} </td><td colspan='2'>
+      {% if data.row19g00 %}正常{% else %} **不正常** 
+      {% if data.row19g01 %}手臂断裂{% endif %}
+      {% if data.row19g02 %}夹手磨损{% endif %}
+      {% if data.row19g03 %}缓冲器坏{% endif %}
+      {% if data.row19g04 %}手臂轴承坏{% endif %}
+      {% if data.row19g05 %}内部烧坏{% endif %}{% endif %}</td></tr>
+    <tr><th>20</th><th>模具</th><th></th><td> {{data.row20c00}} 
+      {% if data.row20c01 %}模芯{% endif %}
+      {% if data.row20c02 %}顶针{% endif %}
+      {% if data.row20c03 %}滑块{% endif %}
+      {% if data.row20c04 %}定模仁{% endif %}
+      {% if data.row20c05 %}动模仁{% endif %}
+      {% if data.row20c06 %}油缸{% endif %}</td><td> {{data.row20d00}} </td><td> {{data.row20e00}} </td><td> {{data.row20f00}} </td><td colspan='2'>
+      {% if data.row20g00 %}正常{% else %} **不正常** 
+      {% if data.row20g01 %}尺寸NG{% endif %}
+      {% if data.row20g02 %}模崩{% endif %}
+      {% if data.row20g03 %}模芯斷{% endif %}
+      {% if data.row20g04 %}顶针斷{% endif %}
+      {% if data.row20g05 %}重覆修模{% endif %}
+      {% if data.row20g06 %}待修模{% endif %}{% endif %}</td></tr>

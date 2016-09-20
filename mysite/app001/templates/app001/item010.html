@@ -1,0 +1,79 @@
+{% extends 'app001/base.html' %}
+{% load humanize %} 
+
+{% block content %}
+<!--說明︰<br>-->
+<!--&nbsp;&nbsp; (1)机台吨位。<br>-->
+<!--&nbsp;&nbsp; (2)第一部份為summary，第二部份為detail。-->
+
+<!--{{ subtotal }}-->
+
+<table>
+  <tr>
+  <th></th>
+  <th>机台吨位</th>
+  <th>未生产数量</th>
+  <th>生产天数</th>
+
+  </tr>
+ {% for sub in subtotal %}
+  <tr>
+        <th>{{ forloop.counter }}</th>
+  <td>{{ sub.f01 }}</td>
+  <td>{{ sub.sumf07 |intcomma }}</td>
+  <td>{{ sub.sumf10 |floatformat:1}}</td>
+    
+  </tr>
+{% endfor %}
+</table>
+
+<hr>
+<hr>
+
+
+
+<!--https://gist.github.com/ChrisLTD/957014-->
+{% regroup item_list by f01 as cust_list %}
+  {% for cust in cust_list %}
+
+  <br><h3>机台吨位︰{{ cust.grouper }}</h3>
+ 
+
+<table>
+    <tr>
+        <th>生产订单号</th>
+        <th>物料代码</th>
+        <th>物料说明</th>
+        <th>材料</th>
+        <th>订单数量</th>
+        <th>未生产数量</th>
+        <th>工时（M）</th>
+        <th>生产周期（H）	</th>
+        <th>生产天数（D）</th>
+    
+    </tr>
+    {% for item in cust.list %}
+    <tr>
+        <td>{{ item.f02 }}          </td>
+        <td>{{ item.f03 }}          </td>
+        <td>{{ item.f04 }}          </td>
+        <td>{{ item.f05 }}          </td>
+        <td>{{ item.f06 }}     </td>
+        <td>{{ item.f07 }}        </td>
+        <td>{{ item.f08 }}        </td>
+        <td>{{ item.f09 }}        </td>
+        <td>{{ item.f10 }}        </td>
+    </tr>
+    {% endfor %}
+</table>
+<hr>
+</div>
+{% endfor %}
+
+
+
+
+
+<div class='template_name'>template: item010 | created by: Mark, 2016-09-10 | latest update: 2016-09-10</div>
+{% endblock %}
+    
