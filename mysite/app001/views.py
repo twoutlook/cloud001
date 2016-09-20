@@ -359,7 +359,7 @@ def item011(request):
     
         
     item_list = Item011.objects.order_by('f01','f02','f03','f04')[:400]
-    context = {'current_user':request.user,'page_title':'ITEM010-富鈦-压铸在制订单','item_list': item_list,'subtotal':subtotal}
+    context = {'current_user':request.user,'page_title':'ITEM011-富鈦-压铸在制订单','item_list': item_list,'subtotal':subtotal}
     #使用ITEM005  template
     return render(request, 'app001/item010.html', context)     
 
