@@ -4,10 +4,9 @@
 
 # Create a new c9.io blank project and clone Github project
 
-# Setup developing envrionment
+# Setup c9.io developing envrionment
 
-    sudo apt-get -y install python3.5
-    sudo apt-get -y install python3.5-venv
+    sudo apt-get install python3.5, python3.5-venv
     python3.5 -m venv myvenv
     pip freeze
     source myvenv/bin/activate
@@ -19,7 +18,7 @@
     pip install django-import-export
     pip install django-ipware
     
-    cd cloud001x0920v3
+    cd cloud001
     cd mysite
     cp db.sqlite3x09201033 db.sqlite3
     ./manage.py runserver $IP:$PORT
@@ -27,13 +26,13 @@
 # Change view context, need to restart apache
     sudo service apache2 restart
 
-python3 manage.py startapp f1
-python3 manage.py startapp f2
-python3 manage.py startapp s1
+./manage.py startapp f1
+./manage.py startapp f2
+./manage.py startapp s1
 
-python3 manage.py startapp s2
+./manage.py startapp s2
 --------------------------------------------
-python3 manage.py startapp app001
+./manage.py startapp app001
   Not Found: /app001
     mysite/urls.py
       url(r'^app001/', include('app001.urls')),
@@ -46,17 +45,17 @@ python3 manage.py startapp app001
 
 https://docs.djangoproject.com/en/dev/topics/auth/default/
 
-python3 manage.py runserver $IP:$PORT
+./manage.py runserver $IP:$PORT
 
 
 https://docs.djangoproject.com/en/1.10/intro/tutorial01/
 
 sudo pip3 install django
 
-python3 --version
+./--version
 => Python 3.4.3
 
-python3 -m django --version
+./-m django --version
 =>1.10
 
 django-admin startproject mysite
@@ -65,18 +64,18 @@ git add .
 git commit -m"xxx"
 git push -u origin master
 -----------------
-python3 manage.py startapp polls
-python3 manage.py startapp materials
+./manage.py startapp polls
+./manage.py startapp materials
 
 
-python3 manage.py makemigrations
-python3 manage.py migrate
+./manage.py makemigrations
+./manage.py migrate
 
-python3 manage.py runserver $IP:$PORT
+./manage.py runserver $IP:$PORT
 
 
 
-python3 manage.createsuperuser
+./manage.createsuperuser
 => admin/ksxxx
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
