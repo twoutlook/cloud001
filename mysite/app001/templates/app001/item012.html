@@ -16,6 +16,7 @@
   <th>已生产数量</th>
   <th>未生产数量</th>
   <th>合计工时(小时）</th>
+  <th>合计天数</th>
 
   </tr>
  {% for sub in subtotal %}
@@ -26,6 +27,7 @@
   <td>{{ sub.sumf09 |intcomma }}</td>
   <td>{{ sub.sumf10 |intcomma }}</td>
   <td>{{ sub.sumf11 |floatformat:1}}</td>
+  <td>{{ sub.sumf11v2 |floatformat:1}}</td>
     
   </tr>
 {% endfor %}
