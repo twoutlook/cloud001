@@ -5,8 +5,12 @@
 # Create a new c9.io blank project and clone Github project
 
 # Setup c9.io developing envrionment
+## install Python 3.5 and venv 
 
-    sudo apt-get install python3.5, python3.5-venv
+    sudo apt-get install python3.5 python3.5-venv
+
+## setup virtual envrionment
+
     python3.5 -m venv myvenv
     pip freeze
     source myvenv/bin/activate

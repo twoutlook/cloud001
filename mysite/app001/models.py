@@ -1222,4 +1222,26 @@ class Item011(models.Model):
     f10 = models.FloatField(default=0,verbose_name="生产天数")
     def __str__(self):
         return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
+        
+        
+class Item012(models.Model):
+    f01 = models.CharField(default=".", max_length=99,verbose_name="生产订单号")
+    f02 = models.CharField(default=".", max_length=99,verbose_name="物料代码")
+    f03 = models.CharField(default=".", max_length=99,verbose_name="物料说明")        	  	        	
+    f04 = models.CharField(default=".", max_length=99,verbose_name="机台吨位")
+    f05 = models.CharField(default=".", max_length=99,verbose_name="材质")
+    f06 = models.FloatField(default=0,verbose_name="工时定额(分钟）")
+    f07 = models.IntegerField(default=0,verbose_name="模穴")
+    f08 = models.IntegerField(default=0,verbose_name="订单数量")
+    f09 = models.IntegerField(default=0,verbose_name="已生产数量")
+    f10 = models.IntegerField(default=0,verbose_name="未生产数量")
+    f11 = models.FloatField(default=0,verbose_name="合计工时(小时）")
+    f12 = models.DateField(verbose_name="下单日期")
+    f13 = models.CharField(default=".", max_length=99,verbose_name="压铸交货日期")
+    f14 = models.CharField(default=".", max_length=99,verbose_name="责任生管")     
+    
+    def __str__(self):
+        return self.f01+" "+self.f02+" "+self.f03+" "+str(self.f06)+" ";
+        
+        
      
