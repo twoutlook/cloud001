@@ -27,6 +27,9 @@ from .models import Item010
 # 2016/09/20
 from .models import Item011
 
+from .models import Item012
+
+
 
 
 
@@ -362,6 +365,21 @@ def item011(request):
     context = {'current_user':request.user,'page_title':'ITEM011-富鈦-压铸在制订单','item_list': item_list,'subtotal':subtotal}
     #使用ITEM005  template
     return render(request, 'app001/item010.html', context)     
+
+
+def item012(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    # f04 机台吨位    
+    # f07 f08 f09 f10 订单数量	已生产数量	未生产数量 	合计工时(小时）    
+    subtotal=Item012.objects.values('f04').annotate(sumf08=Sum('f08'),sumf09=Sum('f09'),sumf10=Sum('f10'),sumf11=Sum('f11'))   
+    
+        
+    item_list = Item012.objects.order_by('f04','f01')[:400]
+    context = {'current_user':request.user,'page_title':'ITEM012-富鈦-压铸在制订单','item_list': item_list,'subtotal':subtotal}
+    #使用ITEM005  template
+    return render(request, 'app001/item012.html', context)     
 
 
 

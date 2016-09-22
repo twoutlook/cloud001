@@ -44,6 +44,7 @@ urlpatterns = [
     
     url(r'^item010/', views.item010, name='item010'),
     url(r'^item011/', views.item011, name='item011'),
+    url(r'^item012/', views.item012, name='item012'),
     
     url(r'^item006/', views.item006, name='item006'),
     url(r'^dev001/', views.dev001, name='dev001'),

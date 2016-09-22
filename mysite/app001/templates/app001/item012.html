@@ -1,0 +1,98 @@
+{% extends 'app001/base.html' %}
+{% load humanize %} 
+
+{% block content %}
+<!--說明︰<br>-->
+<!--&nbsp;&nbsp; (1)机台吨位。<br>-->
+<!--&nbsp;&nbsp; (2)第一部份為summary，第二部份為detail。-->
+
+<!--{{ subtotal }}-->
+
+<table>
+  <tr>
+  <th></th>
+  <th>机台吨位</th>
+  <th>订单数量</th>
+  <th>已生产数量</th>
+  <th>未生产数量</th>
+  <th>合计工时(小时）</th>
+
+  </tr>
+ {% for sub in subtotal %}
+  <tr>
+        <th>{{ forloop.counter }}</th>
+  <td>{{ sub.f04 }}</td>
+  <td>{{ sub.sumf08 |intcomma }}</td>
+  <td>{{ sub.sumf09 |intcomma }}</td>
+  <td>{{ sub.sumf10 |intcomma }}</td>
+  <td>{{ sub.sumf11 |floatformat:1}}</td>
+    
+  </tr>
+{% endfor %}
+</table>
+
+<hr>
+<hr>
+
+
+
+<!--https://gist.github.com/ChrisLTD/957014-->
+{% regroup item_list by f04 as cust_list %}
+  {% for cust in cust_list %}
+
+  <br><h3>机台吨位︰{{ cust.grouper }}</h3>
+ 
+
+<table>
+    <tr>
+        <th>生产订单号</th>
+        <th>物料代码</th>
+        <th>物料说明</th>
+        <th>材质</th>
+        <th> 工时定额(分钟） </th>
+       <th> 模穴 </th>
+       <th> 订单数量 </th>
+       <th> 已生产数量 </th>
+       <th> 未生产数量 </th>
+       <th> 合计工时(小时） </th>
+       <th> 下单日期 </th>
+       <th> 压铸交货日期 </th>
+       <th> 责任生管 </th>
+       
+    
+    </tr>
+    {% for item in cust.list %}
+    <tr>
+        <td>{{ item.f01 }}          </td>
+        <td>{{ item.f02 }}          </td>
+        <td>{{ item.f03 }}          </td>
+        <td>{{ item.f05 }}          </td>
+        <td>{{ item.f06|floatformat:2  }}     </td>
+        <td>{{ item.f07}}        </td>
+        <td>{{ item.f08  |intcomma }}        </td>
+        <td>{{ item.f09 |intcomma  }}        </td>
+        <td>{{ item.f10  |intcomma }}        </td>
+        <td>{{ item.f11  |floatformat:1 }}        </td>
+        <td>{{ item.f12|date:"Y-m-d" }}        </td>
+        <td>{{ item.f13 }}        </td>
+        <td>{{ item.f14 }}        </td>
+    </tr>
+    {% endfor %}
+</table>
+<hr>
+</div>
+{% endfor %}
+
+
+
+
+
+<div class='template_name'>
+template: item010 | created by: Mark, 2016-09-21 | latest update: 2016-09-22<br>
+備註說明: 資料導入時，(1) f12 下单日期，必需為文本的日期格式, ISO 8601, 例如 2016-09-23。(2) f13 压铸交货日期 欄位為文本。
+
+
+<!--文本欄位︰f01生产订单号 &nbsp; f02物料代码  &nbsp; f03物料说明  &nbsp; f04机台吨位  &nbsp; f05材质 	 &nbsp; f06工时定额(分钟） 	 &nbsp; f07模穴 	 &nbsp; f08订单数量 	 &nbsp; f09已生产数量 	 &nbsp; f10未生产数量 	&nbsp; f11合计工时(小时） &nbsp; f12下单日期 	&nbsp; f13压铸交货日期 	&nbsp; f14责任生管 <br>-->
+
+{% endblock %}
+    

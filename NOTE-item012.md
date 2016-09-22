@@ -49,3 +49,12 @@ ensure  f12 is data format in plain text
 # login to admin and import
 use item012-raw-6.xls sample data to import, use 48 records, done!
 
+# template
+# view
+# url
+
+
+
+
+
+
