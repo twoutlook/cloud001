@@ -376,7 +376,7 @@ def item012(request):
     subtotal=Item012.objects.values('f04').annotate(sumf08=Sum('f08'),sumf09=Sum('f09'),sumf10=Sum('f10'),sumf11=Sum('f11'),sumf11v2=Sum('f11')/24)   
     
         
-    item_list = Item012.objects.order_by('f04','f01')[:400]
+    item_list = Item012.objects.order_by('f04','f02','f01')[:400]
     context = {'current_user':request.user,'page_title':'ITEM012-富鈦-压铸在制订单','item_list': item_list,'subtotal':subtotal}
     #使用ITEM005  template
     return render(request, 'app001/item012.html', context)     

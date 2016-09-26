@@ -1,3 +1,21 @@
+# Request
+    Derrick陳宏宇:
+    @Mark陈炳陵177 
+    ITEM012-富鈦-压铸在制订单，富鈦有一個報表上的需求
+    1.在機台頓數的分類下的內容，希望用物料代碼f02當作排序標準 ; 
+    2.相同的物料代碼下，未生產數量f10合併加總
+    我:
+    1.在機台頓數的分類下的內容，希望用物料代碼f02當作排序標準 ; <<< 可以直接實現。
+    
+    
+    2.相同的物料代碼下，未生產數量f10合併加總 <<< 不建議在現有html table 做合併，如有必要，可以考慮二次分組。
+
+
+
+
+
+
+
 # Production to backup database
 
 # Push Production to a new Github project
