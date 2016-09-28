@@ -381,6 +381,19 @@ def item012(request):
     #使用ITEM005  template
     return render(request, 'app001/item012.html', context)     
 
+def item013(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+        
+    # f04 机台吨位    
+    # f07 f08 f09 f10 订单数量	已生产数量	未生产数量 	合计工时(小时）    
+    subtotal=Item012.objects.values('f02').annotate(sumf08=Sum('f08'),sumf09=Sum('f09'),sumf10=Sum('f10'),sumf11=Sum('f11'),sumf11v2=Sum('f11')/24)   
+    
+        
+    item_list = Item012.objects.order_by('f02','f04','f01')[:400]
+    context = {'current_user':request.user,'page_title':'ITEM013-富鈦-压铸在制订单(物料代码)','item_list': item_list,'subtotal':subtotal}
+    #使用ITEM005  template
+    return render(request, 'app001/item013.html', context)     
 
 
 def dev001(request):
