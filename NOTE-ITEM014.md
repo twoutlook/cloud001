@@ -27,3 +27,12 @@
 copy template and modify
 add view
 add url
+
+### git add . 
+### git status
+        new file:   mysite/app001/templates/app001/item014.html
+        modified:   mysite/app001/urls.py
+        modified:   mysite/app001/views.py
+
+### git commit -m"add ITEM014"
+### git push -u origin master
