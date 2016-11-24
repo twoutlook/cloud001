@@ -29,6 +29,7 @@ from .models import Item010
 
 from .models import Item012
 
+from .models import T01
 
 
 
@@ -52,7 +53,9 @@ from import_export.admin import ImportExportModelAdmin
 #     class Meta:
 #         model = Item004
 
-
+class T01Admin(admin.ModelAdmin):
+    list_display=['f02','f03','f04']
+admin.site.register(T01,T01Admin)
 
 class Item000Admin(admin.ModelAdmin):
     list_display=['field1','field2','field3','field4','field5','field6']
@@ -154,7 +157,7 @@ admin.site.register(Item002v2,Item002v2Admin)
 #         'field1', 'field1a','r01c6','r01c8',
 #         # 'r03c3','r03c4','r03c5','r03c6','r03c7',
 #         # 'r04c3','r04c4','r04c5','r04c6','r04c7',
-        
+
 #      ]
 # admin.site.register(Item001,Item001Admin)
 
@@ -190,7 +193,7 @@ admin.site.register(Item002v2,Item002v2Admin)
 #         'field1', 'field1a','r01c6','r01c8',
 #         # 'r03c3','r03c4','r03c5','r03c6','r03c7',
 #         # 'r04c3','r04c4','r04c5','r04c6','r04c7',
-        
+
 #      ]
 # admin.site.register(Item003,Item003Admin)
 
@@ -203,9 +206,9 @@ admin.site.register(Item003v2,Item003v2Admin)
 #     fieldsets = [
 #         ('壓鑄機', {'fields': ['headera',]}),
 #         ('噸位人員日期', {'fields': [ 'headerb','headerc','headerd',], 'classes': ['collapse']}),
-      
+
 #         # ('結構-格林柱', {'fields': ['data01a','data01b','data01c','data01d','data01e',], 'classes': ['collapse']}),
-    
+
 # ('結構 --  格林柱',{'fields':['data01a','data01b','data01c','data01d','data01e',], 'classes': ['collapse']}),
 # ('結構 --  機架底座',{'fields':['data02a','data02b','data02c','data02d','data02e',], 'classes': ['collapse']}),
 # ('結構 --  模板(定)',{'fields':['data03a','data03b','data03c','data03d','data03e',], 'classes': ['collapse']}),
@@ -227,9 +230,9 @@ admin.site.register(Item003v2,Item003v2Admin)
 # ('自動噴霧 ',{'fields':['data19a','data19b','data19c','data19d','data19e',], 'classes': ['collapse']}),
 # ('自動取出 ',{'fields':['data20a','data20b','data20c','data20d','data20e',], 'classes': ['collapse']}),
 # ('模具 ',{'fields':['data21a','data21b','data21c','data21d','data21e',], 'classes': ['collapse']}),
-    
-    
-    
+
+
+
 #     ]
 #     list_display=[
 #         'headera','headerb','headerc','headerd'
