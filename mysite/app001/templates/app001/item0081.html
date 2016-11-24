@@ -1,0 +1,64 @@
+{% extends 'app001/base.html' %}
+{% block content %}                                            
+
+{% if item_list %}
+    <table>
+    
+    
+    <tr>
+    <th></th>
+    <th>幾號機</th>
+    <th>噸位</th>
+    <th>人員</th>
+    <th>到廠日期</th>
+    <th>資料維護時間</th>
+    <th>機台狀態</th>
+    
+    </tr>
+    
+    {% for item in item_list %}
+    <tr>
+    <th>{{ forloop.counter }}</th>
+    <td  ><a class='item_list' target='_blank' href='{{ item.id }}'>{{ item.headera }}</a></td>
+    <td>{{ item.headerb }}</td>
+    <td>{{ item.headerc }}</td>
+    <td>{{ item.headerd|date:"Y-m-d" }}</td>
+    <td>{{ item.headere|date:"Y-m-d H:i:s" }}</td>
+   
+
+    <td style="
+        {% if item.headerf == "正常生产" %} color:green {% endif %}
+        {% if item.headerf == "设备故障" %} color:red {% endif %}
+        {% if item.headerf == "外发大修" %} color:red {% endif %}
+        {% if item.headerf == "无人操作" %} color:#cccc00 {% endif %}
+        {% if item.headerf == "无模具" %} color:#cccc00 {% endif %}
+        {% if item.headerf == "无订单" %} color:#cccc00 {% endif %}
+        "><b>{{ item.headerf }}</b>
+    </td>
+
+    
+
+
+<!--#--- code2 for model.py (end) ------->
+</tr>
+    {% endfor %}
+
+    </table>
+{% else %}
+    <p>無資料顯示，需要權限並<mark><a target='_blank' href='../../admin/login/?next=/app001/'>登入</a></mark>才能查看。</p>
+   <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>。</p>
+
+{% endif %}
+<div class='template_name'>template: item008 | created by: Mark, 2016-08-26 
+<br>updated 2016-08-29: 增列流水序號，方便看出總共幾台機。(requested by 陶素鳳, coded by Mark)
+<br>updated 2016-08-29: 將目前 "日期" 改為 "到廠日期" ，並新增 "資料維護時間" ，自動取用系統時間。(requested by 陶素鳳, coded by Mark)
+<br>updated 2016-08-29: 新增一資料欄位 "机台状态" 下拉單選 [正常生产，设备故障，无订单，无人操作，外发大修，无模具] 。(requested by 陶素鳳, coded by Mark)
+<br>updated 2016-09-20: "机台状态" 加顏色標示 。(requested by 陶素鳳、陳占全, coded by Mark)
+
+</div>
+</div>
+{% endblock %}
+
+
+
+

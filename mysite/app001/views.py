@@ -23,6 +23,7 @@ from .models import Item007
 from .models import Item008
 from .models import Item009
 from .models import Item010
+from .models import T01
 
 # 2016/09/20
 from .models import Item011
@@ -206,6 +207,17 @@ def item008(request):
     item_list = Item008.objects.order_by('headera')[:100]
     context = {'page_title':'ITEM008-富甲-壓鑄機','item_list': item_list}
     return render(request, 'app001/item008.html', context)
+
+# 2016-11-24
+def t01(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+
+    item_list = T01.objects.order_by('id')[:3000]
+    context = {'page_title':'T01- 工序','item_list': item_list}
+    return render(request, 'app001/t01.html', context)
+
+
 
 def item009(request):
     if not request.user.is_authenticated:

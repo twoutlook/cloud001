@@ -1,0 +1,35 @@
+{% extends 'app001/base.html' %}
+{% block content %}
+
+{% if item_list %}
+    <table>
+
+
+    <tr>
+    <th></th>
+    <th>B</th>
+    <th>C</th>
+    <th>D</th>
+
+    </tr>
+
+    {% for item in item_list %}
+    <tr>
+    <th>{{ item.id }}</th>
+    <td>{{ item.f02 }}</td>
+    <td>{{ item.f03 }}</td>
+    <td>{{ item.f04 }}</td>
+</tr>
+    {% endfor %}
+
+    </table>
+{% else %}
+    <p>無資料顯示，需要權限並<mark><a target='_blank' href='../../admin/login/?next=/app001/'>登入</a></mark>才能查看。</p>
+   <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>。</p>
+
+{% endif %}
+<div class='template_name'>template: t01 | created by: Mark, 2016-11-24
+
+</div>
+</div>
+{% endblock %}
