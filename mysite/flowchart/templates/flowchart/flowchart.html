@@ -1,0 +1,60 @@
+{% extends 'flowchart/base.html' %}
+
+
+{% block content %}
+
+<a href="."> (回到目錄)</a>
+<table>
+<tr>
+  <!-- <th>id</th> -->
+  <th rowspan='2'>品名</th>
+  <td rowspan='2' colspan='2'><center>{{ item.part_name }}</center></td>
+  <th>模號</th>
+
+  <td><center>{{ item.c1 }}</center></td>
+  <th>圖面版本</th>
+  <td><center>{{ item.e1 }}</center></td>
+  <th>版序</th>
+  <td><center>{{ item.g1 }}<center></td>
+  <th>NO.</th>
+  <td>&nbsp;&nbsp;&nbsp;</td>
+  <th>頁次</th>
+  <td><center>1/1<center></td>
+<tr>
+  <th>表面等級</th>
+  <td><center>{{ item.c2 }}<center></td>
+  <th>表面等級</th>
+  <td><center>{{ item.e2 }}<center></td>
+  <th>材質</th>
+  <td colspan="2"><center>{{ item.g2 }}<center></td>
+  <th>客戶名稱</th>
+  <td  colspan="2"><center>{{ item.cust_name }}<center></td>
+</tr>
+  <!-- <td>{{ item.description }}          </td> -->
+  <!-- <td>{{ item.description }}          </td> -->
+<tr>
+  <th>序號</th>
+  <th>部門</th>
+  <th>工序</th>
+  <th colspan="2">過程描述</th>
+  <th colspan="5">品質要求</th>
+  <th>設備</th>
+  <th>刀、治、模具</th>
+  <th  colspan="3">檢具</th>
+  <!-- <th  colspan="2">簡圖</th> -->
+
+</tr>
+{% for x in itemprocess %}
+<tr >
+  <td ><center>{{x.a}}</center></td>
+  <td><center>{{x.b}}</center></td>
+  <td><center>{{x.c}}</center></td>
+  <td  colspan="2">{{x.d}}</td>
+  <td  colspan="5">{{x.e}}</td>
+  <td><center>{{x.f}}</center></td>
+  <td><center>{{x.g}}</center></td>
+  <td  colspan="3"><center>{{x.h}}</center></td>
+<tr>
+{% endfor %}
+
+{% endblock %}

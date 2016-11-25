@@ -4,6 +4,9 @@ from . import views
 
 app_name = 'app001'
 urlpatterns = [
+    url(r'^fc/$', views.view_flowchart_list, name='view_flowchart_list'),
+    url(r'^fc/(?P<item_id>[_A-Za-z0-9-\#\\+]+)', views.view_flowchart, name='view_flowchart'), #item001/123 後面有東西都好
+
     url(r'^$', views.item000, name='index'),
     url(r'^spec/', views.spec, name='spec'),
     url(r'^cust/', views.cust, name='cust'),

@@ -30,6 +30,10 @@ from .models import Item011
 
 from .models import Item012
 
+from .models import Flowchart
+from .models import Flowchartprocess
+
+
 
 
 
@@ -464,3 +468,22 @@ def dev001(request):
     context = {'current_user':request.user,'page_title':'DEV001-生成代碼-壓鑄機備註說明','item_list': item_list}
     #使用ITEM005  template
     return render(request, 'app001/dev001.html', context)
+def view_flowchart_list(request):
+    if not request.user.is_authenticated:
+         return redirect('/')
+    # 总平均价
+    item_list = Flowchart.objects.order_by('part_name', 'id')[:3000]
+
+    context = {'current_user':request.user,'page_title':'FLOW CHART','item_list':item_list}
+    return render(request, 'app001/flowchart_list.html', context)
+
+
+
+def view_flowchart(request,item_id):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    item=get_object_or_404(Flowchart, pk=item_id)
+    itemprocess=Flowchartprocess.objects.filter(flowchart = item_id)
+
+    context = {'current_user':request.user,'page_title':'ONE FLOWCHART','item': item,'itemprocess': itemprocess}
+    return render(request, 'app001/flowchart.html', context)

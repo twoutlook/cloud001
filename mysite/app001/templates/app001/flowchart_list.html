@@ -1,0 +1,25 @@
+{% extends 'app001/base_fc.html' %}
+
+
+{% block content %}
+
+<table>
+<tr>
+  <th>id</th>
+  <th>品名</th>
+  <th>模號</th>
+  <th>客戶名稱</th>
+{% for item in item_list %}
+<tr>
+  <td>{{ item.id}}</td>
+<td><a href='{{ item.id }}'>{{ item.part_name }}</a></td>
+<td>{{ item.mold_num }}</td>
+<td>{{ item.cust_name }}</td>
+</tr>
+  <!-- <td>{{ item.description }}          </td> -->
+  <!-- <td>{{ item.description }}          </td> -->
+
+
+{% endfor %}
+
+{% endblock %}
