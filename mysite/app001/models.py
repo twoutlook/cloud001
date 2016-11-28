@@ -28,7 +28,7 @@ class Flowchart(models.Model):
     cust_name = models.CharField(max_length=32,verbose_name="客戶名稱")
     # remarks = models.CharField(max_length=200)
     def __str__(self):
-        return self.part_name
+        return str(self.id)
     class Meta:
         verbose_name = "生產工藝流程卡"
         verbose_name_plural = "生產工藝流程卡"

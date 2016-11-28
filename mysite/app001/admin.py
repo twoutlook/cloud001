@@ -72,9 +72,16 @@ admin.site.register(Flowchart, FlowchartAdmin)
 #     class Meta:
 #         model = Item004
 
+class FlowchartprocessAdmin(ImportExportModelAdmin):
+    list_display=['flowchart','a','b','c','d','e','f','g','h']
+admin.site.register(Flowchartprocess,FlowchartprocessAdmin)
+
+
 class T01Admin(admin.ModelAdmin):
     list_display=['f02','f03','f04']
 admin.site.register(T01,T01Admin)
+
+
 
 class Item000Admin(admin.ModelAdmin):
     list_display=['field1','field2','field3','field4','field5','field6']
