@@ -9,11 +9,11 @@
                 <th>佈告編號</th>
                 <!--<th>廠別</th>-->
                 <!--<th>資料名稱</th>-->
-                <th>輔導上線人員 - 管理人員 - 資料維護人員</th>
+                <th>管理人員 - 資料維護人員</th>
                 <th>補充說明</th>
-                
+
             </tr>
-            
+
             {% for item in item_list %}
             <tr>
                 <!--<th>{{ item.field1 }}</th>-->
@@ -28,14 +28,14 @@
 
         </table>
         <div class='notice'>
-            
+
         <mark>
-            
+
         請使用最新版 Firefox 火狐浏览器，官網下載，
         <a target='_blank' href='http://www.firefox.com.cn/download/'>http://www.firefox.com.cn/download/</a>
         </mark>
         </div>
-        
+
         <div class='explain-spec'>
             <h3>欠料明细資料維護說明︰</h3>
             <ul>
@@ -46,11 +46,11 @@
                 <li>欄位名稱不要變動。</li>
 <li>日期應採用文本的"2016-08-29"格式。</li>
 <li>可以多次上傳更新。 </li>
-                             
+
                 </ul>
-                
+
                 </li>
-             </ul> 
+             </ul>
             <h3>壓鑄機資料維護說明︰</h3>
             <ul>
                 <li>除了表頭壓鑄機基本信息外，由左而右，AB兩欄是固定[部位][組成]。</li>
@@ -61,21 +61,21 @@
                 <li>第一部份勾選為是否正常，預設值為正常。</li>
 <li>第二部份是不正常說明列表勾選，可複選。</li>
 <li>當[備註說明]為正常時，所有不正常說明都不顯示。 </li>
-                             
+
                 </ul>
                 </li>
            </ul>
-         
+
         </div>
-        
-        
+
+
         {% else %}
         <h3>
         <p>有權限查看資料人員，請由此<mark><a target='_blank' href='../admin/login/?next=/app001/'>登入</a></mark>查看。</p>
         <p>維護資料人員，請由此<mark><a target='_blank' href='../../admin'>登入</a></mark>維護。</p>
-    
+
         </h3>
-        
+
         {% endif %}
 
 {% endblock %}
