@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'flowchart',
+    'projectnote',
     'portal',
     'app001.apps.App001Config',
     #http://django-import-export.readthedocs.io/en/latest/getting_started.html

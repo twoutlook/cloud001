@@ -1,0 +1,18 @@
+{% extends 'projectnote/base001.html' %}
+{% load bootstrap3 %}
+
+{% block title %}全制程追踪系統{% endblock %}
+
+{% block content %}
+    <!-- This is <em>bootstrap3</em> for <strong>Django</strong>. -->
+<table class="table">
+  <tr><th>SEQ</th><th>Note</th><th>Follow Up</th>
+    {% for item in item_list %}
+    <tr>
+    <th>{{ forloop.counter }}</th>
+    <td>{{ item.note }}</td>
+    <td>{{ item.followup }}</td>
+  </tr>
+    {% endfor %}
+</table>
+{% endblock %}
