@@ -6,6 +6,7 @@ app_name = 'app001'
 urlpatterns = [
     url(r'^fc/$', views.view_flowchart_list, name='view_flowchart_list'),
     url(r'^fc2/$', views.Flowchartprocess2, name='Flowchartprocess2'),
+    url(r'^fc3/$', views.Flowchartprocess3, name='Flowchartprocess3'),
     url(r'^p1/$', views.p1, name='p1'),
     url(r'^fc/(?P<item_id>[_A-Za-z0-9-\#\\+]+)', views.view_flowchart, name='view_flowchart'), #item001/123 後面有東西都好
 

@@ -519,3 +519,17 @@ def Flowchartprocess2(request):
 
     context = {'current_user':request.user,'page_title':'ONE FLOWCHART','itemprocess': itemprocess}
     return render(request, 'app001/flowchart2.html', context)
+def Flowchartprocess3(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    # item=get_object_or_404(Flowchart, pk=item_id)
+    # itemprocess=Flowchartprocess.objects.filter(flowchart = item_id)
+    # list1=Flowchartprocess.objects.order_by('b')
+    # list2=Flowchartprocess.objects.order_by('b','c')
+    # list3=Flowchartprocess.objects.order_by('b,'c','d')
+
+    sub1=Flowchartprocess.objects.values('b').annotate(cnt=Count('b'))
+
+
+    context = {'current_user':request.user,'page_title':'GROUP BY','sub1': sub1}
+    return render(request, 'app001/flowchartprocess3.html', context)

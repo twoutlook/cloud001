@@ -1,0 +1,26 @@
+{% extends 'app001/base_fc.html' %}
+
+
+{% block content %}
+<!-- {{ sub1}} -->
+<a href="."> (回到目錄)</a>
+<table>
+
+  <!-- <td>{{ item.description }}          </td> -->
+  <!-- <td>{{ item.description }}          </td> -->
+<tr>
+  <!-- <th>序號</th> -->
+  <th>部門</th>
+  <th>Cnt</th>
+
+</tr>
+{% for x in sub1 %}
+<tr >
+  <!-- <td ><center>{{x.a}}</center></td> -->
+  <!-- <td><center>{{x.id}}</center></td> -->
+  <td><center>{{x.b}}</center></td>
+  <td><center>{{x.cnt}}</center></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
