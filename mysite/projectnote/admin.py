@@ -13,5 +13,5 @@ from import_export.admin import ImportExportModelAdmin
 
 from .models import  Note
 class NoteAdmin(ImportExportModelAdmin):
-    list_display=['note','followup']
+    list_display=['date1','tag','where','note','date2','fix']
 admin.site.register(Note,NoteAdmin)

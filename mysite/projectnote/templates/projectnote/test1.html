@@ -6,12 +6,21 @@
 {% block content %}
     <!-- This is <em>bootstrap3</em> for <strong>Django</strong>. -->
 <table class="table">
-  <tr><th>SEQ</th><th>Note</th><th>Follow Up</th>
+  <tr><th>SEQ</th><th>提交日期</th><th>問題位置</th><th>問題描述</th>
+    <th>解決日期</th><th>解決概要</th><th>標記</th>
     {% for item in item_list %}
     <tr>
     <th>{{ forloop.counter }}</th>
+    <td>{{ item.date1| date:'Y-m-d' }}</td>
+    <td><a href='{{ item.whereurl }}'>{{ item.where }}<a></td>
+    
+
     <td>{{ item.note }}</td>
-    <td>{{ item.followup }}</td>
+    <td>{{ item.date2| date:'Y-m-d' }}</td>
+
+    <td>{{ item.fix }}</td>
+    <td>{{ item.tag }}</td>
+
   </tr>
     {% endfor %}
 </table>

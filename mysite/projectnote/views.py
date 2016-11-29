@@ -20,7 +20,7 @@ def test1(request):
     #      return redirect('/')
 
     # item001=get_object_or_404(Item001, pk=item001_id)
-    item_list = Note.objects.order_by('id')[:100]
+    item_list = Note.objects.order_by('date1')[:100]
     context = {'current_user':request.user,'page_title':'APP001-雲端佈告欄','item_list': item_list}
 
     # context = {'current_user':request.user,'page_title':'TEST1︰'}
