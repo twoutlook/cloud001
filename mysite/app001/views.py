@@ -529,7 +529,9 @@ def Flowchartprocess3(request):
     # list3=Flowchartprocess.objects.order_by('b,'c','d')
 
     sub1=Flowchartprocess.objects.values('b').annotate(cnt=Count('b'))
+    sub2=Flowchartprocess.objects.values('b','c').annotate(cnt=Count('b'))
+    sub3=Flowchartprocess.objects.values('b','c','d').annotate(cnt=Count('b'))
 
 
-    context = {'current_user':request.user,'page_title':'GROUP BY','sub1': sub1}
+    context = {'current_user':request.user,'page_title':'GROUP BY','sub1': sub1,'sub2': sub2,'sub3': sub3}
     return render(request, 'app001/flowchartprocess3.html', context)
