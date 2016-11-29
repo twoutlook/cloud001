@@ -1,0 +1,37 @@
+{% extends 'app001/base_fc.html' %}
+
+
+{% block content %}
+
+<a href="."> (回到目錄)</a>
+<table>
+
+  <!-- <td>{{ item.description }}          </td> -->
+  <!-- <td>{{ item.description }}          </td> -->
+<tr>
+  <!-- <th>序號</th> -->
+  <th>部門</th>
+  <th>工序</th>
+  <th >過程描述</th>
+  <th >品質要求</th>
+  <th>設備</th>
+  <th>刀、治、模具</th>
+  <th >檢具</th>
+  <!-- <th  colspan="2">簡圖</th> -->
+
+</tr>
+{% for x in itemprocess %}
+<tr >
+  <!-- <td ><center>{{x.a}}</center></td> -->
+  <!-- <td><center>{{x.id}}</center></td> -->
+  <td><center>{{x.b}}</center></td>
+  <td><center>{{x.c}}</center></td>
+  <td  >{{x.d}}</td>
+  <td  >{{x.e}}</td>
+  <td><center>{{x.f}}</center></td>
+  <td><center>{{x.g}}</center></td>
+  <td ><center>{{x.h}}</center></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

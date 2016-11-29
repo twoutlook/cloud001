@@ -508,3 +508,14 @@ def view_flowchart(request,item_id):
 
     context = {'current_user':request.user,'page_title':'ONE FLOWCHART','item': item,'itemprocess': itemprocess}
     return render(request, 'app001/flowchart.html', context)
+
+def Flowchartprocess2(request):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    # item=get_object_or_404(Flowchart, pk=item_id)
+    # itemprocess=Flowchartprocess.objects.filter(flowchart = item_id)
+    itemprocess=Flowchartprocess.objects.order_by('b','c','d')
+
+
+    context = {'current_user':request.user,'page_title':'ONE FLOWCHART','itemprocess': itemprocess}
+    return render(request, 'app001/flowchart2.html', context)
