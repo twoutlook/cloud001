@@ -77,6 +77,27 @@ def item000(request):
     #     print("we don't have an IP address for user")
     return render(request, 'app001/index.html', context)
 
+def p1(request):
+    if not request.user.is_authenticated:
+        #  return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+        context = {'page_title':'您現在訪問 APP001，但是還沒有登入','item_list': {}}
+        return render(request, 'app001/index.html', context)
+
+
+
+    item_list = Flowchartprocess.objects.all()
+
+
+
+    context = {'current_user':request.user,'page_title':'APP001-雲端佈告欄','item_list': item_list}
+    print("by Mark: to debug here...")
+    # ip = get_ip(request)
+    # if ip is not None:
+    #     print("we have an IP address for user: "+ip)
+    # else:
+    #     print("we don't have an IP address for user")
+    return render(request, 'app001/p1.html', context)
+
 
 def index_bootstrap(request):
     if not request.user.is_authenticated:
