@@ -17,25 +17,40 @@ from .models import Note
 from .models import Flowchart
 from .models import Flowchartprocess
 
+
 def index(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')
 
+    # http://stackoverflow.com/questions/4577513/how-do-i-change-a-django-template-based-on-the-users-group
     # item001=get_object_or_404(Item001, pk=item001_id)
+    is_grp001=request.user.groups.filter(name='grp001').exists()
     item_list = Note.objects.order_by('date1')[:100]
-    context = {'current_user':request.user,'page_title':'Project Note...','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'Project Note...','item_list': item_list,'is_grp001':is_grp001}
 
     # context = {'current_user':request.user,'page_title':'TEST1︰'}
     return render(request, 'projectnote/index.html', context)
 
 
 def test1(request):
-    # if not request.user.is_authenticated:
-    #      return redirect('/')
+    is_grp001=request.user.groups.filter(name='grp001').exists()
+    if not is_grp001:
+         return redirect('/projectnote')
 
     # item001=get_object_or_404(Item001, pk=item001_id)
     item_list = Note.objects.order_by('date1')[:100]
     context = {'current_user':request.user,'page_title':'APP001-雲端佈告欄','item_list': item_list}
+
+    # context = {'current_user':request.user,'page_title':'TEST1︰'}
+    return render(request, 'projectnote/test1.html', context)
+def test2(request):
+    is_grp001=request.user.groups.filter(name='grp001').exists()
+    if not is_grp001:
+         return redirect('/projectnote')
+
+    # item001=get_object_or_404(Item001, pk=item001_id)
+    item_list = Note.objects.order_by('date1')[:100]
+    context = {'current_user':request.user,'page_title':'Test2','item_list': item_list}
 
     # context = {'current_user':request.user,'page_title':'TEST1︰'}
     return render(request, 'projectnote/test1.html', context)

@@ -1,11 +1,28 @@
 {% extends 'projectnote/base_projectnote.html' %}
 {% load bootstrap3 %}
 
-{% block title %}項目信息{% endblock %}
+<!-- {% block title %}項目信息{% endblock %} -->
 
 {% block content %}
+<h1>
+<!-- {{ is_projectgroup }} -->
+
+{% if is_grp001 %}
+  <!-- 登入用戶俱有權限繼續訪問 -->
+  <a class="btn btn-primary " href='/projectnote/test1'> test1 </a>
+  <a class="btn btn-primary " href='/projectnote/test2'> test2 </a>
+  <a class="btn btn-info " href='/admin/logout/?next=/projectnote'> 登出 </a>
+{% else %}
+
+<a class="btn btn-warning " href='/admin/login/?next=/projectnote'> 必需先登入 </a>
+
+
+{% endif %}
+</h1>
+
+
 <p class="bg-primary"><em>Kick off</em> to be 2016-12-19 or 2016-12-20</p>
-<p class="bg-primary"><em>Kick off</em> to be 2016-12-19 or 2016-12-20</p>
+<!-- <p class="bg-primary"><em>Kick off</em> to be 2016-12-19 or 2016-12-20</p> -->
     <!-- This is <em>bootstrap3</em> for <strong>Django</strong>. -->
 
 

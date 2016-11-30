@@ -4,11 +4,13 @@
 
 {% block bootstrap3_content %}
     <div class="container">
-        <h1>{% block title %}(no title){% endblock %}</h1>
+        <h1>{% block title %}全制程追踪系統{% endblock %}</h1>
 
         <p>
           用戶: {{current_user}}
-            <a href="{% url 'home' %}">home</a>
+          <!-- <a href="/admin">登入登出</a> -->
+          <a href="/projectnote/test1">test1</a>
+            <!-- <a href="{% url 'home' %}">home</a>
             <a href="{% url 'formset_default' %}">formset</a>
             <a href="{% url 'form_default' %}">form</a>
             <a href="{% url 'form_by_field' %}">form_by_field</a>
@@ -16,7 +18,7 @@
             <a href="{% url 'form_inline' %}">form_inline</a>
             <a href="{% url 'form_with_files' %}">form_with_files</a>
             <a href="{% url 'pagination' %}">pagination</a>
-            <a href="{% url 'misc' %}">miscellaneous</a>
+            <a href="{% url 'misc' %}">miscellaneous</a> -->
         </p>
 
         {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}

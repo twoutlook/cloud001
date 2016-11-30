@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^home$', HomePageView.as_view(), name='home'),
     url(r'^test1$', views.test1, name='test1'),
+    url(r'^test2$', views.test2, name='test2'),
     url(r'^p1$', views.test1, name='p1'),
     url(r'^flowchart$', views.flowchart, name='flowchart'),
     url(r'^flowchart_list$', views.flowchart_list, name='flowchart_list'),
