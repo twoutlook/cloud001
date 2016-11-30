@@ -17,6 +17,18 @@ from .models import Note
 from .models import Flowchart
 from .models import Flowchartprocess
 
+def index(request):
+    # if not request.user.is_authenticated:
+    #      return redirect('/')
+
+    # item001=get_object_or_404(Item001, pk=item001_id)
+    item_list = Note.objects.order_by('date1')[:100]
+    context = {'current_user':request.user,'page_title':'Project Note...','item_list': item_list}
+
+    # context = {'current_user':request.user,'page_title':'TEST1︰'}
+    return render(request, 'projectnote/index.html', context)
+
+
 def test1(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')

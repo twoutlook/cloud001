@@ -10,7 +10,8 @@ from .views import HomePageView, FormHorizontalView, FormInlineView, PaginationV
 from . import views
 
 urlpatterns = [
-    url(r'^$', HomePageView.as_view(), name='home'),
+    url(r'^$', views.index, name='index'),
+    url(r'^home$', HomePageView.as_view(), name='home'),
     url(r'^test1$', views.test1, name='test1'),
     url(r'^p1$', views.test1, name='p1'),
     url(r'^flowchart$', views.flowchart, name='flowchart'),
