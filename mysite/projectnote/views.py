@@ -211,7 +211,7 @@ def step1(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')
     # 总平均价
-    # item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]
+    item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
     # subtotal=Smm.objects.values('designation', 'yearnum','monthnum').annotate(avg=Avg('priceavg')/1000)
     # byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
