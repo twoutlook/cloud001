@@ -8,12 +8,12 @@
 {% block content %}
 
 ZZZ
-<table>
+<table class="table table-bordered">
 {% regroup byquarter by designation as list01 %}
 
 {% for x in list01 %}
 {% if forloop.counter == 1 %}
-<tr>
+<tr class="bg-primary">
 <td rowspan='2'>牌號</td>
 {% for y in x.list %}
 
