@@ -20,6 +20,15 @@ urlpatterns = [
     url(r'^flowchart$', views.flowchart_list, name='flowchart_list'),
     url(r'^flowchart/(?P<item_id>[_A-Za-z0-9-\#\\+]+)', views.flowchart, name='flowchart'), #item001/123 後面有東西都好
 
+    url(r'^smm', views.smm, name='smm'),
+    url(r'^step0', views.step0, name='step0'),
+    url(r'^step1', views.step1, name='step1'),
+    url(r'^bymonth', views.bymonth, name='bymonth'),
+    url(r'^step2', views.step2, name='step2'),
+    url(r'^step3', views.step3, name='step3'),
+
+
+
     # url(r'^fc/$', views.view_flowchart_list, name='view_flowchart_list'),
     # url(r'^fc2/$', views.Flowchartprocess2, name='Flowchartprocess2'),
     # url(r'^fc3/$', views.Flowchartprocess3, name='Flowchartprocess3'),

@@ -12,6 +12,19 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
+from  .models import Smm
+
+
+class SmmResource(resources.ModelResource):
+    class Meta:
+        model = Smm
+
+class SmmAdmin(ImportExportModelAdmin):
+    list_display=['designation','pricedate','priceavg','yearnum','monthnum','quarternum']
+    ordering = ['designation','pricedate']
+    resource_class = SmmResource
+admin.site.register(Smm,SmmAdmin)
+
 class NoteAdmin(ImportExportModelAdmin):
     list_display=['date1','tag','where','note','date2','fix']
 admin.site.register(Note,NoteAdmin)
