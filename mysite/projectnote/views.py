@@ -155,7 +155,7 @@ def flowchart_list(request):
     # 总平均价
     item_list = Flowchart.objects.order_by('part_name', 'id')[:3000]
 
-    context = {'current_user':request.user,'page_title':'FLOW CHART','item_list':item_list}
+    context = {'current_user':request.user,'page_title':'生产工艺流程卡','item_list':item_list}
     return render(request, 'projectnote/flowchart_list.html', context)
 
 
@@ -166,5 +166,5 @@ def flowchart(request,item_id):
     item=get_object_or_404(Flowchart, pk=item_id)
     itemprocess=Flowchartprocess.objects.filter(flowchart = item_id)
 
-    context = {'current_user':request.user,'page_title':'ONE FLOWCHART','item': item,'itemprocess': itemprocess}
+    context = {'current_user':request.user,'page_title':'生产工艺流程卡 - '+item.part_name,'item': item,'itemprocess': itemprocess}
     return render(request, 'projectnote/flowchart.html', context)

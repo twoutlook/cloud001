@@ -1,8 +1,12 @@
 {% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
 
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
 
 {% block content %}
-<h1>P1</h1>
+
 <table class="table table-bordered">
 <tr class="bg-primary">
   <th>id</th>
@@ -12,7 +16,7 @@
 {% for item in item_list %}
 <tr>
   <td align='center'>{{ item.id}}</td>
-<td><a href='{{ item.id }}'>{{ item.part_name }}</a></td>
+<td><a href='/projectnote/flowchart/{{ item.id }}'>{{ item.part_name }}</a></td>
 <td>{{ item.c1 }}</td>
 <td>{{ item.cust_name }}</td>
 </tr>

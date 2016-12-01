@@ -1,38 +1,41 @@
-{% extends 'app001/base_fc.html' %}
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
 
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
 
 {% block content %}
 
-<a href="."> (回到目錄)</a>
-<table>
+<table class="table table-bordered">
 <tr>
   <!-- <th>id</th> -->
-  <th rowspan='2'>品名</th>
+  <th class="bg-primary" rowspan='2'>品名</th>
   <td rowspan='2' colspan='2'><center>{{ item.part_name }}</center></td>
-  <th>模號</th>
+  <th class="bg-primary">模號</th>
 
   <td><center>{{ item.c1 }}</center></td>
-  <th>圖面版本</th>
+  <th class="bg-primary">圖面版本</th>
   <td><center>{{ item.e1 }}</center></td>
-  <th>版序</th>
+  <th class="bg-primary">版序</th>
   <td><center>{{ item.g1 }}<center></td>
-  <th>NO.</th>
+  <th class="bg-primary">NO.</th>
   <td>&nbsp;&nbsp;&nbsp;</td>
-  <th>頁次</th>
+  <th class="bg-primary">頁次</th>
   <td><center>1/1<center></td>
-<tr>
-  <th>表面等級</th>
+<tr >
+  <th class="bg-primary">模穴</th>
   <td><center>{{ item.c2 }}<center></td>
-  <th>表面等級</th>
+  <th class="bg-primary">表面等級</th>
   <td><center>{{ item.e2 }}<center></td>
-  <th>材質</th>
+  <th class="bg-primary">材質</th>
   <td colspan="2"><center>{{ item.g2 }}<center></td>
-  <th>客戶名稱</th>
+  <th class="bg-primary">客戶名稱</th>
   <td  colspan="2"><center>{{ item.cust_name }}<center></td>
 </tr>
   <!-- <td>{{ item.description }}          </td> -->
   <!-- <td>{{ item.description }}          </td> -->
-<tr>
+<tr class="bg-primary">
   <th>序號</th>
   <th>部門</th>
   <th>工序</th>

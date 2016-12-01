@@ -15,8 +15,10 @@ urlpatterns = [
     url(r'^test1$', views.test1, name='test1'),
     url(r'^test2$', views.test2, name='test2'),
     url(r'^p1$', views.test1, name='p1'),
-    url(r'^flowchart$', views.flowchart, name='flowchart'),
-    url(r'^flowchart_list$', views.flowchart_list, name='flowchart_list'),
+    # url(r'^flowchart$', views.flowchart, name='flowchart'),
+    # url(r'^flowchart_list$', views.flowchart_list, name='flowchart_list'),
+    url(r'^flowchart$', views.flowchart_list, name='flowchart_list'),
+    url(r'^flowchart/(?P<item_id>[_A-Za-z0-9-\#\\+]+)', views.flowchart, name='flowchart'), #item001/123 後面有東西都好
 
     # url(r'^fc/$', views.view_flowchart_list, name='view_flowchart_list'),
     # url(r'^fc2/$', views.Flowchartprocess2, name='Flowchartprocess2'),
