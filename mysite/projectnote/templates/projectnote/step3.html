@@ -10,7 +10,7 @@
 <!--{{ byquarter}}-->
 
 
-<table class="table table-bordered">
+<table class="table table-bordered  table-condensed text-center">
 {% regroup byquarter by designation as list01 %}
 
 {% for x in list01 %}
@@ -18,34 +18,34 @@
 <tr class="bg-primary">
 <td rowspan='2'>牌號</td>
 {% for y in x.list %}
-
 <td>{{ y.yearnum }}  </td>
-
-
 {% endfor  %}
-</tr>
+
+<td colspan="2">第三季對第一季</td>
+<td colspan="2">第四季對第一季</td>
+
+
 </tr>
 {% endif %}
 {% endfor  %}
 
 {% for x in list01 %}
 {% if forloop.counter == 1 %}
-<tr>
+<tr class="bg-primary">
 <!--<td></td>-->
 {% for y in x.list %}
-
 <td>Q{{ y.quarternum }} </td>
-
-
 {% endfor  %}
-
-
+<td>價差</td>
+<td>漲跌幅</td>
+<td>價差</td>
+<td>漲跌幅</td>
 </tr>
 {% endif %}
 {% endfor  %}
 
 {% for x in list01 %}
-<tr>
+<tr >
 
 <td>{{ x.grouper }}</td>
 {% for y in x.list %}
@@ -71,15 +71,15 @@
 
 
 <h1>by Quarter</h1>
-<table >
-<tr>
+<table  class="table table-bordered  table-condensed" >
+<tr class="bg-primary">
   <th> 牌號</td>
   <th> 年季度</td>
     <th> 平均單價(KG)</td>
 
   </tr>
 {% for x in byquarter %}
-  <tr align='center'>
+  <tr align='center' >
     <td>  {{ x.designation}}</td>
     <td>  {{ x.yearnum}}Q{{ x.quarternum}}</td>
     <td>  {{ x.avg|stringformat:".2f"}}</td>
