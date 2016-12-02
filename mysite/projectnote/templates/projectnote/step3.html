@@ -6,9 +6,41 @@
 {% endblock %}
 
 {% block content %}
-<h1>要計算價差和漲跌幅</h1>
 <!--{{ byquarter}}-->
 
+<h1>资料起迄日期和笔数</h1>
+<!-- <table class="table table-bordered  table-condensed text-center "> -->
+  <table class="table table-bordered text-center ">
+
+    <!-- <tr  align='center' class="bg-primary text-center"> -->
+<tr class="bg-primary" >
+  <td> 项次 </td>
+  <td> 牌号 </td>
+  <td> 起始日期 </td>
+  <td> 截止日期 </td>
+  <td> 资料 </td>
+
+  </tr>
+  <tr  >
+{% for x in datacheck1 %}
+
+    <td>  {{ forloop.counter}}</td>
+    <td>  {{ x.designation}}</td>
+    <td>  {{ x.min| date:"Y-m-d"}}</td>
+    <td>  {{ x.max| date:"Y-m-d"}}</td>
+    <td>  {{ x.cnt}}</td>
+
+  </tr>
+{% endfor %}
+</table>
+
+
+
+<h1>計算價差和漲跌幅</h1>
+
+<p>
+請將以下表格複製並粘貼到 Excel 的 A1 位置，再行調整並加整個區域的格式。
+</p>
 
 <table class="table table-bordered  table-condensed text-center ">
 {% regroup byquarter by designation as list01 %}
@@ -61,6 +93,57 @@
 {% endfor  %}
 </table>
 
+<h1>每月均價</h1>
+<table class="table table-bordered  table-condensed text-center ">
+{% regroup subtotal by designation as list01 %}
+
+{% for x in list01 %}
+{% if forloop.counter == 1 %}
+<tr class="bg-primary">
+<td rowspan='1'>月平均價</td>
+{% for y in x.list %}
+
+<td>{{ y.yearnum }}  </td>
+
+
+{% endfor  %}
+</tr>
+{% endif %}
+{% endfor  %}
+
+{% for x in list01 %}
+{% if forloop.counter == 1 %}
+<tr class="bg-primary">
+<td>牌號</td>
+{% for y in x.list %}
+
+<td>{{ y.monthnum }} </td>
+
+
+{% endfor  %}
+
+
+</tr>
+{% endif %}
+{% endfor  %}
+
+{% for x in list01 %}
+<tr  align='center'>
+
+<td>{{ x.grouper }}</td>
+{% for y in x.list %}
+
+<td>{{ y.avg|stringformat:".2f" }} </td>
+
+{% endfor  %}
+<!--<td>=D{{forloop.counter | add:2 }}-B{{forloop.counter | add:2 }}</td>-->
+<!--<td>=F{{forloop.counter | add:2 }}/B{{forloop.counter | add:2 }}</td> -->
+<!--<td>=E{{forloop.counter | add:2 }}-B{{forloop.counter | add:2 }}</td>  -->
+<!--<td>=H{{forloop.counter | add:2 }}/B{{forloop.counter | add:2 }}</td> -->
+</tr>
+{% endfor  %}
+</table>
+
   <!--<tr align='center'>-->
   <!--  <td>  {{ x.designation}}</td>-->
   <!--  <td>  {{ x.yearnum}}Q{{ x.quarternum}}</td>-->
@@ -68,8 +151,13 @@
 
   <!--</tr>-->
 
+<!-- {{ datacheck1}} -->
 
 
+
+<!--
+<hr>
+以下不顯示
 <h1>by Quarter</h1>
 <table  class="table table-bordered  table-condensed" >
 <tr class="bg-primary">
@@ -86,5 +174,5 @@
 
   </tr>
 {% endfor %}
-</table>
+</table> -->
 {% endblock %}
