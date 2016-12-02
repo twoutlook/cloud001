@@ -37,7 +37,7 @@ class Smm(models.Model):
     pricedate = models.DateField(max_length=10,verbose_name="行情日期")
     priceavg = models.DecimalField(max_digits=9, decimal_places=2,verbose_name="平均价")
     yearnum = models.IntegerField(default=2016, verbose_name="年")
-    monthnum = models.IntegerField(default=11, choices = MONTH_CHOICES,verbose_name="月")
+    monthnum = models.IntegerField(default=12, choices = MONTH_CHOICES,verbose_name="月")
     quarternum = models.IntegerField(default=4, choices = QUARTER_CHOICES, verbose_name="季")
 
     # remarks = models.CharField(max_length=200)
@@ -47,6 +47,7 @@ class Smm(models.Model):
         verbose_name = "上海有色網"
         verbose_name_plural = "上海有色網"
         # http://stackoverflow.com/questions/23137420/enforcing-unique-combinations-of-fields-in-django
+        # 同一牌號同一天只允許一筆資料
         unique_together = ('designation', 'pricedate')
 
 

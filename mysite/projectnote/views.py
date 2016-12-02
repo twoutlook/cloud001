@@ -205,8 +205,8 @@ def step0(request):
     # 2016-12-02, by WuNan
     # 按 step3 照做
 
-    is_grp001=request.user.groups.filter(name='grp001').exists()
-    if not is_grp001:
+    is_grp003=request.user.groups.filter(name='grp003').exists()
+    if not is_grp003:
          return redirect('/projectnote')
     # item_list = Materialprice.objects.filter(materialprice__pricedate=='总平均价').order_by('designation', 'num')[:3000]
 
@@ -222,8 +222,8 @@ def step1(request):
     # 2016-12-02, by WuNan
     # 按 step3 照做
 
-    is_grp001=request.user.groups.filter(name='grp001').exists()
-    if not is_grp001:
+    is_grp003=request.user.groups.filter(name='grp003').exists()
+    if not is_grp003:
          return redirect('/projectnote')
     item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
@@ -252,9 +252,8 @@ def step2(request):
     # 2016-12-02, by WuNan
     # 按 step3 照做
 
-    is_grp001=request.user.groups.filter(name='grp001').exists()
-
-    if not is_grp001:
+    is_grp003=request.user.groups.filter(name='grp003').exists()
+    if not is_grp003:
          return redirect('/projectnote')
 
     item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]

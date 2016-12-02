@@ -1,0 +1,21 @@
+
+
+select * from projectnote_smm;
+select * from projectnote_smm WHERE monthnum in (1,2,3);
+
+select strftime('%Y',pricedate),strftime('%m',pricedate),strftime('%d',pricedate)  from projectnote_smm;
+select strftime('%m',pricedate) from projectnote_smm;
+select strftime('%d',pricedate) from projectnote_smm;
+
+ update projectnote_smm set yearnum = strftime('%Y',pricedate),monthnum = strftime('%m',pricedate);
+
+ update projectnote_smm set quarternum = 1  WHERE monthnum in (1,2,3);
+ update projectnote_smm set quarternum = 2  WHERE monthnum in (4,5,6);
+ update projectnote_smm set quarternum = 3  WHERE monthnum in (7,8,9);
+ update projectnote_smm set quarternum = 4  WHERE monthnum in (10,11,12);
+
+
+
+
+
+ update projectnote_smm set designation = 'A356'  WHERE designation = 'ADC356';
