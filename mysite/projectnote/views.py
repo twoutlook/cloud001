@@ -194,9 +194,12 @@ byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg
 
 
 def step0(request):
-    # if not request.user.is_authenticated:
-    #      return redirect('/')
-    # 总平均价
+    # 2016-12-02, by WuNan
+    # 按 step3 照做
+
+    is_grp001=request.user.groups.filter(name='grp001').exists()
+    if not is_grp001:
+         return redirect('/projectnote')
     # item_list = Materialprice.objects.filter(materialprice__pricedate=='总平均价').order_by('designation', 'num')[:3000]
 
     context = {'current_user':request.user
@@ -208,9 +211,12 @@ def step0(request):
     }
     return render(request, 'projectnote/step0.html', context)
 def step1(request):
-    # if not request.user.is_authenticated:
-    #      return redirect('/')
-    # 总平均价
+    # 2016-12-02, by WuNan
+    # 按 step3 照做
+
+    is_grp001=request.user.groups.filter(name='grp001').exists()
+    if not is_grp001:
+         return redirect('/projectnote')
     item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
     # subtotal=Smm.objects.values('designation', 'yearnum','monthnum').annotate(avg=Avg('priceavg')/1000)
@@ -235,9 +241,14 @@ def bymonth(request):
 
 
 def step2(request):
-    # if not request.user.is_authenticated:
-    #      return redirect('/')
-    # 总平均价
+    # 2016-12-02, by WuNan
+    # 按 step3 照做
+
+    is_grp001=request.user.groups.filter(name='grp001').exists()
+
+    if not is_grp001:
+         return redirect('/projectnote')
+
     item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
     subtotal=Smm.objects.values('designation', 'yearnum','monthnum').annotate(avg=Avg('priceavg')/1000)
@@ -246,11 +257,14 @@ def step2(request):
 
     context = {'current_user':request.user,'page_title':'SMM','item_list': item_list,'subtotal': subtotal,'byquarter': byquarter}
     return render(request, 'projectnote/step2.html', context)
+
 def step3(request):
+    # 2016-12-02, by Mark
+    # 只允許具有 grp001 群組的用戶可以訪問
+    # 否則頁面轉到全制程追踪系統的目錄
     is_grp001=request.user.groups.filter(name='grp001').exists()
     if not is_grp001:
          return redirect('/projectnote')
-
 
     item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
