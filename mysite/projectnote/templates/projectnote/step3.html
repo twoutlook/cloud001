@@ -144,6 +144,60 @@
 {% endfor  %}
 </table>
 
+
+
+
+<h1>每月筆數</h1>
+<table class="table table-bordered  table-condensed text-center ">
+{% regroup datacheck2 by designation as list01 %}
+
+{% for x in list01 %}
+{% if forloop.counter == 1 %}
+<tr class="bg-primary">
+<td rowspan='1'>月平均價</td>
+{% for y in x.list %}
+
+<td>{{ y.yearnum }}  </td>
+
+
+{% endfor  %}
+</tr>
+{% endif %}
+{% endfor  %}
+
+{% for x in list01 %}
+{% if forloop.counter == 1 %}
+<tr class="bg-primary">
+<td>牌號</td>
+{% for y in x.list %}
+
+<td>{{ y.monthnum }} </td>
+
+
+{% endfor  %}
+
+
+</tr>
+{% endif %}
+{% endfor  %}
+
+{% for x in list01 %}
+<tr  align='center'>
+
+<td>{{ x.grouper }}</td>
+{% for y in x.list %}
+
+<td>{{ y.cnt|stringformat:".0f" }} </td>
+
+{% endfor  %}
+<!--<td>=D{{forloop.counter | add:2 }}-B{{forloop.counter | add:2 }}</td>-->
+<!--<td>=F{{forloop.counter | add:2 }}/B{{forloop.counter | add:2 }}</td> -->
+<!--<td>=E{{forloop.counter | add:2 }}-B{{forloop.counter | add:2 }}</td>  -->
+<!--<td>=H{{forloop.counter | add:2 }}/B{{forloop.counter | add:2 }}</td> -->
+</tr>
+{% endfor  %}
+</table>
+
   <!--<tr align='center'>-->
   <!--  <td>  {{ x.designation}}</td>-->
   <!--  <td>  {{ x.yearnum}}Q{{ x.quarternum}}</td>-->
