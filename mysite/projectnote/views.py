@@ -294,6 +294,46 @@ def step3(request):
     }
     return render(request, 'projectnote/step3.html', context)
 
+
+def step3ext(request,item_id):
+    # 2016-12-02, by Mark
+    # 只允許具有 grp001 群組的用戶可以訪問
+    # 否則頁面轉到全制程追踪系統的目錄
+
+    is_grp003=request.user.groups.filter(name='grp003').exists()
+    if not is_grp003:
+         return redirect('/projectnote')
+# http://stackoverflow.com/questions/6102127/django-model-filter-on-date-ranges
+    # MyModel.objects.filter(date__range=(range_start, range_end))
+    # http://stackoverflow.com/questions/4668619/django-database-query-how-to-filter-objects-by-date-range
+    datacheck3=Smm.objects.filter(pricedate__range = ["2016-01-01", item_id]).values( 'yearnum','monthnum').annotate(cnt=Count('priceavg'))
+
+
+
+    item_list = Smm.objects.filter(pricedate__range = ["2016-01-01", item_id]).order_by('designation', 'pricedate')[:3000]
+    # subtotal =Receiving.objects.values("").annotate(Count('FG')).
+    # date_time_field__contains=datetime.date(1986, 7, 28)
+    datacheck1=Smm.objects.filter(pricedate__range = ["2016-01-01", item_id]).values('designation').annotate(min=Min('pricedate'),max=Max('pricedate'),cnt=Count('pricedate'),)
+    datacheck2=Smm.objects.filter(pricedate__range = ["2016-01-01", item_id]).values('designation', 'yearnum','monthnum').annotate(cnt=Count('priceavg'))
+    subtotal=Smm.objects.filter(pricedate__range = ["2016-01-01", item_id]).values('designation', 'yearnum','monthnum').annotate(avg=Avg('priceavg')/1000)
+    byquarter=Smm.objects.filter(pricedate__range = ["2016-01-01", item_id]).values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
+    # item_list = Materialprice.objects.filter(materialprice__pricedate=='总平均价').order_by('designation', 'num')[:3000]
+
+    context = {'current_user':request.user,
+        'page_title':'SMM',
+        'item_list': item_list,
+        'subtotal': subtotal,
+        'byquarter': byquarter,
+        'datacheck1':datacheck1,
+        'datacheck2':datacheck2,
+        'datacheck3':datacheck3,
+        'enddate':item_id,
+
+    }
+    return render(request, 'projectnote/step3ext.html', context)
+
+
+
 def step3a(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')
