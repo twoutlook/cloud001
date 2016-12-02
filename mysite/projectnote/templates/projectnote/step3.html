@@ -10,13 +10,13 @@
 <!--{{ byquarter}}-->
 
 
-<table class="table table-bordered  table-condensed text-center">
+<table class="table table-bordered  table-condensed text-center ">
 {% regroup byquarter by designation as list01 %}
 
 {% for x in list01 %}
 {% if forloop.counter == 1 %}
 <tr class="bg-primary">
-<td rowspan='2'>牌號</td>
+<td rowspan='2' style="vertical-align: middle">牌號</td>
 {% for y in x.list %}
 <td>{{ y.yearnum }}  </td>
 {% endfor  %}
