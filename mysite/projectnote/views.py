@@ -26,8 +26,11 @@ def index(request):
     # http://stackoverflow.com/questions/4577513/how-do-i-change-a-django-template-based-on-the-users-group
     # item001=get_object_or_404(Item001, pk=item001_id)
     is_grp001=request.user.groups.filter(name='grp001').exists()
+    is_grp002=request.user.groups.filter(name='grp002').exists()
+    is_grp003=request.user.groups.filter(name='grp003').exists()
+
     item_list = Note.objects.order_by('date1')[:100]
-    context = {'current_user':request.user,'page_title':'目錄','item_list': item_list,'is_grp001':is_grp001}
+    context = {'current_user':request.user,'page_title':'目錄','item_list': item_list,'is_grp001':is_grp001,'is_grp002':is_grp002,'is_grp003':is_grp003}
 
     # context = {'current_user':request.user,'page_title':'TEST1︰'}
     return render(request, 'projectnote/index.html', context)
@@ -40,7 +43,7 @@ def test1(request):
 
     # item001=get_object_or_404(Item001, pk=item001_id)
     item_list = Note.objects.order_by('date1')[:100]
-    context = {'current_user':request.user,'page_title':'TEST1','item_list': item_list}
+    context = {'current_user':request.user,'page_title':'實施記要','item_list': item_list}
 
     # context = {'current_user':request.user,'page_title':'TEST1︰'}
     return render(request, 'projectnote/test1.html', context)
@@ -151,8 +154,11 @@ def p1(request):
     return render(request, 'projectnote/p1.html', context)
 
 def flowchart_list(request):
-    if not request.user.is_authenticated:
-         return redirect('/')
+    # if not request.user.is_authenticated:
+    #      return redirect('/')
+    is_grp002=request.user.groups.filter(name='grp002').exists()
+    if not is_grp002:
+         return redirect('/projectnote')
     # 总平均价
     item_list = Flowchart.objects.order_by('part_name', 'id')[:3000]
 
@@ -162,8 +168,10 @@ def flowchart_list(request):
 
 
 def flowchart(request,item_id):
-    if not request.user.is_authenticated:
-        return redirect('/')
+    is_grp002=request.user.groups.filter(name='grp002').exists()
+    if not is_grp002:
+         return redirect('/projectnote')
+
     item=get_object_or_404(Flowchart, pk=item_id)
     itemprocess=Flowchartprocess.objects.filter(flowchart = item_id)
 
@@ -262,8 +270,11 @@ def step3(request):
     # 2016-12-02, by Mark
     # 只允許具有 grp001 群組的用戶可以訪問
     # 否則頁面轉到全制程追踪系統的目錄
-    is_grp001=request.user.groups.filter(name='grp001').exists()
-    if not is_grp001:
+
+    # 2016-12-02, by Mark
+    # 拆分 grp001 為 grp001 grp002 grp003
+    is_grp003=request.user.groups.filter(name='grp003').exists()
+    if not is_grp003:
          return redirect('/projectnote')
 
     item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]

@@ -7,17 +7,13 @@
 
 
 {% block content %}
-<h1>
+<hr>
+<div>
 <!-- {{ is_projectgroup }} -->
-
+<h3>grp001</h3>
 {% if is_grp001 %}
   <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/test1'> 實施記要 </a>
-  <a class="btn btn-primary " href='/projectnote/flowchart'> 生产工艺流程卡 </a>
-  <a class="btn btn-primary " href='/projectnote/step0'> step??? </a>
-  <a class="btn btn-primary " href='/projectnote/step1'> step??? </a>
-  <a class="btn btn-primary " href='/projectnote/step2'> step??? </a>
-  <a class="btn btn-primary " href='/projectnote/step3'> step??? </a>
 
 {% else %}
 
@@ -25,10 +21,36 @@
 
 
 {% endif %}
-</h1>
+</div>
+<hr>
+
+<div>
+<h3>grp002</h3>
+{% if is_grp002 %}
+  <!-- 登入用戶俱有權限繼續訪問 -->
+  <a class="btn btn-primary " href='/projectnote/flowchart'> 生产工艺流程卡 </a>
+{% else %}
+
+<a class="btn btn-warning " href='/admin/login/?next=/projectnote'> 必需先登入 </a>
 
 
-<p class="bg-info"><em>Kick off</em> to be 2016-12-19 or 2016-12-20</p>
+{% endif %}
+</div>
+<hr>
+<div>
+<h3>grp003</h3>
+{% if is_grp003 %}
+  <!-- 登入用戶俱有權限繼續訪問 -->
+  <a class="btn btn-primary " href='/projectnote/step3'> 材料價格 </a>
+{% else %}
+
+<a class="btn btn-warning " href='/admin/login/?next=/projectnote'> 必需先登入 </a>
+
+
+{% endif %}
+</div>
+
+<p class="bg-info text-center"><em>全制程追踪系統</em> 2016-11-24 13:30 正式啟動</p>
 <!-- <p class="bg-primary"><em>Kick off</em> to be 2016-12-19 or 2016-12-20</p> -->
     <!-- This is <em>bootstrap3</em> for <strong>Django</strong>. -->
 
