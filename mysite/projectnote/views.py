@@ -247,9 +247,11 @@ def step2(request):
     context = {'current_user':request.user,'page_title':'SMM','item_list': item_list,'subtotal': subtotal,'byquarter': byquarter}
     return render(request, 'projectnote/step2.html', context)
 def step3(request):
-    # if not request.user.is_authenticated:
-    #      return redirect('/')
-    # 总平均价
+    is_grp001=request.user.groups.filter(name='grp001').exists()
+    if not is_grp001:
+         return redirect('/projectnote')
+
+
     item_list = Smm.objects.order_by('designation', 'pricedate')[:3000]
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
     subtotal=Smm.objects.values('designation', 'yearnum','monthnum').annotate(avg=Avg('priceavg')/1000)
