@@ -8,7 +8,8 @@
 {% block content %}
  <!-- {{ datacheck3}} -->
 <h1>資料日期起迄︰2016-01-01 to {{ enddate}}</h1>
-<h1>资料起迄日期和笔数</h1>
+<h1>资料笔数</h1>
+<em>資料日期起迄︰2016-01-01 to {{ enddate}}</em>
 <!-- <table class="table table-bordered  table-condensed text-center "> -->
   <table class="table table-bordered text-center ">
 
@@ -37,6 +38,7 @@
 
 
 <h1>計算價差和漲跌幅</h1>
+<em>資料日期起迄︰2016-01-01 to {{ enddate}}</em>
 
 <p>
 請將以下表格複製並粘貼到 Excel 的 A1 位置，再行調整並加整個區域的格式。
@@ -94,6 +96,8 @@
 </table>
 
 <h1>每月均價</h1>
+<em>資料日期起迄︰2016-01-01 to {{ enddate}}</em>
+
 <table class="table table-bordered  table-condensed text-center ">
 {% regroup subtotal by designation as list01 %}
 
@@ -148,6 +152,7 @@
 
 
 <h1>每月筆數</h1>
+<em>資料日期起迄︰2016-01-01 to {{ enddate}}</em>
 <table class="table table-bordered  table-condensed text-center ">
 {% regroup datacheck2 by designation as list01 %}
 

@@ -26,7 +26,10 @@ urlpatterns = [
     url(r'^bymonth', views.bymonth, name='bymonth'),
     url(r'^step2', views.step2, name='step2'),
     url(r'^step3a', views.step3a, name='step3a'),
+
+    # 2016-12-05 可以設定截止日期
     url(r'^step3ext/(?P<item_id>[_A-Za-z0-9-\#\\+]+)', views.step3ext, name='step3ext'),
+
     url(r'^step3$', views.step3, name='step3'),
     # url(r'^step3a', views.step3a, name='step3a'),
 
