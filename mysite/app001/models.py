@@ -58,12 +58,12 @@ class Flowchartprocess(models.Model):
 
 # 2016-11-24
 # 2016-12-05 之前的最初生產工藝流程卡的實驗
-class T01(models.Model):
-    f02 = models.CharField("B",max_length=30)
-    f03 = models.CharField("C",max_length=30)
-    f04 = models.CharField("D",max_length=30)
-    def __str__(self):
-        return self.f02
+# class T01(models.Model):
+#     f02 = models.CharField("B",max_length=30)
+#     f03 = models.CharField("C",max_length=30)
+#     f04 = models.CharField("D",max_length=30)
+#     def __str__(self):
+#         return self.f02
 
 
 # class Customer(models.Model):

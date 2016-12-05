@@ -47,7 +47,7 @@ urlpatterns = [
 
     url(r'^item005/', views.item005, name='item005'),
 
-    url(r'^t01/', views.t01, name='t01'),
+    # url(r'^t01/', views.t01, name='t01'),
 
     url(r'^item010/', views.item010, name='item010'),
     url(r'^item011/', views.item011, name='item011'),
