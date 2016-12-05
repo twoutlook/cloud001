@@ -84,9 +84,11 @@ class FlowchartprocessAdmin(ImportExportModelAdmin):
 admin.site.register(Flowchartprocess,FlowchartprocessAdmin)
 
 
-class T01Admin(admin.ModelAdmin):
-    list_display=['f02','f03','f04']
-admin.site.register(T01,T01Admin)
+# 2016-12-05, by Mark
+# 要廢丟這個小實驗，admin 畫面不再出現 APP001/T01s
+# class T01Admin(admin.ModelAdmin):
+#     list_display=['f02','f03','f04']
+# admin.site.register(T01,T01Admin)
 
 
 
