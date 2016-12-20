@@ -238,8 +238,8 @@ def employee(request):
     # 2016-12-02, by WuNan
     # 按 step3 照做
 
-    is_grp003=request.user.groups.filter(name='grp003').exists()
-    if not is_grp003:
+    is_grp=request.user.groups.filter(name='grp002').exists()
+    if not is_grp:
          return redirect('/projectnote')
 
     item_list = Employee.objects.order_by('c', 'd', 'e', 'a')[:3000]
