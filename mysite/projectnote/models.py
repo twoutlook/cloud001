@@ -100,6 +100,26 @@ class Flowchartprocess(models.Model):
         verbose_name = "流程"
         verbose_name_plural = "流程"
 
+class Employee(models.Model):
+    # num = models.IntegerField(default=0,verbose_name="第幾式")
+    # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
+    # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
+    a = models.CharField(default = '.', max_length=32,verbose_name="工号")
+    b = models.CharField(default = '.', max_length=32,verbose_name="姓名")
+    c = models.CharField(max_length=128,verbose_name="部门名称")
+    d = models.CharField(max_length=128,verbose_name="班组名称")
+    e = models.CharField(default= ".", max_length=256,verbose_name="职位名称")
+    f = models.CharField(default= ".", max_length=32,verbose_name="人员性质")
+
+
+    # remarks = models.CharField(max_length=200)
+    def __str__(self):
+        return self.a
+    class Meta:
+        verbose_name = "員工"
+        verbose_name_plural = "員工"
+
+
 # Create your models here.
 class Note(models.Model):
     # num = models.IntegerField(default=0,verbose_name="第幾式")

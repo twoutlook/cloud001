@@ -17,7 +17,7 @@ from django.db.models import Count,Max, Min, Sum, Avg
 
 from .models import Flowchart
 from .models import Flowchartprocess
-from .models import Smm
+from .models import Smm, Employee
 
 def index(request):
     # if not request.user.is_authenticated:
@@ -233,6 +233,27 @@ def step1(request):
 
     context = {'current_user':request.user,'page_title':'SMM','item_list': item_list,'subtotal': subtotal,'bymonth': bymonth,'bymonthcheck': bymonthcheck}
     return render(request, 'projectnote/step1.html', context)
+
+def employee(request):
+    # 2016-12-02, by WuNan
+    # 按 step3 照做
+
+    is_grp003=request.user.groups.filter(name='grp003').exists()
+    if not is_grp003:
+         return redirect('/projectnote')
+
+    item_list = Employee.objects.order_by('c', 'd', 'e', 'a')[:3000]
+    subtotal=Employee.objects.values('c', 'd','e').annotate(cnt=Count('a'))
+    # byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
+
+    context = {'current_user':request.user,'page_title':'Employee',
+    'item_list': item_list,
+    'subtotal': subtotal,
+    # 'byquarter': byquarter
+    }
+    return render(request, 'projectnote/employee.html', context)
+
+
 
 def bymonth(request):
     # if not request.user.is_authenticated:

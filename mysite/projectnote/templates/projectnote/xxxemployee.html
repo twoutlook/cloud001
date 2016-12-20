@@ -1,0 +1,123 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+{% block content %}
+<!--<h1>by Quarter</h1>-->
+<!--<table>-->
+<!--<tr>-->
+<!--  <th> 牌號</td>-->
+<!--  <th> 年</td>-->
+<!--  <th>季度</td>-->
+<!--    <th> 平均單價(KG)</td>-->
+
+<!--  </tr>-->
+<!--{% for x in byquarter %}-->
+<!--  <tr>-->
+<!--    <td>  {{ x.designation}}</td>-->
+<!--    <td>  {{ x.yearnum}}</td>-->
+<!--    <td>  {{ x.quarternum}}</td>-->
+<!--    <td>  {{ x.avg|stringformat:".2f"}}</td>-->
+
+<!--  </tr>-->
+<!--{% endfor %}-->
+<!--</table>-->
+<!--<h1> Month 2016-11</h1>-->
+<!--<table>-->
+<!--<tr>-->
+<!--  <th> 牌號</td>-->
+<!--  <th> 年</td>-->
+<!--  <th>月份</td>-->
+<!--    <th> 平均單價(KG)</td>-->
+
+<!--  </tr>-->
+<!--{% for x in subtotal %}-->
+<!--{% if x.monthnum == 11 %}-->
+
+<!--  <tr>-->
+<!--    <td>  {{ x.designation}}</td>-->
+<!--    <td>  {{ x.yearnum}}</td>-->
+<!--    <td align='center'>  {{ x.monthnum}}</td>-->
+<!--    <td>  {{ x.avg|stringformat:".2f"}}</td>-->
+
+<!--  </tr>-->
+<!--  {% endif %}-->
+
+<!--{% endfor %}-->
+<!--</table>-->
+
+<!--<h1>by Month</h1>-->
+<!--<table>-->
+<!--<tr>-->
+<!--  <th> 牌號</td>-->
+<!--  <th> 年</td>-->
+<!--  <th>月份</td>-->
+<!--    <th> 平均單價(KG)</td>-->
+
+<!--  </tr>-->
+<!--{% for x in subtotal %}-->
+<!--  <tr>-->
+<!--    <td>  {{ x.designation}}</td>-->
+<!--    <td>  {{ x.yearnum}}</td>-->
+<!--    <td align='center'>  {{ x.monthnum}}</td>-->
+<!--    <td>  {{ x.avg|stringformat:".2f"}}</td>-->
+
+<!--  </tr>-->
+<!--{% endfor %}-->
+<!--</table>-->
+<h1>Employee Count</h1>
+{{ subtotal}}
+<table class="table table-bordered text-center ">
+
+  <!-- <tr  align='center' class="bg-primary text-center"> -->
+<tr class="bg-primary" >
+<td>xxx</td>
+</tr>
+</table>
+<hr>
+<h1>Employee List</h1>
+<hr>
+<table class="table table-bordered">
+  <tr class="bg-primary">
+    <td>  </td>
+      <td>  ID</td>
+    <td> Name</td>
+    <td> Dept</td>
+    <td> Sect</td>
+    <td> Position</td>
+    <td> DL/IL</td>
+
+  </tr>
+{% for item in item_list %}
+
+    <tr align='center'>
+
+<td>  {{ forloop.counter}}</td>
+<td>  {{ item.a}}</td>
+<td>  {{ item.b}}</td>
+<td>  {{ item.c}}</td>
+<td>  {{ item.d}}</td>
+<td>  {{ item.e}}</td>
+<td>  {{ item.f}}</td>
+
+      </tr>
+
+
+{% endfor %}
+</table>
+
+<!-- <h1> debug...</h1>
+{% for item in item_list %}
+      {{ item.vendor}}&nbsp;
+      {{ item.podate |date:"Y-m-d"}}&nbsp;
+      {{ item.part  }}
+      {{ item.spec  }}
+      {{ item.qty  }}
+      {{ item.unit  }}
+      {{ item.price  }}
+    <br>
+{% endfor %} -->
+
+{% endblock %}
