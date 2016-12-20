@@ -7,6 +7,34 @@
 
 {% block content %}
 
+<h1>Employee Count Sub1</h1>
+<!-- {{ subtotal}} -->
+<table class="table table-bordered text-center ">
+
+  <!-- <tr  align='center' class="bg-primary text-center"> -->
+<tr class="bg-primary" >
+  <td></td>
+  <td>dept</td>
+  <td>sect</td>
+  <!-- <td>position</td> -->
+  <td>cnt</td>
+</tr>
+{% for x in sub1 %}
+
+    <tr align='center'>
+
+<td>  {{ forloop.counter}}</td>
+<td>  {{ x.c}}</td>
+<td>  {{ x.d}}</td>
+<!-- <td>  {{ x.e}}</td> -->
+<td>  {{ x.cnt}}</td>
+
+
+      </tr>
+
+
+{% endfor %}
+</table>
 <h1>Employee Count</h1>
 <!-- {{ subtotal}} -->
 <table class="table table-bordered text-center ">
