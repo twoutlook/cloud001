@@ -245,11 +245,14 @@ def employee(request):
     item_list = Employee.objects.order_by('c', 'd', 'e', 'a')[:3000]
     subtotal=Employee.objects.values('c', 'd','e').annotate(cnt=Count('a'))
     sub1=Employee.objects.values('c', 'd').annotate(cnt=Count('a'))
+    sub0=Employee.objects.values('c').annotate(cnt=Count('a'))
     # byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
 
     context = {'current_user':request.user,'page_title':'Employee',
     'item_list': item_list,
+    'sub0': sub0,
     'sub1': sub1,
+
     'subtotal': subtotal,
 
     # 'byquarter': byquarter
