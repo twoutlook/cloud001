@@ -27,7 +27,7 @@ DEBUG = True
 
 #DisallowedHost at Invalid HTTP_HOST header: '10.10.0.70:8000'.
 #You may need to add '10.10.0.70' to ALLOWED_HOSTS.
-ALLOWED_HOSTS = ['10.10.0.70']
+ALLOWED_HOSTS = ['10.10.0.70','portal.fulltech-metal.com']
 
 
 # Application definition
