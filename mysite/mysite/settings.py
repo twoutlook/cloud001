@@ -25,7 +25,9 @@ SECRET_KEY = 'r=#+4c(64+)du+(s6of6zr59riz3bv&nb50v(b$ri_yd65@kg%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#DisallowedHost at Invalid HTTP_HOST header: '10.10.0.70:8000'.
+#You may need to add '10.10.0.70' to ALLOWED_HOSTS.
+ALLOWED_HOSTS = ['10.10.0.70']
 
 
 # Application definition
