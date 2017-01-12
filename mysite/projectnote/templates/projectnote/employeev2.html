@@ -1,0 +1,130 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+<h1>(1)部門人員統計</h1>
+<!-- {{ subtotal}} -->
+<table class="table table-bordered text-center ">
+
+  <!-- <tr  align='center' class="bg-primary text-center"> -->
+<tr class="bg-primary" >
+  <td></td>
+  <td>dept</td>
+  <!-- <td>sect</td> -->
+  <!-- <td>position</td> -->
+  <td>cnt</td>
+</tr>
+{% for x in sub0 %}
+
+    <tr align='center'>
+
+<td>  {{ forloop.counter}}</td>
+<td>  {{ x.c}}</td>
+<!-- <td>  {{ x.d}}</td> -->
+<!-- <td>  {{ x.e}}</td> -->
+<td>  {{ x.cnt}}</td>
+
+
+      </tr>
+
+
+{% endfor %}
+</table>
+
+
+<h1>(2)部門組別人員統計</h1>
+<!-- {{ subtotal}} -->
+<table class="table table-bordered text-center ">
+
+  <!-- <tr  align='center' class="bg-primary text-center"> -->
+<tr class="bg-primary" >
+  <td></td>
+  <td>dept</td>
+  <td>sect</td>
+  <!-- <td>position</td> -->
+  <td>cnt</td>
+</tr>
+{% for x in sub1 %}
+
+    <tr align='center'>
+
+<td>  {{ forloop.counter}}</td>
+<td>  {{ x.c}}</td>
+<td>  {{ x.d}}</td>
+<!-- <td>  {{ x.e}}</td> -->
+<td>  {{ x.cnt}}</td>
+
+
+      </tr>
+
+
+{% endfor %}
+</table>
+<h1>(3)部門組別職稱人員統計</h1><!-- {{ subtotal}} -->
+<table class="table table-bordered text-center ">
+
+  <!-- <tr  align='center' class="bg-primary text-center"> -->
+<tr class="bg-primary" >
+  <td></td>
+  <td>dept</td>
+  <td>sect</td>
+  <td>position</td>
+  <td>cnt</td>
+</tr>
+{% for x in subtotal %}
+
+    <tr align='center'>
+
+<td>  {{ forloop.counter}}</td>
+<td>  {{ x.c}}</td>
+<td>  {{ x.d}}</td>
+<td>  {{ x.e}}</td>
+<td>  {{ x.cnt}}</td>
+
+
+      </tr>
+
+
+{% endfor %}
+</table>
+
+<h1>Employee List</h1>
+<hr>
+<table class="table table-bordered">
+  <tr class="bg-primary">
+    <td>  </td>
+      <td>  ID</td>
+    <td> Name</td>
+    <td> Dept</td>
+    <td> Sect</td>
+    <td> Position</td>
+    <td> DL/IL</td>
+
+  </tr>
+{% for item in item_list %}
+
+    <tr align='center'>
+
+<td>  {{ forloop.counter}}</td>
+<td>  {{ item.a}}</td>
+<td>  {{ item.b}}</td>
+<td>  {{ item.c}}</td>
+<td>  {{ item.d}}</td>
+<td>  {{ item.e}}</td>
+<td>  {{ item.f}}</td>
+
+      </tr>
+
+
+{% endfor %}
+</table>
+
+
+
+
+{% endblock %}

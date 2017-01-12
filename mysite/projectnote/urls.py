@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^flowchart/(?P<item_id>[_A-Za-z0-9-\#\\+]+)', views.flowchart, name='flowchart'), #item001/123 後面有東西都好
 
     url(r'^employee', views.employee, name='employee'),
+    url(r'^employeev2', views.employeev2, name='employeev2'),
     url(r'^smm', views.smm, name='smm'),
     url(r'^step0', views.step0, name='step0'),
     url(r'^step1', views.step1, name='step1'),
