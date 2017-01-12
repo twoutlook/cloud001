@@ -94,16 +94,17 @@
 </table>
 
 <h1>Employee List</h1>
+<h1>(4)部門組別職稱人員名冊</h1><!-- {{ subtotal}} -->
 <hr>
 <table class="table table-bordered">
   <tr class="bg-primary">
     <td>  </td>
-      <td>  ID</td>
-    <td> Name</td>
     <td> Dept</td>
     <td> Sect</td>
     <td> Position</td>
-    <td> DL/IL</td>
+    <td>  ID</td>
+  <td> Name</td>
+  <td> DL/IL</td>
 
   </tr>
 {% for item in item_list %}
@@ -111,11 +112,11 @@
     <tr align='center'>
 
 <td>  {{ forloop.counter}}</td>
-<td>  {{ item.a}}</td>
-<td>  {{ item.b}}</td>
 <td>  {{ item.c}}</td>
 <td>  {{ item.d}}</td>
 <td>  {{ item.e}}</td>
+<td>  {{ item.a}}</td>
+<td>  {{ item.b}}</td>
 <td>  {{ item.f}}</td>
 
       </tr>
