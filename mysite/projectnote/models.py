@@ -147,8 +147,11 @@ class Trans(models.Model):
     c = models.CharField(default = '.', max_length=32,verbose_name="产品品名")
     d = models.CharField(default = '.', max_length=32,verbose_name="原料代码")
     e = models.CharField(default = '.', max_length=32,verbose_name="原料品名")
+    h = models.CharField(default = '.', max_length=32,verbose_name="单据号码")
+    i = models.CharField(default = '.', max_length=32,verbose_name="备注+")
 
     f =models.DecimalField("重量", max_digits=10, decimal_places=2)
+    g =models.DecimalField("数量",default =0, max_digits=10, decimal_places=2)
     # remarks = models.CharField(max_length=200)
     def __str__(self):
         return self.b

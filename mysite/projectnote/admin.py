@@ -40,7 +40,7 @@ admin.site.register(Smm,SmmAdmin)
 
 
 class TransAdmin(ImportExportModelAdmin):
-    list_display=['a','b','f']
+    list_display=['a','b','c','d','e','f','g','h','i']
     ordering = ['a','b']
     resource_class = TransResource
 admin.site.register(Trans,TransAdmin)
