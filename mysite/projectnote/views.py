@@ -300,7 +300,7 @@ def trans(request):
     # sub0=Employee.objects.values('c').annotate(cnt=Count('a'))
     # # byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
 
-    context = {'current_user':request.user,'page_title':'Trans',
+    context = {'current_user':request.user,'page_title':'收发存统计表-原材料',
     'item_list': item_list,
     # 'sub0': sub0,
     'sub1': sub1,

@@ -6,7 +6,8 @@
 {% endblock %}
 
 {% block content %}
-{{sub1}}
+<H1>(1)原材料结存</H1>
+<!-- {{sub1}} -->
 <table class="table table-bordered">
   
   <tr class="bg-primary">
@@ -14,7 +15,6 @@
     <td>年月</td>
     <td> 原料代码</td>
     <td> 原料品名</td>
-    <td>类型</td>
     <td> 重量</td>
    
     
@@ -25,13 +25,13 @@
    <td>  {{ item.yrmonth}}</td>
    <td>  {{ item.d}}</td>
    <td>  {{ item.e}}</td>
-   <td>  {{ item.cat}}</td>
    <td>  {{ item.sum}}</td>
   
   </tr>
 {% endfor %}
 </table>
-{{subtotal}}
+<H1>(2)原材料收发统计</H1>
+<!-- {{subtotal}} -->
 
 <table class="table table-bordered">
   
@@ -57,8 +57,9 @@
   </tr>
 {% endfor %}
 </table>
-{{item_list}}
-<h1>Trans</h1><!-- {{ subtotal}} -->
+<H1>(3)原材料收发明细</H1>
+<!-- {{item_list}} -->
+
 <hr>
 <table class="table table-bordered">
   <tr class="bg-primary">
