@@ -156,5 +156,5 @@ class Trans(models.Model):
     def __str__(self):
         return self.b
     class Meta:
-        verbose_name = "Transxxx"
-        verbose_name_plural = "Transyyy"
+        verbose_name = "原材料收发"
+        verbose_name_plural = "原材料收发"
