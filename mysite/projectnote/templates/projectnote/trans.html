@@ -1,48 +1,56 @@
-{% extends 'projectnote/base_projectnote.html' %}
-{% load bootstrap3 %}
+  {% extends 'projectnote/base_projectnote.html' %}
+  {% load bootstrap3 %}
 
-{% block page_title %}
-{{ page_title}}
-{% endblock %}
+  {% block page_title %}
+  {{ page_title}}
+  {% endblock %}
 
-{% block content %}
+  {% block content %}
 
-<h1>Trans</h1><!-- {{ subtotal}} -->
-<hr>
-<table class="table table-bordered">
-  
-  <tr class="bg-primary">
-    <td>  </td>
- 
-    <td>A</td>
-  <td> B</td>
-  <td> F</td>
+  <h1>Trans</h1><!-- {{ subtotal}} -->
+  <hr>
+  <table class="table table-bordered">
+    
+    <tr class="bg-primary">
+      <td>  </td>
+   
+      <td>A</td>
+      <td> B</td>
+      <td> C</td>
+      <td> D</td>
+      <td> E</td>
+      <td> F</td>
+    </tr><tr class="bg-primary">
+      <td>  </td>
+   
+      <td>日期</td>
+      <td> 产品代码</td>
+      <td> 产品品名</td>
+      <td> 原料代码</td>
+      <td> 原料品名</td>
+      <td> 重量</td>
 
-  </tr><tr class="bg-primary">
-    <td>  </td>
- 
-    <td>日期</td>
-  <td> 产品代码</td>
-  <td> 重量</td>
+    </tr>
+  {% for item in item_list %}
 
-  </tr>
-{% for item in item_list %}
+      <tr align='center'>
 
-    <tr align='center'>
+       <td>  {{ forloop.counter}}</td>
 
-<td>  {{ forloop.counter}}</td>
+  <td>  {{ item.a|date:'Y-m-d'}}</td>
+  <td>  {{ item.b}}</td>
+  <td>  {{ item.c}}</td>
+  <td>  {{ item.d}}</td>
+  <td>  {{ item.e}}</td>
+  <td>  {{ item.f}}</td>
 
-<td>  {{ item.a|date:'Y-m-d'}}</td>
-<td>  {{ item.b}}</td>
-<td>  {{ item.f}}</td>
-
-      </tr>
+        </tr>
 
 
-{% endfor %}
-</table>
+  {% endfor %}
+  </table>
 
 
 
 
-{% endblock %}
+  {% endblock %}

@@ -144,6 +144,10 @@ class Trans(models.Model):
 
     a = models.DateField(blank=False, null=False,verbose_name="日期")
     b = models.CharField(default = '.', max_length=32,verbose_name="产品代码")
+    c = models.CharField(default = '.', max_length=32,verbose_name="产品品名")
+    d = models.CharField(default = '.', max_length=32,verbose_name="原料代码")
+    e = models.CharField(default = '.', max_length=32,verbose_name="原料品名")
+
     f =models.DecimalField("重量", max_digits=10, decimal_places=2)
     # remarks = models.CharField(max_length=200)
     def __str__(self):
