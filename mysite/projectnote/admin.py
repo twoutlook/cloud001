@@ -12,7 +12,12 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee
+from  .models import Smm, Employee,Trans
+
+class TransResource(resources.ModelResource):
+    class Meta:
+        model = Trans
+
 
 class EmployeeResource(resources.ModelResource):
     class Meta:
@@ -32,6 +37,13 @@ class SmmAdmin(ImportExportModelAdmin):
     ordering = ['designation','pricedate']
     resource_class = SmmResource
 admin.site.register(Smm,SmmAdmin)
+
+
+class TransAdmin(ImportExportModelAdmin):
+    list_display=['a','b','f']
+    ordering = ['a','b']
+    resource_class = TransResource
+admin.site.register(Trans,TransAdmin)
 
 
 class NoteAdmin(ImportExportModelAdmin):

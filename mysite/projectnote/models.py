@@ -138,3 +138,16 @@ class Note(models.Model):
     # f = models.CharField(blank=True, null=True,  max_length=32,verbose_name="設備")
     # g = models.CharField(blank=True, null=True,  max_length=32,verbose_name="刀、治、模具")
     # h = models.CharField(blank=True, null=True,  max_length=32,verbose_name="檢具")
+
+class Trans(models.Model):
+    # 日期  产品代码    产品品名    原料代码    原料品名    重量  数量  单据号码    备注
+
+    a = models.DateField(blank=False, null=False,verbose_name="日期")
+    b = models.CharField(default = '.', max_length=32,verbose_name="产品代码")
+    f =models.DecimalField("重量", max_digits=10, decimal_places=2)
+    # remarks = models.CharField(max_length=200)
+    def __str__(self):
+        return self.b
+    class Meta:
+        verbose_name = "Transxxx"
+        verbose_name_plural = "Transyyy"
