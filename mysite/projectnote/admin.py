@@ -12,11 +12,15 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee,Trans
+from  .models import Smm, Employee,Trans,Rpt
 
 class TransResource(resources.ModelResource):
     class Meta:
         model = Trans
+class RptResource(resources.ModelResource):
+    class Meta:
+        model = Rpt
+
 
 
 class EmployeeResource(resources.ModelResource):
@@ -44,7 +48,11 @@ class TransAdmin(ImportExportModelAdmin):
     ordering = ['yrmonth','cat','a','b']
     resource_class = TransResource
 admin.site.register(Trans,TransAdmin)
-
+class RptAdmin(ImportExportModelAdmin):
+    list_display=['yrmonth','a','b','e','g','i','k']
+    ordering = ['yrmonth','a','b']
+    resource_class = RptResource
+admin.site.register(Rpt,RptAdmin)
 
 class NoteAdmin(ImportExportModelAdmin):
     list_display=['date1','tag','where','note','date2','fix']

@@ -17,7 +17,7 @@ from django.db.models import Count,Max, Min, Sum, Avg
 
 from .models import Flowchart
 from .models import Flowchartprocess
-from .models import Smm, Employee, Trans
+from .models import Smm, Employee, Trans,Rpt
 
 def index(request):
     # if not request.user.is_authenticated:
@@ -311,6 +311,29 @@ def trans(request):
     }
     return render(request, 'projectnote/trans.html', context)
 
+def rpt(request):
+    # 2016-12-02, by WuNan
+    # 按 step3 照做
+
+    is_grp=request.user.groups.filter(name='grp002').exists()
+    if not is_grp:
+         return redirect('/projectnote')
+
+    item_list = Rpt.objects.order_by('yrmonth','a', 'b')[:3000]
+    # sub1=Trans.objects.values('yrmonth', 'd','e').annotate(sum=Sum('f'))
+    # subtotal=Trans.objects.values('yrmonth','cat', 'd','e').annotate(sum=Sum('f'))
+    # sub1=Employee.objects.values('c', 'd').annotate(cnt=Count('a'))
+    # sub0=Employee.objects.values('c').annotate(cnt=Count('a'))
+    # # byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
+
+    context = {'current_user':request.user,'page_title':'收发存统计表-原材料(V2)',
+    'item_list': item_list,
+    # 'sub0': sub0,
+    
+
+    # 'byquarter': byquarter
+    }
+    return render(request, 'projectnote/rpt.html', context)
 
 
 

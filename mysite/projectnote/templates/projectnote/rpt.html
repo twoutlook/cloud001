@@ -1,0 +1,60 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<hr>
+<table class="table table-bordered">
+  <tr class="bg-primary">
+    <td> </td>  
+    <td>YYMM</td>
+   <!--  <td>CAT</td>   --> 
+    <td>A</td>
+    <td>B</td>
+    <td>E</td>
+    <td>G</td>
+    <td>I</td>
+    <td>K</td>
+    
+  </tr>
+  <tr class="bg-primary">
+    <td>  </td>
+    <td>年月</td>
+    <!-- <td>类型</td> -->
+    <!-- <td>日期</td> -->
+    <!-- <td> 产品代码</td>
+    <td> 产品品名</td> -->
+    <td> 原料代码</td>
+    <td> 原料品名</td>
+    <td> 期初</td>
+    <td> 购进</td>
+    <td> 领用</td>
+    <td> 结存</td>
+
+    <!-- <td> 数量</td>
+    <td> 单据号码</td>
+    <td> 备注</td> -->
+  </tr>
+{% for item in item_list %}
+  <tr align='center'>
+   <td>  {{ forloop.counter}}</td>
+   <td>  {{ item.yrmonth}}</td>
+  
+   <td>  {{ item.a}}</td>
+   <td>  {{ item.b}}</td>
+   <td>  {{ item.e}}</td>
+   <td>  {{ item.g}}</td>
+   <td>  {{ item.i}}</td>
+   <td>  {{ item.k}}</td>
+   
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}

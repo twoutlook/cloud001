@@ -22,6 +22,7 @@ urlpatterns = [
 
     url(r'^employeev2$', views.employeev2, name='employeev2'),
     url(r'^trans$', views.trans, name='trans'),
+    url(r'^rpt$', views.rpt, name='rpt'),
     # url(r'^employee$', views.employee, name='employee'),
     url(r'^smm', views.smm, name='smm'),
     url(r'^step0', views.step0, name='step0'),
