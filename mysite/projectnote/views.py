@@ -17,7 +17,7 @@ from django.db.models import Count,Max, Min, Sum, Avg
 
 from .models import Flowchart
 from .models import Flowchartprocess
-from .models import Smm, Employee
+from .models import Smm, Employee, Trans
 
 def index(request):
     # if not request.user.is_authenticated:
@@ -283,6 +283,34 @@ def employeev2(request):
     # 'byquarter': byquarter
     }
     return render(request, 'projectnote/employeev2.html', context)
+
+
+def trans(request):
+    # 2016-12-02, by WuNan
+    # 按 step3 照做
+
+    is_grp=request.user.groups.filter(name='grp002').exists()
+    if not is_grp:
+         return redirect('/projectnote')
+
+    item_list = Trans.objects.order_by('a', 'b', 'f')[:3000]
+    # subtotal=Employee.objects.values('c', 'd','e').annotate(cnt=Count('a'))
+    # sub1=Employee.objects.values('c', 'd').annotate(cnt=Count('a'))
+    # sub0=Employee.objects.values('c').annotate(cnt=Count('a'))
+    # # byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
+
+    context = {'current_user':request.user,'page_title':'Trans',
+    'item_list': item_list,
+    # 'sub0': sub0,
+    # 'sub1': sub1,
+
+    # 'subtotal': subtotal,
+
+    # 'byquarter': byquarter
+    }
+    return render(request, 'projectnote/trans.html', context)
+
+
 
 
 def bymonth(request):

@@ -1,0 +1,48 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+<h1>Trans</h1><!-- {{ subtotal}} -->
+<hr>
+<table class="table table-bordered">
+  
+  <tr class="bg-primary">
+    <td>  </td>
+ 
+    <td>A</td>
+  <td> B</td>
+  <td> F</td>
+
+  </tr><tr class="bg-primary">
+    <td>  </td>
+ 
+    <td>日期</td>
+  <td> 产品代码</td>
+  <td> 重量</td>
+
+  </tr>
+{% for item in item_list %}
+
+    <tr align='center'>
+
+<td>  {{ forloop.counter}}</td>
+
+<td>  {{ item.a|date:'Y-m-d'}}</td>
+<td>  {{ item.b}}</td>
+<td>  {{ item.f}}</td>
+
+      </tr>
+
+
+{% endfor %}
+</table>
+
+
+
+
+{% endblock %}
