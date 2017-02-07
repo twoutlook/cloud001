@@ -6,7 +6,58 @@
 {% endblock %}
 
 {% block content %}
+{{sub1}}
+<table class="table table-bordered">
+  
+  <tr class="bg-primary">
+    <td>  </td>
+    <td>年月</td>
+    <td> 原料代码</td>
+    <td> 原料品名</td>
+    <td>类型</td>
+    <td> 重量</td>
+   
+    
+  </tr>
+{% for item in sub1 %}
+  <tr align='center'>
+   <td>  {{ forloop.counter}}</td>
+   <td>  {{ item.yrmonth}}</td>
+   <td>  {{ item.d}}</td>
+   <td>  {{ item.e}}</td>
+   <td>  {{ item.cat}}</td>
+   <td>  {{ item.sum}}</td>
+  
+  </tr>
+{% endfor %}
+</table>
+{{subtotal}}
 
+<table class="table table-bordered">
+  
+  <tr class="bg-primary">
+    <td>  </td>
+    <td>年月</td>
+    <td> 原料代码</td>
+    <td> 原料品名</td>
+    <td>类型</td>
+    <td> 重量</td>
+   
+    
+  </tr>
+{% for item in subtotal %}
+  <tr align='center'>
+   <td>  {{ forloop.counter}}</td>
+   <td>  {{ item.yrmonth}}</td>
+   <td>  {{ item.d}}</td>
+   <td>  {{ item.e}}</td>
+   <td>  {{ item.cat}}</td>
+   <td>  {{ item.sum}}</td>
+  
+  </tr>
+{% endfor %}
+</table>
+{{item_list}}
 <h1>Trans</h1><!-- {{ subtotal}} -->
 <hr>
 <table class="table table-bordered">

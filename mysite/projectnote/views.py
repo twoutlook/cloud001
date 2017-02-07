@@ -294,7 +294,8 @@ def trans(request):
          return redirect('/projectnote')
 
     item_list = Trans.objects.order_by('a', 'b', 'f')[:3000]
-    # subtotal=Employee.objects.values('c', 'd','e').annotate(cnt=Count('a'))
+    sub1=Trans.objects.values('yrmonth', 'd','e').annotate(sum=Sum('f'))
+    subtotal=Trans.objects.values('yrmonth','cat', 'd','e').annotate(sum=Sum('f'))
     # sub1=Employee.objects.values('c', 'd').annotate(cnt=Count('a'))
     # sub0=Employee.objects.values('c').annotate(cnt=Count('a'))
     # # byquarter=Smm.objects.values('designation', 'yearnum','quarternum').annotate(avg=Avg('priceavg')/1000)
@@ -302,9 +303,9 @@ def trans(request):
     context = {'current_user':request.user,'page_title':'Trans',
     'item_list': item_list,
     # 'sub0': sub0,
-    # 'sub1': sub1,
+    'sub1': sub1,
 
-    # 'subtotal': subtotal,
+    'subtotal': subtotal,
 
     # 'byquarter': byquarter
     }
