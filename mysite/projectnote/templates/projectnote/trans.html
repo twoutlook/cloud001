@@ -1,65 +1,58 @@
-  {% extends 'projectnote/base_projectnote.html' %}
-  {% load bootstrap3 %}
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
 
-  {% block page_title %}
-  {{ page_title}}
-  {% endblock %}
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
 
-  {% block content %}
+{% block content %}
 
-  <h1>Trans</h1><!-- {{ subtotal}} -->
-  <hr>
-  <table class="table table-bordered">
-    
-    <tr class="bg-primary">
-      <td>  </td>
-   
-      <td>A</td>
-      <td> B</td>
-      <td> C</td>
-      <td> D</td>
-      <td> E</td>
-      <td> F</td>
-      <td> G</td>
-      <td> H</td>
-      <td> I</td>
-    </tr><tr class="bg-primary">
-      <td>  </td>
-   
-      <td>日期</td>
-      <td> 产品代码</td>
-      <td> 产品品名</td>
-      <td> 原料代码</td>
-      <td> 原料品名</td>
-      <td> 重量</td>
-      <td> 数量</td>
-      <td> 单据号码</td>
-      <td> 备注</td>
-
-    </tr>
-  {% for item in item_list %}
-
-      <tr align='center'>
-
-       <td>  {{ forloop.counter}}</td>
-
-  <td>  {{ item.a|date:'Y-m-d'}}</td>
-  <td>  {{ item.b}}</td>
-  <td>  {{ item.c}}</td>
-  <td>  {{ item.d}}</td>
-  <td>  {{ item.e}}</td>
-  <td>  {{ item.f}}</td>
-  <td>  {{ item.g}}</td>
-  <td>  {{ item.h}}</td>
-  <td>  {{ item.i}}</td>
-
-        </tr>
-
-
-  {% endfor %}
-  </table>
-
-
-
-
-  {% endblock %}
+<h1>Trans</h1><!-- {{ subtotal}} -->
+<hr>
+<table class="table table-bordered">
+  <tr class="bg-primary">
+    <td> </td>  
+    <td>YYMM</td>
+    <td>CAT</td>   
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+    <td>D</td>
+    <td>E</td>
+    <td>F</td>
+    <td>G</td>
+    <td>H</td>
+    <td>I</td>
+  </tr>
+  <tr class="bg-primary">
+    <td>  </td>
+    <td>年月</td>
+    <td>类型</td>
+    <td>日期</td>
+    <td> 产品代码</td>
+    <td> 产品品名</td>
+    <td> 原料代码</td>
+    <td> 原料品名</td>
+    <td> 重量</td>
+    <td> 数量</td>
+    <td> 单据号码</td>
+    <td> 备注</td>
+  </tr>
+{% for item in item_list %}
+  <tr align='center'>
+   <td>  {{ forloop.counter}}</td>
+   <td>  {{ item.yrmonth}}</td>
+   <td>  {{ item.cat}}</td>
+   <td>  {{ item.a|date:'Y-m-d'}}</td>
+   <td>  {{ item.b}}</td>
+   <td>  {{ item.c}}</td>
+   <td>  {{ item.d}}</td>
+   <td>  {{ item.e}}</td>
+   <td>  {{ item.f}}</td>
+   <td>  {{ item.g}}</td>
+   <td>  {{ item.h}}</td>
+   <td>  {{ item.i}}</td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}

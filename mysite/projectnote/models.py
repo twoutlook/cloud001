@@ -141,7 +141,33 @@ class Note(models.Model):
 
 class Trans(models.Model):
     # 日期  产品代码    产品品名    原料代码    原料品名    重量  数量  单据号码    备注
+    MONTH_CHOICES = (
+          ("2017-01","2017-01"),
+          ("2017-02","2017-02"),
+          ("2017-03","2017-03"),
+          ("2017-04","2017-04"),
+          ("2017-05","2017-05"),
+          ("2017-06","2017-06"),
+          ("2017-07","2017-07"),
+          ("2017-08","2017-08"),
+          ("2017-09","2017-09"),
+          ("2017-10","2017-10"),
+          ("2017-11","2017-11"),
+          ("2017-12","2017-12"),
+        )
+    # CAT_CHOICES = (
+    #       (1,"期初"),
+    #       (2,"购进"),
+    #       (3,"领用"),)
+    CAT_CHOICES = (
+          ("期初","期初"),
+          ("购进","购进"),
+          ("领用","领用"),)
+    yrmonth = models.CharField("年月",default='2017-01',  max_length=7,choices = MONTH_CHOICES)
 
+    # cat= models.IntegerField("类型",default=2,choices = CAT_CHOICES)
+    cat=  models.CharField("类型",default='购进',  max_length=2,choices =CAT_CHOICES)
+    
     a = models.DateField(blank=False, null=False,verbose_name="日期")
     b = models.CharField(default = '.', max_length=32,verbose_name="产品代码")
     c = models.CharField(default = '.', max_length=32,verbose_name="产品品名")
