@@ -1,0 +1,178 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+
+<!-- {{ item_list2}} -->
+<hr>
+{% for item in item_list2 %}
+  <!-- {{ item}},&nbsp; -->
+  {{ item.yrmonth}},&nbsp;
+  {{ item.a}},&nbsp;
+  {{ item.b}},&nbsp;
+  {{ item.e}},&nbsp;
+  {{ item.g}},&nbsp;
+  {{ item.i}},&nbsp;
+  {{ item.k}}
+ 
+  <br>
+{% endfor %}
+
+
+<hr>
+<h1>仿真版</H1>
+  <h3>收发存统计表-原材料</H3>
+<table class="table table-bordered">
+  <!-- <tr class="bg-primary">
+    <td> </td>  
+   
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+    <td>D</td>
+    <td>E</td>
+    <td>F</td> 
+    <td>G</td>
+    <td>H</td>
+    <td>I</td>
+    <td>J</td>
+    <td>K</td>
+    <td>L</td>
+    
+  </tr> -->
+  <tr class="bg-primary">
+    <!-- <td> </td>   -->
+    <!-- <td>YYMM</td> -->
+   <!--  <td>CAT</td>   --> 
+    
+    <td colspan='12' style="vertical-align: middle">收发存统计表-原材料</td>
+    
+    
+  </tr>
+   <tr class="bg-primary">
+    <!-- <td> </td>   -->
+    <!-- <td>YYMM</td> -->
+   <!--  <td>CAT</td>   --> 
+    
+    <td colspan='2' style="vertical-align: middle">单位:睿甲金属</td>
+    <td colspan='7' style="vertical-align: middle"></td>
+    <td colspan='3' style="vertical-align: middle">月份:1月份</td>
+    
+    
+  </tr>
+  <tr class="bg-primary">
+    <!-- <td> </td>   -->
+    <!-- <td>YYMM</td> -->
+   <!--  <td>CAT</td>   --> 
+    
+    <td rowspan='2' style="vertical-align: middle">代码</td>
+    <td rowspan='2' style="vertical-align: middle">名称</td>
+    <td rowspan='2' style="vertical-align: middle">单位</td>
+    <td rowspan='2' style="vertical-align: middle">单价</td>
+
+    
+    <td colspan="2">上月结存</td>
+    <td colspan="2">本月购进</td>
+    <td colspan="2">本月领用</td>
+    <td colspan="2">本月结存</td>
+    
+    
+    
+  </tr>
+  <tr class="bg-primary">
+    <!-- <td>  </td> -->
+   <!--  <td>年月</td> -->
+
+    <!-- <td>类型</td> -->
+    <!-- <td>日期</td> -->
+    <!-- <td> 产品代码</td>
+    <td> 产品品名</td> -->
+    
+  
+    <td> 期初</td>
+    <td> 金额</td>
+    <td> 购进</td>
+    <td> 金额</td>
+    <td> 领用</td>
+    <td> 金额</td>
+    <td> 结存</td>
+    <td> 金额</td>
+
+    <!-- <td> 数量</td>
+    <td> 单据号码</td>
+    <td> 备注</td> -->
+  </tr>
+{% for item in item_list %}
+  <tr align='center'>
+   <!-- <td>  {{ forloop.counter}}</td> -->
+ <!--   <td>  {{ item.yrmonth}}</td> -->
+  
+   <td>  {{ item.a}}</td>
+   <td>  {{ item.b}}</td>
+   <td>  kg</td>
+   <td>    </td>
+   <td>  {{ item.e}}</td>
+   <td>    </td>
+   <td>  {{ item.g}}</td>
+   <td>    </td>
+   <td>  {{ item.i}}</td>
+   <td>    </td>
+   <td>  {{ item.k}}</td>
+   <td>    </td>
+   
+  </tr>
+{% endfor %}
+</table>
+<h1>基础数据版</H1>
+<table class="table table-bordered">
+  <tr class="bg-primary">
+    <td> </td>  
+    <td>YYMM</td>
+   <!--  <td>CAT</td>   --> 
+    <td>A</td>
+    <td>B</td>
+    <td>E</td>
+    <td>G</td>
+    <td>I</td>
+    <td>K</td>
+    
+  </tr>
+  <tr class="bg-primary">
+    <td>  </td>
+    <td>年月</td>
+    <!-- <td>类型</td> -->
+    <!-- <td>日期</td> -->
+    <!-- <td> 产品代码</td>
+    <td> 产品品名</td> -->
+    <td> 原料代码</td>
+    <td> 原料品名</td>
+    <td> 期初</td>
+    <td> 购进</td>
+    <td> 领用</td>
+    <td> 结存</td>
+
+    <!-- <td> 数量</td>
+    <td> 单据号码</td>
+    <td> 备注</td> -->
+  </tr>
+{% for item in item_list %}
+  <tr align='center'>
+   <td>  {{ forloop.counter}}</td>
+   <td>  {{ item.yrmonth}}</td>
+  
+   <td>  {{ item.a}}</td>
+   <td>  {{ item.b}}</td>
+   <td>  {{ item.e}}</td>
+   <td>  {{ item.g}}</td>
+   <td>  {{ item.i}}</td>
+   <td>  {{ item.k}}</td>
+   
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}
