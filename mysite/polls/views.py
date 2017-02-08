@@ -4,13 +4,13 @@ from django.urls import reverse
 from .models import Choice, Question
 from django.views import generic
 from django.utils import timezone 
-
+import time
 
 # def index(request):
 #     return HttpResponse("Hello, world. You're at the polls index.")
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.filter(is_active = True).order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 
@@ -45,7 +45,9 @@ def vote(request, question_id):
             'error_message': "You didn't select a choice.",
         })
     else:
+        selected_choice.remark +=request.user.last_name+" "+time.strftime("%Y-%m-%d %H:%M:%S")+" | "
         selected_choice.votes += 1
+
         selected_choice.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
@@ -53,26 +55,26 @@ def vote(request, question_id):
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))    
 
 
-class IndexView(generic.ListView):
-    template_name = 'polls/index.html'
-    context_object_name = 'latest_question_list'
+# class IndexView(generic.ListView):
+#     template_name = 'polls/index.html'
+#     context_object_name = 'latest_question_list'
+
+# #     def get_queryset(self):
+# #         """Return the last five published questions."""
+# #         return Question.objects.order_by('-pub_date')[:5]
 
 #     def get_queryset(self):
-#         """Return the last five published questions."""
-#         return Question.objects.order_by('-pub_date')[:5]
-
-    def get_queryset(self):
-        """
-        Return the last five published questions (not including those set to be
-        published in the future).
-        """
-        return Question.objects.filter(
-            pub_date__lte=timezone.now()
-        ).order_by('-pub_date')[:5]
+#         """
+#         Return the last five published questions (not including those set to be
+#         published in the future).
+#         """
+#         return Question.objects.filter(
+#             pub_date__lte=timezone.now()
+#         ).order_by('-pub_date')[:5]
 
 
-class DetailView(generic.DetailView):
-    model = Question
+# class DetailView(generic.DetailView):
+#     model = Question
 
     # template_name = 'polls/detail.html'
 	# https://docs.djangoproject.com/en/1.10/intro/tutorial04/
