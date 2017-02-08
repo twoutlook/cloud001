@@ -3,6 +3,8 @@ from django.contrib import admin
 
 urlpatterns = [
     # url(r'^flowchart/', include('flowchart.urls')),
+    url(r'^polls/', include('polls.urls')),
+   
     url(r'^projectnote/', include('projectnote.urls')),
     url(r'^app001/', include('app001.urls')),
     #

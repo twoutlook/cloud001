@@ -34,6 +34,9 @@ ALLOWED_HOSTS = ['localhost','10.10.0.70','222.92.254.197','portal.fulltech-meta
 
 INSTALLED_APPS = [
     # 'flowchart',
+    # 2017-02-08 準備讓B組人員回饋各種操作
+    'polls',
+
     'projectnote',
     'portal',
     'app001.apps.App001Config',
