@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-from .models import Choice, Question
+from .models import Choice, Question,Feedback
 from django.views import generic
 from django.utils import timezone 
 import time
@@ -38,6 +38,7 @@ def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
+
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
@@ -45,9 +46,26 @@ def vote(request, question_id):
             'error_message': "You didn't select a choice.",
         })
     else:
-        selected_choice.remark +=request.user.last_name+" "+time.strftime("%Y-%m-%d %H:%M:%S")+" | "
-        selected_choice.votes += 1
+        user_info="【未登入】"
+        if not request.user.is_authenticated:
+            selected_choice.remark +="【未登入】"+" "+time.strftime("%Y-%m-%d %H:%M:%S")+" | "
+            selected_choice.votes += 1
 
+
+        else:
+            user_info=request.user.last_name
+            selected_choice.remark +=request.user.last_name+" "+time.strftime("%Y-%m-%d %H:%M:%S")+" | "
+            selected_choice.votes += 1
+    #     question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    # username = models.CharField(max_length=200)
+    # choice_text = models.IntegerField(default=0)
+    # debug     
+                                  # feeback_textfeeback_text
+        # f=Feedback(question="XXX",feedback="YYY",username="ZZZ") 
+        f=Feedback(question=question,feedback=selected_choice,username=request.user.last_name) 
+
+        f.save()
+        # choice2.save()   
         selected_choice.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a

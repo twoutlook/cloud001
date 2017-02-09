@@ -49,15 +49,25 @@ class Choice(models.Model):
     
     def __str__(self):
         return self.choice_text
-class Feedback(models.Model):
-    FEEDBACK_CHOICES = (
-       ('可以','可以'),
-       ('不行','不行'),
-       ('不知道','不知道'),
 
-    )
-    question = models.ForeignKey(Question)
-    feeback_text = models.CharField("回覆",default="不知道",choices =FEEDBACK_CHOICES, max_length=200)
+# class Choice2(models.Model):
+#     # question = models.ForeignKey(Question)
+#     username = models.CharField(max_length=200)
+#     choice_text = models.IntegerField(default=0)
+#     debug = models.CharField("Remark",default="..",max_length=200)
+    
+#     def __str__(self):
+#         return self.choice_text
+
+class Feedback(models.Model):
+    # FEEDBACK_CHOICES = (
+    #    ('可以','可以'),
+    #    ('不行','不行'),
+    #    ('不知道','不知道'),
+
+    # )
+    question = models.CharField("Question",default=".", max_length=200)
+    feedback = models.CharField("回覆",default=".", max_length=200)
     username = models.CharField("用戶名",default=".",max_length=200)
     created = models.DateTimeField( auto_now=True)
     # votes = models.IntegerField(default=0)
