@@ -250,7 +250,10 @@ class Sop(models.Model):
     page_num = models.CharField('页次',max_length=16)
     intro = models.CharField('流程定义',max_length=200)
     is_active=models.BooleanField("是否活躍", default=True )
-    diagram = models.CharField('流程图',max_length=200,default="mark002.svg")
+    # 2017-02-17
+    # 和吳楠協議,流程圖命名以 FT_XXX.svg
+    # 因此直接使用流程编号
+    # diagram = models.CharField('流程图',max_length=200,default="mark002.svg")
     class Meta:
         verbose_name = "SOP "
         verbose_name_plural = "SOP "
