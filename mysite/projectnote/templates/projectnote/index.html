@@ -7,10 +7,18 @@
 
 
 {% block content %}
-<hr>
-<div>
-<!-- {{ is_projectgroup }} -->
-<h3>grp001</h3>
+
+<table class="table table-bordered text-center ">
+<tr>
+<td><h3>实施记要</h3></td>
+<td><h3>员工</h3></td>
+<td><h3>材料价格</h3></td>
+<td><h3>SOP</h3></td>
+</tr>
+
+<tr>
+<td>
+  
 {% if is_grp001 %}
   <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/test1'> 實施記要 </a>
@@ -21,11 +29,13 @@
 
 
 {% endif %}
-</div>
-<hr>
 
-<div>
-<h3>grp002</h3>
+
+
+</td>
+
+<td>
+
 {% if is_grp002 %}
   <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/flowchart'> 生产工艺流程卡 </a>
@@ -37,10 +47,8 @@
 
 
 {% endif %}
-</div>
-<hr>
-<div>
-<h3>grp003</h3>
+</td>
+<td>
 {% if is_grp003 %}
   <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/step3'> 材料價格 </a>
@@ -53,14 +61,38 @@
 
 
 {% endif %}
-</div>
-<hr>
-<h3>其它</h3>
-
-<!-- <a class="btn btn-primary " target="_blank" href='http://fulltech-metal.org/ftlogo/'> FT LOGO svg </a> -->
-
-  <a class="btn btn-primary " href='/polls'> polls开发测试 </a>
+</td>
+<td>
+{% if is_grp005 %}
+  <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/sop'> SOP </a>
+
+
+{% else %}
+
+<a class="btn btn-warning " href='/admin/login/?next=/projectnote'> 必需先登入 </a>
+
+
+{% endif %}</td>
+
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <p class="bg-info text-center"><em>全制程追踪系統</em> 2016-11-24 13:30 正式啟動</p>
 <!-- <p class="bg-primary"><em>Kick off</em> to be 2016-12-19 or 2016-12-20</p> -->

@@ -28,9 +28,15 @@ def index(request):
     is_grp001=request.user.groups.filter(name='grp001').exists()
     is_grp002=request.user.groups.filter(name='grp002').exists()
     is_grp003=request.user.groups.filter(name='grp003').exists()
+    is_grp005=request.user.groups.filter(name='grp005').exists()
 
     item_list = Note.objects.order_by('date1')[:100]
-    context = {'current_user':request.user,'page_title':'目錄','item_list': item_list,'is_grp001':is_grp001,'is_grp002':is_grp002,'is_grp003':is_grp003}
+    context = {'current_user':request.user,'page_title':'目錄','item_list': item_list,'is_grp001':is_grp001,
+    'is_grp002':is_grp002,
+    'is_grp003':is_grp003,
+    'is_grp005':is_grp005
+
+    }
 
     # context = {'current_user':request.user,'page_title':'TEST1︰'}
     return render(request, 'projectnote/index.html', context)
@@ -481,15 +487,26 @@ def step3a(request):
 
 # SOP
 def sop(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
     item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list.html', context)
 
 def sop_detail(request, sop_id):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
     sop = get_object_or_404(Sop, pk=sop_id)
     return render(request, 'projectnote/sop_detail.html', {'sop': sop})
 
 def sop_detail_v2(request, sop_id):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
     sop = get_object_or_404(Sop, pk=sop_id)
     return render(request, 'projectnote/sop_detail_v2.html', {'sop': sop})
 
