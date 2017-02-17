@@ -104,7 +104,7 @@ class SopAdmin(ImportExportModelAdmin):
     list_display = ('code', 'ver', 'ver_date','title','dept','editor','page_num')
 
     fieldsets = [
-        (None,               {'fields': ['code','ver','ver_date','title','intro','diagram','page_num']}),
+        (None,               {'fields': ['code','ver','ver_date','title','intro','page_num']}),
         ('负责单位|修改人员', {'fields': ['dept','editor'], 'classes': ['collapse']}),
     ]
     inlines = [SopitemInline]
