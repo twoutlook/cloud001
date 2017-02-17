@@ -12,7 +12,7 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee,Trans,Rpt
+from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem
 
 class TransResource(resources.ModelResource):
     class Meta:
@@ -94,3 +94,22 @@ admin.site.register(Flowchart,FlowchartAdmin)
 class FlowchartprocessAdmin(ImportExportModelAdmin):
     list_display=['flowchart','a','b','c','d','e','f','g','h']
 admin.site.register(Flowchartprocess,FlowchartprocessAdmin)
+
+# 2017-02-17 SOP start
+class SopitemInline(admin.TabularInline):
+    model = Sopitem
+    extra = 3
+
+class SopAdmin(ImportExportModelAdmin):
+    list_display = ('code', 'ver', 'ver_date','title','dept','editor','page_num')
+
+    fieldsets = [
+        (None,               {'fields': ['code','ver','ver_date','title','intro','diagram','page_num']}),
+        ('负责单位|修改人员', {'fields': ['dept','editor'], 'classes': ['collapse']}),
+    ]
+    inlines = [SopitemInline]
+admin.site.register(Sop,SopAdmin)
+# 2017-02-17 SOP end
+class SopitemAdmin(ImportExportModelAdmin):
+    pass
+admin.site.register(Sopitem,SopitemAdmin)

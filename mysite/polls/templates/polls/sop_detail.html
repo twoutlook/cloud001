@@ -1,0 +1,44 @@
+
+<table>
+    
+    <tr>
+      <td> 流程编号 </td> 
+      <td>{{ sop.code }} </td> 
+      <td rowspan="3"><h3>{{ sop.title }} <h3></td>  
+      <td>负责单位</td>
+      <td>{{ sop.dept }} </td>      
+    </tr>
+
+    <tr>
+       <!-- <td> <a href='sop/{{ sop.id }}' > {{ sop.title }}<a> </td> -->
+      <td>版本</td>
+       <td>ver {{ sop.ver}} </td>
+        <td>修改人员</td>
+     <td>{{ sop.editor }} </td>
+      </tr>
+    
+    <tr> 
+         <td>修订日期</td>
+         <td>{{ sop.ver_date | date:"Y-m-d" }} </td>
+       
+       <td>页次</td>
+       <td>{{ sop.page_num}} </td>
+    </tr>
+      <tr> 
+      	<td>流程定义</td>
+     
+       <td colspan='4'>{{ sop.intro }} </td>
+    </tr>
+   
+    </table>
+<img src="/static/polls/{{ sop.diagram }}"  alt="Testing svg" />
+<table>
+{% for item in sop.sopitem_set.all %}
+    <tr>
+    	<td>    	{{ item.item_seq }}       </td>
+    	<td>    	{{ item.item_text }}        </td>
+    </tr>
+{% endfor %}
+
+
+</table>

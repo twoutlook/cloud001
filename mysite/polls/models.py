@@ -5,6 +5,26 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
+# 2017-02-17 SOP start
+class Sop(models.Model):
+    code = models.CharField('流程编号',max_length=16)
+    ver = models.CharField('版本',max_length=8)
+    ver_date = models.DateField('修订日期')
+    title = models.CharField(max_length=200)
+    dept = models.CharField('负责单位',max_length=16)
+    editor = models.CharField('修改人员',max_length=16)
+    page_num = models.CharField('页次',max_length=16)
+    intro = models.CharField('流程定义',max_length=200)
+    is_active=models.BooleanField("是否活躍", default=True )
+    diagram = models.CharField('流程图',max_length=200,default="mark002.svg")
+
+class Sopitem(models.Model):
+    sop= models.ForeignKey(Sop, models.SET_NULL, null=True)
+    item_seq = models.IntegerField(default=0)
+    item_text = models.CharField(max_length=600)
+# 2017-02-17 SOP end    
+
+
 class Question(models.Model):
     ISACTIVE_CHOICES = (
        ('Y','Y'),

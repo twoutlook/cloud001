@@ -1,0 +1,32 @@
+{% if item_list %}
+   
+
+    <table>
+    {% for item in item_list %}
+    <tr>
+       <td>{{ item.code }} </td>         
+    
+       <td> <a href='sop/{{ item.id }}' > {{ item.title }}<a> </td>
+       <!-- <td>{{ item.title }} </td> -->
+       <td>ver {{ item.ver}} </td>
+       <td>{{ item.ver_date | date:"Y-m-d" }} </td>
+       <td>{{ item.dept }} </td>
+       <td>{{ item.editor }} </td>
+       <td>{{ item.intro }} </td>
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No SOP are available.</p>
+{% endif %}
+
+<!--  code = models.CharField('流程编号',max_length=16)
+    ver = models.CharField('版本',max_length=8)
+    ver_date = models.DateField('修订日期')
+    title = models.CharField(max_length=200)
+    dept = models.CharField('负责单位',max_length=16)
+    editor = models.CharField('修改人员',max_length=16)
+    page_num = models.CharField('页次',max_length=16)
+    intro = models.CharField('流程定义',max_length=200)
+    diagram = models.ImageField('流程图',null=True)
+    is_active=models.BooleanField("是否活躍", default=True ) -->

@@ -17,7 +17,7 @@ from django.db.models import Count,Max, Min, Sum, Avg
 
 from .models import Flowchart
 from .models import Flowchartprocess
-from .models import Smm, Employee, Trans,Rpt
+from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem
 
 def index(request):
     # if not request.user.is_authenticated:
@@ -478,3 +478,18 @@ def step3a(request):
 
     context = {'current_user':request.user,'page_title':'SMM','item_list': item_list,'subtotal': subtotal,'avgbymonth': avgbymonth,'bymonthcheck': bymonthcheck}
     return render(request, 'projectnote/bymonth.html', context)
+
+# SOP
+def sop(request):
+    item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/sop_list.html', context)
+
+def sop_detail(request, sop_id):
+    sop = get_object_or_404(Sop, pk=sop_id)
+    return render(request, 'projectnote/sop_detail.html', {'sop': sop})
+
+def sop_detail_v2(request, sop_id):
+    sop = get_object_or_404(Sop, pk=sop_id)
+    return render(request, 'projectnote/sop_detail_v2.html', {'sop': sop})
+

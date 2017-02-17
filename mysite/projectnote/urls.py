@@ -10,6 +10,13 @@ from .views import HomePageView, FormHorizontalView, FormInlineView, PaginationV
 from . import views
 
 urlpatterns = [
+    url(r'^sop$', views.sop, name='sop'),
+    url(r'^sop/(?P<sop_id>[0-9]+)/$', views.sop_detail, name='sop_detail'),
+    url(r'^sop/format2/(?P<sop_id>[0-9]+)/$', views.sop_detail_v2, name='sop_detail_v2'),
+
+
+
+
     url(r'^$', views.index, name='index'),
     url(r'^home$', HomePageView.as_view(), name='home'),
     url(r'^test1$', views.test1, name='test1'),

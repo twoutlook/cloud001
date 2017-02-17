@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-from .models import Choice, Question,Feedback
+from .models import Choice, Question,Feedback,Sop
 from django.views import generic
 from django.utils import timezone 
 import time
@@ -13,6 +13,23 @@ def index(request):
     latest_question_list = Question.objects.filter(is_active = True).order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
+
+
+def sop(request):
+    item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    context = {'item_list': item_list}
+    return render(request, 'polls/sop_list.html', context)
+
+def sop_detail(request, sop_id):
+    sop = get_object_or_404(Sop, pk=sop_id)
+    return render(request, 'polls/sop_detail.html', {'sop': sop})
+
+
+def feedback(request):
+    item_list = Feedback.objects.order_by('question','username',)[:500]
+    context = {'item_list': item_list}
+    return render(request, 'polls/feedback.html', context)
+
 
 
 # def detail(request, question_id):
@@ -62,7 +79,7 @@ def vote(request, question_id):
     # debug     
                                   # feeback_textfeeback_text
         # f=Feedback(question="XXX",feedback="YYY",username="ZZZ") 
-        f=Feedback(question=question,feedback=selected_choice,username=request.user.last_name) 
+        f=Feedback(question=question,feedback=selected_choice,username=user_info) 
 
         f.save()
         # choice2.save()   
