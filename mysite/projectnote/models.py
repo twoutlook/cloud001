@@ -240,7 +240,26 @@ class Rpt(models.Model):
         verbose_name_plural = "原材料收发统计表"
 
 # 2017-02-17 SOP start
+
+CAT_CHOICES = (
+     ('ABM产品结构','ABM产品结构'),
+     ('AIC多角贸易','AIC多角贸易'),
+     ('AIM料件','AIM料件'),
+     ('AIN库存','AIN库存'),
+     ('AMR模具','AMR模具'),
+     ('AOO集团架构','AOO集团架构'),
+     ('APM采购','APM采购'),
+     ('APS排程','APS排程'),
+     ('AQC质量','AQC质量'),
+     ('ASF生产','ASF生产'),
+     ('AXM销售','AXM销售'),
+     ('AZZ整体','AZZ整体'),
+  )
+
+
 class Sop(models.Model):
+    cat = models.CharField(default='???', choices = CAT_CHOICES, max_length=32,verbose_name="CAT")
+   
     code = models.CharField('流程编号',max_length=16)
     ver = models.CharField('版本',max_length=8)
     ver_date = models.DateField('修订日期')
