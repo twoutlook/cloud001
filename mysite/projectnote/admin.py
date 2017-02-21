@@ -32,7 +32,14 @@ class SmmResource(resources.ModelResource):
 
 class EmployeeAdmin(ImportExportModelAdmin):
     list_display=['a','b','c','d','e','f']
+
+    # https://www.djangoproject.com/start/
+    list_filter = ('c',)
+
     ordering = ['c','d','e','a']
+
+    # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+    search_fields = ('a', 'b', 'e')
     resource_class = EmployeeResource
 admin.site.register(Employee,EmployeeAdmin)
 
