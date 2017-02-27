@@ -12,10 +12,10 @@
 
  <table class="table table-bordered text-center ">
 <tr class="bg-primary" >
+  <td></td>
   <td>流程编号</td>
  <td>流程名称</td>
- <td>格式一</td>
- <td>格式二</td>
+
  <td>版本</td>
  <td>修订日期</td>
  <td>负责单位</td>
@@ -26,13 +26,11 @@
 
     {% for item in item_list %}
     <tr>
+      <td  class="bg-primary" >{{ forloop.counter }}</td>
        <td>{{ item.code }} </td>         
     
-       <td class=" text-left">{{ item.title }} <a href='sop/{{ item.id }}' >  </td>
-         <td class=" text-left"> <a href='sop/{{ item.id }}' >格式一<a> 
-       </td>
-          <td class=" text-left"> <a> 
-      <a href='sop/format2/{{ item.id }}' >格式二<a> </td>
+       <td class=" text-left"><a href='sop/format2/{{ item.id }}' >{{ item.title }} </a >  </td>
+         
        <!-- <td>{{ item.title }} </td> -->
        <td>ver {{ item.ver}} </td>
        <td>{{ item.ver_date | date:"Y-m-d" }} </td>
