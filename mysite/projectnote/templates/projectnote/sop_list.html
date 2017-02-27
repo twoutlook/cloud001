@@ -27,6 +27,7 @@
     {% for item in item_list %}
     <tr>
       <td  class="bg-primary" >{{ forloop.counter }}</td>
+       <!-- <td>{{ item.cat }} </td>          -->
        <td>{{ item.code }} </td>         
     
        <td class=" text-left"><a href='sop/format2/{{ item.id }}' >{{ item.title }} </a >  </td>
