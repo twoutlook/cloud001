@@ -268,6 +268,7 @@ class Sop(models.Model):
     editor = models.CharField('修改人员',max_length=16)
     page_num = models.CharField('页次',max_length=16)
     intro = models.CharField('流程定义',max_length=200)
+    is_bpm=models.BooleanField("是否BPM", default=False )
     is_active=models.BooleanField("是否活躍", default=True )
     # 2017-02-17
     # 和吳楠協議,流程圖命名以 FT_XXX.svg

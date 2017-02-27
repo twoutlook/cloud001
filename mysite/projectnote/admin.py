@@ -108,10 +108,10 @@ class SopitemInline(admin.TabularInline):
     extra = 3
 
 class SopAdmin(ImportExportModelAdmin):
-    list_display = ('cat','code', 'ver', 'ver_date','title','dept','editor','page_num')
+    list_display = ('cat','code', 'ver', 'ver_date','title','dept','editor','is_bpm')
 
     fieldsets = [
-        (None,               {'fields': ['cat','code','ver','ver_date','title','intro','page_num']}),
+        (None,               {'fields': ['cat','code','ver','ver_date','title','intro','page_num','is_bpm']}),
         ('负责单位|修改人员', {'fields': ['dept','editor'], 'classes': ['collapse']}),
     ]
     inlines = [SopitemInline]
