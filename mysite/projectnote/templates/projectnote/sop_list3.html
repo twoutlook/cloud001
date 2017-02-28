@@ -13,15 +13,9 @@
  <table class="table table-bordered text-center ">
 <tr class="bg-primary" >
   <td></td>
-  <td>流程编号</td>
- <td>流程名称</td>
+  <td>基本信息</td>
 
- <td>版本</td>
- <td>修订日期</td>
- <td>负责单位</td>
- <td>修改人员</td>
- <td>流程定义</td>
-<td>流程圖編輯</td>
+
 <td>流程圖</td>
 <td>作業說明</td>
 
@@ -31,38 +25,66 @@
     <tr>
       <td  class="bg-primary" >{{ forloop.counter }}</td>
        <!-- <td>{{ item.cat }} </td>          -->
-       <td>{{ item.code }} </td>         
-    
-       <td class=" text-left"><a href='sop/format2/{{ item.id }}' >{{ item.title }} </a >  </td>
+
+  <td>
+<table>
+  <tr>  <td  class="bg-primary" >分類</td>  </tr>
+ <tr><td>{{ item.cat }} </td></tr>
+  <tr>  <td  class="bg-primary" >流程编号</td>  </tr>
+ <tr><td>{{ item.code }} </td></tr>
+ <tr> <td  class="bg-primary" >流程名称</td> </tr>
+  <tr>       <td class=" text-left"><a href='sop/format2/{{ item.id }}' >{{ item.title }} </a >  </td></tr>
+
+ <tr> <td  class="bg-primary" >版本</td>  </tr>
+  <tr>     <td>ver {{ item.ver}} </td></tr>
+
+ <tr> <td  class="bg-primary" >修订日期</td>  </tr>
+ <tr><td>{{ item.ver_date | date:"Y-m-d" }} </td> </tr>
+
+ <tr> <td  class="bg-primary" >负责单位</td>  </tr>
+  <tr> <td>{{ item.dept }} </td> </tr>
+ <tr> <td  class="bg-primary" >修改人员</td>  </tr>
+<tr>  <td>{{ item.editor }} </td></tr>
+      
+ <tr> <td  class="bg-primary" >流程定义</td>  </tr>
+ <tr>       <td class=" text-left">{{ item.intro }} </td> </tr>
+
+ <tr><td  class="bg-primary" >流程圖編輯</td></tr>
+
+<tr> <td class=" text-left"><a target="_blank" href='/static/projectnote/ver01/{{ item.code }}.xml' >{{ item.code }}.xml </a >  </td></tr>    
          
        <!-- <td>{{ item.title }} </td> -->
-       <td>ver {{ item.ver}} </td>
-       <td>{{ item.ver_date | date:"Y-m-d" }} </td>
+      
     
-       <td>{{ item.dept }} </td>
-       <td>{{ item.editor }} </td>
-       <td class=" text-left">{{ item.intro }} </td>
- <td class=" text-left"><a target="_blank" href='/static/projectnote/ver01/{{ item.code }}.xml' >{{ item.code }}.xml </a >  </td>
+     
 
-       <td >
-<img src="/static/projectnote/ver01/{{ item.code }}.svg"  alt="{{ item.code }}.svg" />
 
+
+
+</table>
 </td>
 
-<td colspan='6'>
-<table class="table table-bordered text-center ">
+
+
+
+
+
+<td >
+<!-- <table class="table table-bordered text-center "> -->
+<table >
 {% for item2 in item.sopitem_set.all %}
-    <tr>
-      <td class="bg-primary">     {{ item2.item_seq }}       </td>
-         </tr><tr>
-      <td  class="text-left">     {{ item2.item_text }}        </td>
-    </tr>
+    <tr> <td class="bg-primary">     {{ item2.item_seq }}       </td></tr>
+    <tr><td  class="text-left">     {{ item2.item_text }}        </td> </tr>
 {% endfor %}
 
 
 </table>
 </td>
 
+       <td  class="text-left">
+<img src="/static/projectnote/ver01/{{ item.code }}.svg"  alt="{{ item.code }}.svg" />
+
+</td>
 
     </tr>
     {% endfor %}
