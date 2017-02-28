@@ -1,0 +1,62 @@
+{% extends 'projectnote/base_projectnote_sopdetail.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+<h1>{{ sop.code }}_{{ sop.title }} </h1>
+<table class="table table-bordered text-center ">
+    
+    <tr>
+      <td  class="bg-primary" > 流程编号 </td> 
+      <td>{{ sop.code }} </td> 
+    
+      <td class="bg-primary">负责单位</td>
+      <td>{{ sop.dept }} </td>      
+ 
+       <!-- <td> <a href='sop/{{ sop.id }}' > {{ sop.title }}<a> </td> -->
+      <td class="bg-primary">版本</td>
+       <td>ver {{ sop.ver}} </td>
+
+    </tr>
+      <tr> 
+        <td class="bg-primary">修改人员</td>
+     <td>{{ sop.editor }} </td>
+   
+         <td class="bg-primary">修订日期</td>
+         <td>{{ sop.ver_date | date:"Y-m-d" }} </td>
+       
+         <td class="bg-primary">页次</td>
+     <td>{{ sop.page_num }} </td>
+    </tr>
+      <tr> 
+      	<td class="bg-primary">流程定义</td>
+     
+       <td colspan='5'  class="text-left">{{ sop.intro }} </td>
+    </tr>
+   
+    
+
+<tr><td colspan='6'>
+<img src="/static/projectnote/ver01/{{ sop.code }}.svg"  alt="{{ sop.code }}.svg" />
+
+</td>
+</tr>
+<tr><td colspan='6'>
+<table class="table table-bordered text-center ">
+{% for item in sop.sopitem_set.all %}
+    <tr>
+    	<td class="bg-primary">    	{{ item.item_seq }}       </td>
+    	<td  class="text-left">    	{{ item.item_text }}        </td>
+    </tr>
+{% endfor %}
+
+
+</table>
+</td></tr>
+</table>
+
+
+{% endblock %}

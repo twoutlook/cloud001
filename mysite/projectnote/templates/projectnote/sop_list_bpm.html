@@ -47,7 +47,32 @@
 <img src="/static/projectnote/ver01/{{ item.code }}.svg"  alt="{{ item.code }}.svg" />
 
 </td>
+    
+
+<td colspan='6'>
+<table class="table table-bordered text-center ">
+{% for item2 in item.sopitem_set.all %}
+    <tr>
+      <td class="bg-primary">     {{ item2.item_seq }}       </td>
+      <td  class="text-left">     {{ item2.item_text }}        </td>
     </tr>
+{% endfor %}
+
+
+</table>
+</td>
+
+
+
+
+    </tr>
+
+
+
+
+
+
+
     {% endfor %}
     </table>
 {% else %}

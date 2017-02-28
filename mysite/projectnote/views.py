@@ -503,6 +503,14 @@ def sop2(request):
     item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list2.html', context)
+def sop3(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/sop_list3.html', context)
 
 def sopbpm(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
@@ -528,4 +536,14 @@ def sop_detail_v2(request, sop_id):
 
     sop = get_object_or_404(Sop, pk=sop_id)
     return render(request, 'projectnote/sop_detail_v2.html', {'sop': sop})
+
+def sopitem(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # sop = get_object_or_404(Sop, pk=sop_id)
+    item_list = Sopitem.objects.order_by('sop','itemseq',)[:500]
+   
+    return render(request, 'projectnote/sopitem.html', {'item_list': item_list})
 
