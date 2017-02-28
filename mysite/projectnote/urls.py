@@ -12,6 +12,7 @@ from . import views
 urlpatterns = [
     url(r'^sop$', views.sop, name='sop'),
     url(r'^sop2$', views.sop2, name='sop2'),
+    url(r'^sopbpm$', views.sopbpm, name='sopbpm'),
     url(r'^sop/(?P<sop_id>[0-9]+)/$', views.sop_detail, name='sop_detail'),
     url(r'^sop/format2/(?P<sop_id>[0-9]+)/$', views.sop_detail_v2, name='sop_detail_v2'),
 
