@@ -559,3 +559,15 @@ def sopitem(request):
    
     return render(request, 'projectnote/sopitem.html', {'item_list': item_list})
 
+def sopcat(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = Sop.objects.order_by('code')[:500]
+    cat_cnt=Sop.objects.order_by('dept','cat').values('cat','dept').annotate(cnt=Count('code'))
+    
+    context = {'item_list': item_list,'cat_cnt':cat_cnt}
+    return render(request, 'projectnote/sop_cat.html', context)
