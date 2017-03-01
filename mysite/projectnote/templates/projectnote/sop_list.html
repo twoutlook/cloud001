@@ -13,6 +13,7 @@
  <table class="table table-bordered text-center ">
 <tr class="bg-primary" >
   <td></td>
+  <td>分類</td>
   <td>流程编号</td>
  <td>流程名称</td>
 
@@ -30,6 +31,7 @@
     <tr>
       <td  class="bg-primary" >{{ forloop.counter }}</td>
        <!-- <td>{{ item.cat }} </td>          -->
+    <td>{{ item.cat }} </td>         
        <td>{{ item.code }} </td>         
     
        <td class=" text-left"><a href='sop/format2/{{ item.id }}' >{{ item.title }} </a >  </td>
