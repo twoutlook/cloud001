@@ -491,7 +491,10 @@ def sop(request):
     if not is_grpxxx:
        return redirect('/projectnote')
 
-    item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = Sop.objects.order_by('code')[:500]
+    
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list.html', context)
 
