@@ -262,10 +262,15 @@ class Dept(models.Model):
     def __str__(self):
         return self.dept_name
 
-
+class Cat(models.Model):
+    cat_name = models.CharField('分類',max_length=16)
+    cat_seq = models.IntegerField(default=0)
+    def __str__(self):
+        return self.cat_name
 
 class Sop(models.Model):
     dept2= models.ForeignKey(Dept, models.SET_NULL, null=True)
+    cat2= models.ForeignKey(Cat, models.SET_NULL, null=True)
   
     cat = models.CharField(default='???', choices = CAT_CHOICES, max_length=32,verbose_name="CAT")
    

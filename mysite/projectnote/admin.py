@@ -12,7 +12,7 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept
+from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat
 
 class TransResource(resources.ModelResource):
     class Meta:
@@ -111,13 +111,16 @@ class DeptAdmin(ImportExportModelAdmin):
     list_display = ('dept_name','order_seq')
 admin.site.register(Dept,DeptAdmin)   
 
+class CatAdmin(ImportExportModelAdmin):
+    list_display = ('cat_name','cat_seq')
+admin.site.register(Cat,CatAdmin)   
 
 class SopAdmin(ImportExportModelAdmin):
-    list_display = ('dept2','cat','code', 'ver', 'ver_date','title','dept','editor','is_active','is_bpm')
+    list_display = ('dept2','cat2','cat','code', 'ver', 'ver_date','title','dept','editor','is_active','is_bpm')
     search_fields = ('code', 'title')
     ordering = ['code']
     fieldsets = [
-        (None,               {'fields': ['dept2','cat','code','ver','ver_date','title','intro','page_num','is_active','is_bpm']}),
+        (None,               {'fields': ['dept2','cat2','cat','code','ver','ver_date','title','intro','page_num','is_active','is_bpm']}),
         ('负责单位|修改人员', {'fields': ['dept','editor'], 'classes': ['collapse']}),
     ]
     inlines = [SopitemInline]
