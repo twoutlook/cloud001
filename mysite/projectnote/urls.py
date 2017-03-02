@@ -12,6 +12,7 @@ from . import views
 urlpatterns = [
     url(r'^sop$', views.sop, name='sop'),
     url(r'^initdata$', views.initdata, name='initdata'),
+    url(r'^initdata2$', views.initdata2, name='initdata2'),
     url(r'^initdata/(?P<is_required>[yn])/$', views.initdata_yn, name='initdata_yn'),
     url(r'^sopcat$', views.sopcat, name='sopcat'),
     url(r'^sopcat2$', views.sopcat2, name='sopcat2'),
