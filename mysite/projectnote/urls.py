@@ -11,7 +11,7 @@ from . import views
 
 urlpatterns = [
     url(r'^sop$', views.sop, name='sop'),
-    url(r'^initdata$', views.sopdata, name='sopdata'),
+    url(r'^initdata$', views.initdata, name='initdata'),
     url(r'^sopcat$', views.sopcat, name='sopcat'),
     url(r'^sopcat2$', views.sopcat2, name='sopcat2'),
     url(r'^sop2$', views.sop2, name='sop2'),

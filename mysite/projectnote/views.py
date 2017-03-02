@@ -498,7 +498,7 @@ def sop(request):
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list.html', context)
 
-def sopdata(request):
+def initdata(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
        return redirect('/projectnote')
@@ -508,7 +508,7 @@ def sopdata(request):
     item_list = Sopdata.objects.order_by('cat','seq')[:500]
     
     context = {'item_list': item_list}
-    return render(request, 'projectnote/sopdata.html', context)
+    return render(request, 'projectnote/initdata.html', context)
 
 
 def sopdept(request):
