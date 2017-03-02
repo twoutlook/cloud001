@@ -256,6 +256,36 @@ CAT_CHOICES = (
      ('AZZ整体','AZZ整体'),
   )
 
+class Sopdata(models.Model):
+    DATACAT_CHOICES = (
+     ('整体','整体'),
+     ('制造','制造'),
+    )
+
+    cat = models.CharField('分類',max_length=16, choices=DATACAT_CHOICES, default='整体')
+    seq = models.IntegerField('序號',default=0)
+    sys = models.CharField('系统',max_length=16)
+    procedure = models.CharField('作业',max_length=16)
+    program = models.CharField('程序',max_length=16,null=True)
+    files = models.CharField('档案代号',max_length=255,null=True)
+    notes = models.CharField('注意事项',max_length=255,null=True)
+    recommend = models.CharField('建议',max_length=255,null=True)
+    deadline = models.DateField('应完成日期', null=True)
+    responsible = models.CharField('负责人员',max_length=64,null=True)
+    supporter = models.CharField('来源单位、支持单位',max_length=64,null=True)
+    is_required = models.BooleanField('必要',default=True)
+    method = models.CharField('建置方式',max_length=16,null=True)
+    remarks = models.CharField('备注',max_length=255,null=True)
+    by_default = models.CharField('建议负责人员',max_length=64, null=True)
+    
+
+
+
+    def __str__(self):
+        return self.procedure
+
+
+
 class Dept(models.Model):
     dept_name = models.CharField('部門',max_length=16)
     order_seq = models.IntegerField(default=0)

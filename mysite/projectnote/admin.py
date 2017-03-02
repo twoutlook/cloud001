@@ -12,7 +12,7 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat
+from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata
 
 class TransResource(resources.ModelResource):
     class Meta:
@@ -110,6 +110,13 @@ class SopitemInline(admin.TabularInline):
 class DeptAdmin(ImportExportModelAdmin):
     list_display = ('dept_name','order_seq')
 admin.site.register(Dept,DeptAdmin)   
+
+class SopdataAdmin(ImportExportModelAdmin):
+    list_display = ('cat','seq','sys','procedure')
+admin.site.register(Sopdata,SopdataAdmin)   
+
+
+
 
 class CatAdmin(ImportExportModelAdmin):
     list_display = ('cat_name','cat_seq')
