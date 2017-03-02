@@ -7,8 +7,8 @@
 
 {% block content %}
 
-<h1>DOING ...</h1>
-{{item_list}}
+<h1>SOP按部门查看</h1>
+<!-- {{item_list}} -->
 
 
 
@@ -31,10 +31,10 @@
       <!-- <td  class="bg-primary" >{{ forloop.counter }}</td> -->
        <!-- <td>{{ item.cat }} </td>          -->
     <td  class="bg-primary">{{ item.order_seq }} </td>         
-    <td>{{ item.dept_name }} </td>         
+    <td><a href='sopdept/{{ item.id }}' >{{ item.dept_name }} </a ></td>         
     <td>{{ item.id }} </td>         
-    <td>{{ item.sop_set.all.count }} </td>         
-   
+    <!-- <td>{{ item.sop_set.all.count }} </td>          -->
+    <td ><a href='sopdept/{{ item.id }}' >{{ item.sop_set.all.count }}</a ></td>
 
     </tr>
     {% endfor %}
