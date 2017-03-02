@@ -510,6 +510,22 @@ def initdata(request):
     context = {'item_list': item_list}
     return render(request, 'projectnote/initdata.html', context)
 
+def initdata_yn(request, is_required):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    # item_list = Sopdata.objects.order_by('cat','seq')[:500]
+    if is_required == 'y':
+        item_list = Sopdata.objects.filter(is_required = True).order_by('cat','seq')[:500]
+    if is_required == 'n':
+        item_list = Sopdata.objects.filter(is_required = False).order_by('cat','seq')[:500]
+        
+
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/initdata_yn.html', context)
 
 def sopdept(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()

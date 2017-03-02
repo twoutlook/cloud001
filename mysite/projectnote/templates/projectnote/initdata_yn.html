@@ -1,0 +1,107 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+
+<h1>DOING ... Y/N</h1>
+{% if item_list %}
+   
+<!-- cat = models.CharField('分類',max_length=16, choices=DATACAT_CHOICES, default='整体')
+    seq = models.IntegerField('序號',default=0)
+    sys = models.CharField('系统',max_length=16)
+    procedure = models.CharField('作业',max_length=16)
+    program = models.CharField('程序',max_length=16,null=True)
+    files = models.CharField('档案代号',max_length=255,null=True)
+    notes = models.CharField('注意事项',max_length=255,null=True)
+    recommend = models.CharField('建议',max_length=255,null=True)
+    deadline = models.DateField('应完成日期', null=True)
+    responsible = models.CharField('负责人员',max_length=64,null=True)
+    supporter = models.CharField('来源单位、支持单位',max_length=64,null=True)
+    is_required = models.BooleanField('必要',default=True)
+    method = models.CharField('建置方式',max_length=16,null=True)
+    remarks = models.CharField('备注',max_length=255,null=True)
+    by_default = models.CharField('建议负责人员',max_length=64, null=True)
+     -->
+    
+ <table class="table table-bordered text-center ">
+<tr class="bg-primary" >
+  <td>分類</td>
+  <td>序號</td>
+  <td>系统</td>
+ <td>作业</td>
+ <td>程序</td>
+ <td>档案代号</td>
+ <td>注意事项</td>
+ <td>建议</td>
+ <td>应完成日期</td>
+ <td>负责人员</td>
+<td>来源单位、支持单位</td>
+ <td>必要</td>
+ <td>建置方式</td>
+ <td>备注</td>
+ <td>建议负责人员</td>
+
+
+</tr>
+
+    {% for item in item_list %}
+    <tr>
+       <td>{{ item.cat }} </td>         
+       <td>{{ item.seq }} </td>         
+       <td>{{ item.sys }} </td>         
+  <!--      procedure = models.CharField('作业',max_length=16)
+    program = models.CharField('程序',max_length=16,null=True)
+    files = models.CharField('档案代号',max_length=255,null=True)
+    notes = models.CharField('注意事项',max_length=255,null=True)
+    recommend = models.CharField('建议',max_length=255,null=True)
+    deadline = models.DateField('应完成日期', null=True)
+    responsible = models.CharField('负责人员',max_length=64,null=True)
+    supporter = models.CharField('来源单位、支持单位',max_length=64,null=True)
+    is_required = models.BooleanField('必要',default=True)
+    method = models.CharField('建置方式',max_length=16,null=True)
+    remarks = models.CharField('备注',max_length=255,null=True)
+    by_default = models.CharField('建议负责人员',max_length=64, null=True) 
+   -->
+       <td>{{ item.procedure}} </td>
+       <td>{{ item.program}} </td>
+       <td>{{ item.files}} </td>
+       <td>{{ item.notes}} </td>
+       <td>{{ item.recommend}} </td>
+       <td>{{ item.deadline | date:"Y-m-d" }} </td>
+       <td>{{ item.responsible}} </td>
+       <td>{{ item.supporter}} </td>
+      
+{% if item.is_required %}
+    <td>Y</td>
+
+{% else %}
+    <td> N</td>
+{% endif %}
+ <td>{{ method}} </td>
+       <td>{{ item.remarks}} </td>
+       <td>{{ item.by_default}} </td>
+      
+
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No SOP are available.</p>
+{% endif %}
+
+<!--  code = models.CharField('流程编号',max_length=16)
+    ver = models.CharField('版本',max_length=8)
+    ver_date = models.DateField('修订日期')
+    title = models.CharField(max_length=200)
+    dept = models.CharField('负责单位',max_length=16)
+    editor = models.CharField('修改人员',max_length=16)
+    page_num = models.CharField('页次',max_length=16)
+    intro = models.CharField('流程定义',max_length=200)
+    diagram = models.ImageField('流程图',null=True)
+    is_active=models.BooleanField("是否活躍", default=True ) -->
+{% endblock %}
