@@ -1,0 +1,36 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+
+<h1>部門-分類 V2</h1>
+<!-- {{ cat_cnt}} -->
+ <table class="table table-bordered text-center ">
+<tr class="bg-primary" >
+  <td></td>
+  <td>DEPT</td>
+  <td>分類</td>
+
+  <td>COUNT</td>
+
+</tr>
+
+    {% for item in cat_cnt %}
+    <tr>
+      <td  class="bg-primary" >{{ forloop.counter }}</td>
+       <!-- <td>{{ item.cat }} </td>          -->
+    <td>{{ item.dept2 }} </td>  
+<td>{{ item.cat2 }} </td>  
+
+       <td>{{ item.cnt }} </td>         
+    
+</tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -17,7 +17,7 @@ from django.db.models import Count,Max, Min, Sum, Avg
 
 from .models import Flowchart
 from .models import Flowchartprocess
-from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem
+from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept
 
 def index(request):
     # if not request.user.is_authenticated:
@@ -498,6 +498,20 @@ def sop(request):
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list.html', context)
 
+def sopdept(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = Dept.objects.order_by('order_seq')[:500]
+    
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/sop_dept.html', context)
+
+
+
 def sop2(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
@@ -514,6 +528,19 @@ def sop3(request):
     item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list3.html', context)
+
+def sopdept_selected(request,dept_id):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Sop.objects.filter(dept2 = dept_id).order_by('code')[:500]
+    dept = Dept.objects.filter(id = dept_id)
+
+    context = {'item_list': item_list, 'dept':dept}
+    return render(request, 'projectnote/sopdept_selected.html', context)
+
+
 
 def sopbpm(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
@@ -571,3 +598,16 @@ def sopcat(request):
     
     context = {'item_list': item_list,'cat_cnt':cat_cnt}
     return render(request, 'projectnote/sop_cat.html', context)
+
+def sopcat2(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = Sop.objects.order_by('code')[:500]
+    cat_cnt=Sop.objects.order_by('dept2','cat2').values('cat2','dept2').annotate(cnt=Count('code'))
+    
+    context = {'item_list': item_list,'cat_cnt':cat_cnt}
+    return render(request, 'projectnote/sop_cat2.html', context)

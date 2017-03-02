@@ -1,0 +1,56 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+<h1>DOING ...</h1>
+{{item_list}}
+
+
+
+{% if item_list %}
+   
+
+ <table class="table table-bordered text-center ">
+ <!-- <table > -->
+
+<tr class="bg-primary" >
+  <td>SEQ(自定義排序)</td>
+  <td>部門</td>
+  <td>部門ID(系統用)</td>
+  <td>流程數</td>
+
+</tr>
+
+    {% for item in item_list %}
+    <tr>
+      <!-- <td  class="bg-primary" >{{ forloop.counter }}</td> -->
+       <!-- <td>{{ item.cat }} </td>          -->
+    <td  class="bg-primary">{{ item.order_seq }} </td>         
+    <td>{{ item.dept_name }} </td>         
+    <td>{{ item.id }} </td>         
+    <td>{{ item.sop_set.all.count }} </td>         
+   
+
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No SOP are available.</p>
+{% endif %}
+
+<!--  code = models.CharField('流程编号',max_length=16)
+    ver = models.CharField('版本',max_length=8)
+    ver_date = models.DateField('修订日期')
+    title = models.CharField(max_length=200)
+    dept = models.CharField('负责单位',max_length=16)
+    editor = models.CharField('修改人员',max_length=16)
+    page_num = models.CharField('页次',max_length=16)
+    intro = models.CharField('流程定义',max_length=200)
+    diagram = models.ImageField('流程图',null=True)
+    is_active=models.BooleanField("是否活躍", default=True ) -->
+{% endblock %}
