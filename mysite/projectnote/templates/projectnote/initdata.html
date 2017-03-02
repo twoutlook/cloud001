@@ -28,6 +28,8 @@
     
  <table class="table table-bordered text-center ">
 <tr class="bg-primary" >
+
+  <td></td>
   <td>分類</td>
   <td>序號</td>
   <td>系统</td>
@@ -49,6 +51,7 @@
 
     {% for item in item_list %}
     <tr>
+      <td  class="bg-primary" >{{ forloop.counter }}</td>
        <td>{{ item.cat }} </td>         
        <td>{{ item.seq }} </td>         
        <td>{{ item.sys }} </td>         
