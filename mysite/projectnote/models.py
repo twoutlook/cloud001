@@ -256,8 +256,17 @@ CAT_CHOICES = (
      ('AZZ整体','AZZ整体'),
   )
 
+class Dept(models.Model):
+    dept_name = models.CharField('部門',max_length=16)
+    order_seq = models.IntegerField(default=0)
+    def __str__(self):
+        return self.dept_name
+
+
 
 class Sop(models.Model):
+    dept2= models.ForeignKey(Dept, models.SET_NULL, null=True)
+  
     cat = models.CharField(default='???', choices = CAT_CHOICES, max_length=32,verbose_name="CAT")
    
     code = models.CharField('流程编号',max_length=16)
