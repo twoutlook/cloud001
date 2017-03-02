@@ -284,7 +284,10 @@ class Sopdata(models.Model):
     def __str__(self):
         return self.procedure
 
-
+# 参数及基本数据建置进度计划表
+    class Meta:
+        verbose_name = "参数及基本数据建置进度计划表"
+        verbose_name_plural = "参数及基本数据建置进度计划表"
 
 class Dept(models.Model):
     dept_name = models.CharField('部門',max_length=16)
