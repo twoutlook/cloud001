@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^sopcat2$', views.sopcat2, name='sopcat2'),
     url(r'^sop2$', views.sop2, name='sop2'),
     url(r'^sop3$', views.sop3, name='sop3'),
+    url(r'^sop4$', views.sop4, name='sop4'),
     url(r'^sopbpm$', views.sopbpm, name='sopbpm'),
     url(r'^sopdept$', views.sopdept, name='sopdept'),
     url(r'^sopnotactive$', views.sopnotactive, name='sopnotactive'),

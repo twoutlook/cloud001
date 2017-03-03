@@ -568,6 +568,14 @@ def sop3(request):
     item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list3.html', context)
+def sop4(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/sop_list4.html', context)
 
 def sopdept_selected(request,dept_id):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
