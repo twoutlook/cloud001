@@ -313,6 +313,7 @@ class Sop(models.Model):
     title = models.CharField(max_length=200)
     dept = models.CharField('负责单位',max_length=16)
     editor = models.CharField('修改人员',max_length=16)
+    by2 = models.CharField('审核人员',max_length=16,default='...')
     page_num = models.CharField('页次',max_length=16)
     intro = models.CharField('流程定义',max_length=200)
     is_bpm=models.BooleanField("是否BPM", default=False )

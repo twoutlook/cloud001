@@ -123,12 +123,12 @@ class CatAdmin(ImportExportModelAdmin):
 admin.site.register(Cat,CatAdmin)   
 
 class SopAdmin(ImportExportModelAdmin):
-    list_display = ('dept2','cat2','cat','code', 'ver', 'ver_date','title','dept','editor','is_active','is_bpm')
+    list_display = ('dept2','cat2','cat','code', 'ver', 'ver_date','title','dept','editor','by2','is_active','is_bpm')
     search_fields = ('code', 'title')
     ordering = ['code']
     fieldsets = [
         (None,               {'fields': ['dept2','cat2','cat','code','ver','ver_date','title','intro','page_num','is_active','is_bpm']}),
-        ('负责单位|修改人员', {'fields': ['dept','editor'], 'classes': ['collapse']}),
+        ('负责单位|修改人员|审核人员', {'fields': ['dept','editor','by2'], 'classes': ['collapse']}),
     ]
     inlines = [SopitemInline]
 admin.site.register(Sop,SopAdmin)
