@@ -9,7 +9,9 @@
 
 {% if item_list %}
     <a class="btn btn-primary " href='/projectnote/sopdept'> SOP按部門查看</a>
-
+{% for x in dept %}
+  <h1> {{x}} </h1>
+{% endfor %}
  <table class="table table-bordered text-center ">
 <tr class="bg-primary" >
   <td></td>
@@ -45,6 +47,8 @@
   <tr> <td>{{ item.dept }} </td> </tr>
  <tr> <td  class="bg-primary" >修改人员</td>  </tr>
 <tr>  <td>{{ item.editor }} </td></tr>
+    <tr> <td  class="bg-primary" >审核人员</td>  </tr>   
+  <tr><td>{{ item.by2 }} </td></tr>
       
  <tr> <td  class="bg-primary" >流程定义</td>  </tr>
  <tr>       <td class=" text-left">{{ item.intro }} </td> </tr>
