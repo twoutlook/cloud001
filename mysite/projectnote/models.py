@@ -346,3 +346,8 @@ class T100(models.Model):
     sop= models.ForeignKey(Sop, models.SET_NULL, null=True)
     code = models.CharField('運行程序',max_length=16)
     name = models.CharField('運行程序名稱',max_length=64)
+    
+class T100item(models.Model):
+    t100= models.ForeignKey(T100, models.SET_NULL, null=True)
+    item_seq = models.IntegerField(default=0)
+    item_text = models.CharField(max_length=600)

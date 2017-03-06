@@ -12,7 +12,7 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100
+from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100,T100item
 
 class TransResource(resources.ModelResource):
     class Meta:
@@ -107,6 +107,11 @@ class SopitemInline(admin.TabularInline):
     model = Sopitem
     extra = 3
 
+class T100itemInline(admin.TabularInline):
+    model = T100item
+    extra = 3
+
+
 class DeptAdmin(ImportExportModelAdmin):
     list_display = ('dept_name','order_seq')
 admin.site.register(Dept,DeptAdmin)   
@@ -139,6 +144,7 @@ class T100Admin(ImportExportModelAdmin):
     list_display = ('sop','code','name')
     search_fields = ('code', 'name')
     ordering = ['code']
+    inlines = [T100itemInline]
     # fieldsets = [
     #     (None,               {'fields': ['dept2','cat2','cat','code','ver','ver_date','title','intro','page_num','is_active','is_bpm']}),
     #     ('负责单位|修改人员|审核人员', {'fields': ['dept','editor','by2'], 'classes': ['collapse']}),
