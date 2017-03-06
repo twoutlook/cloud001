@@ -301,6 +301,9 @@ class Cat(models.Model):
     def __str__(self):
         return self.cat_name
 
+
+
+
 class Sop(models.Model):
     dept2= models.ForeignKey(Dept, models.SET_NULL, null=True)
     cat2= models.ForeignKey(Cat, models.SET_NULL, null=True)
@@ -325,9 +328,21 @@ class Sop(models.Model):
     class Meta:
         verbose_name = "SOP "
         verbose_name_plural = "SOP "
+    def __str__(self):
+        return self.code+"_"+self.title
+
+
+
 
 class Sopitem(models.Model):
     sop= models.ForeignKey(Sop, models.SET_NULL, null=True)
     item_seq = models.IntegerField(default=0)
     item_text = models.CharField(max_length=600)
 # 2017-02-17 SOP end    
+
+
+
+class T100(models.Model):
+    sop= models.ForeignKey(Sop, models.SET_NULL, null=True)
+    code = models.CharField('運行程序',max_length=16)
+    name = models.CharField('運行程序名稱',max_length=64)
