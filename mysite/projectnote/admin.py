@@ -159,6 +159,7 @@ admin.site.register(Sopitem,SopitemAdmin)
 
 class ProgAdmin(ImportExportModelAdmin):
     list_display=['code','name']
+    ordering = ['code']
 admin.site.register(Prog,ProgAdmin)
 
 

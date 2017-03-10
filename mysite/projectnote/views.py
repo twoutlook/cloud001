@@ -615,6 +615,19 @@ def drill_selected(request,dept_id):
 
     return render(request, 'projectnote/drill_selected.html', context)
 
+def drill_selected2(request,dept_id):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+  
+    item_list = Drillstep.objects.filter(drill_id = dept_id).order_by('seq')[:500]
+    # dept = Dept.objects.filter(id = dept_id)
+
+    # context = {'item_list': item_list, 'dept':dept}
+    context = {'item_list': item_list}
+
+    return render(request, 'projectnote/drill_selected2.html', context)
+
 
 def sopbpm(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
