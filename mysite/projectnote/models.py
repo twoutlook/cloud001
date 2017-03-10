@@ -355,6 +355,8 @@ class T100item(models.Model):
 class Prog(models.Model):
     code = models.CharField('運行程序',max_length=16, unique=True)
     name = models.CharField('運行程序名稱',max_length=64)
+    def __str__(self):
+        return self.code+"_"+self.name
 
 
 class Drill (models.Model):

@@ -159,5 +159,15 @@ admin.site.register(Sopitem,SopitemAdmin)
 
 class ProgAdmin(ImportExportModelAdmin):
     list_display=['code','name']
-    # pass
 admin.site.register(Prog,ProgAdmin)
+
+
+class DrillstepInline(admin.TabularInline):
+    model = Drillstep
+    extra = 3
+
+class DrillAdmin(ImportExportModelAdmin):
+    list_display=['code','name']
+    inlines = [DrillstepInline]
+    
+admin.site.register(Drill,DrillAdmin)
