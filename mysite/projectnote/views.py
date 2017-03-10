@@ -588,6 +588,20 @@ def sopdept_selected(request,dept_id):
     context = {'item_list': item_list, 'dept':dept}
     return render(request, 'projectnote/sopdept_selected.html', context)
 
+def drill_list(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Drill.objects.order_by('code')[:500]
+    # dept = Dept.objects.filter(id = dept_id)
+
+    # context = {'item_list': item_list, 'dept':dept}
+    context = {'item_list': item_list}
+
+    return render(request, 'projectnote/drill_list.html', context)
+
+
 def drill_selected(request,dept_id):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:

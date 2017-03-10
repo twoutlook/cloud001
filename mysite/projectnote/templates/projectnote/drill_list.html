@@ -6,30 +6,23 @@
 {% endblock %}
 
 {% block content %}
-
-
+  <h1> Drill List</h1>
 {% if item_list %}
-    <a class="btn btn-primary " href='/projectnote/drilllist'> Drill List</a>
-
-   {% for item in item_list %}
- <h3>{{ item.code}}</h3>
- <h1>{{ item.name}}</h1>
- <table class="table table-bordered text-center ">
-  <tr>
-  <td class="bg-primary"> seq </td>
-  <td class="bg-primary"> 運行程式 </td>
-  <td class="bg-primary"> 筆記要點 </td>
-  </tr>
  
-{% for item2 in item.drillstep_set.all %}
-    <tr> <td class="bg-primary">     {{ item2.seq }}       </td>
-      <td  class="text-left">     {{ item2.prog }}        </td> 
-      <td  class="text-left">     {{ item2.note }}        </td>
-{% endfor %}
+ <table class="table table-bordered text-center ">
+<tr class="bg-primary" >
+  <td></td>
+  <td>code</td>
 
+<td>name xxx </td>
 
+</tr>
 
-
+    {% for item in item_list %}
+    <tr>
+      <td  class="bg-primary" >{{ forloop.counter }}</td>
+      <td   >{{ item.code }}</td>
+      <td >xxx{{ item.name }}</td>
     </tr>
     {% endfor %}
     </table>
@@ -45,7 +38,7 @@
 
 
 
-      目前还没這個演練.</p>
+      目前还没有流程图.</p>
 {% endif %}
 
 <!--  code = models.CharField('流程编号',max_length=16)
