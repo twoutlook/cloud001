@@ -158,5 +158,6 @@ class SopitemAdmin(ImportExportModelAdmin):
 admin.site.register(Sopitem,SopitemAdmin)
 
 class ProgAdmin(ImportExportModelAdmin):
-    pass
+    list_display=['code','name']
+    # pass
 admin.site.register(Prog,ProgAdmin)
