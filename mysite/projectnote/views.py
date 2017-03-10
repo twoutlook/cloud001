@@ -620,11 +620,12 @@ def drill_selected2(request,dept_id):
     if not is_grpxxx:
        return redirect('/projectnote')
   
-    item_list = Drillstep.objects.filter(drill_id = dept_id).order_by('seq')[:500]
+    item_list = Drill.objects.filter(id = dept_id).order_by('code')[:500]
+    item_list2 = Drillstep.objects.filter(drill_id = dept_id).order_by('seq')[:500]
     # dept = Dept.objects.filter(id = dept_id)
 
     # context = {'item_list': item_list, 'dept':dept}
-    context = {'item_list': item_list}
+    context = {'item_list': item_list,'item_list2': item_list2}
 
     return render(request, 'projectnote/drill_selected2.html', context)
 

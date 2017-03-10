@@ -21,7 +21,7 @@
     {% for item in item_list %}
     <tr>
       <td  class="bg-primary" >{{ forloop.counter }}</td>
-      <td   >{{ item.code }}</td>
+      <td   ><a href="/projectnote/drill/{{ item.id }}">{{ item.code }}</a></td>
       <td >xxx{{ item.name }}</td>
     </tr>
     {% endfor %}

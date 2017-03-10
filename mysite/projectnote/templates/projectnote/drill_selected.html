@@ -27,10 +27,10 @@
  
 {% for item2 in item.drillstep_set.all %}
     <tr> <td class="bg-primary">     {{ item2.seq }}       </td>
-      <td  class="text-left">     {{ item2.prog }}        </td> 
-      <td  class="text-left">     {{ item2.note }}        </td>
-      <td  class="text-left">     {{ item2.problem }}        </td>
-      <td  class="text-left">     {{ item2.sample }}        </td>
+      <td  class="text-left">     {{ item2.prog|safe }}        </td> 
+      <td  class="text-left">     {{ item2.note|safe }}        </td>
+      <td  class="text-left">     {{ item2.problem|safe }}        </td>
+      <td  class="text-left">     {{ item2.sample|safe }}        </td>
 {% endfor %}
 
 

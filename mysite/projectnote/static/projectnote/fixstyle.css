@@ -1,3 +1,7 @@
+.redfont {
+    color:red;
+}
+
 .vcenter {
     display: inline-block;
     vertical-align: middle;
