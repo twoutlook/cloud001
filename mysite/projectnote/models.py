@@ -351,3 +351,19 @@ class T100item(models.Model):
     t100= models.ForeignKey(T100, models.SET_NULL, null=True)
     item_seq = models.IntegerField(default=0)
     item_text = models.CharField(max_length=600)
+
+class Prog(models.Model):
+    code = models.CharField('運行程序',max_length=16, unique=True)
+    name = models.CharField('運行程序名稱',max_length=64)
+
+
+class Drill (models.Model):
+    code = models.CharField('演練代碼',max_length=16)
+    name = models.CharField('演練名稱',max_length=64)
+
+class Drillstep (models.Model):
+    drill= models.ForeignKey(Drill, models.SET_NULL, null=True)
+    seq = models.IntegerField(default=0)
+    prog= models.ForeignKey(Prog, models.SET_NULL, null=True)
+    note = models.CharField('筆記',max_length=512)
+    

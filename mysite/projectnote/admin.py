@@ -12,7 +12,7 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100,T100item
+from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100,T100item,Prog, Drill, Drillstep
 
 class TransResource(resources.ModelResource):
     class Meta:
@@ -157,3 +157,6 @@ class SopitemAdmin(ImportExportModelAdmin):
     pass
 admin.site.register(Sopitem,SopitemAdmin)
 
+class ProgAdmin(ImportExportModelAdmin):
+    pass
+admin.site.register(Prog,ProgAdmin)
