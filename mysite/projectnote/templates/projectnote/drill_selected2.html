@@ -30,7 +30,7 @@
    {% for item2 in item_list2 %}
 
     <tr> <td class="bg-primary">     {{ item2.seq }}       </td>
-      <td  class="text-left">     【{{ item2.prog.code }}】<br> {{ item2.prog.name }}       </td> 
+      <td  class="text-left">     <b>【{{ item2.prog.code }}】</b><br> {{ item2.prog.name }}       </td> 
       <td  class="text-left">     {{ item2.note|safe }}        </td>
         <td  class="text-left">     {{ item2.problem|safe }}        </td>
     
