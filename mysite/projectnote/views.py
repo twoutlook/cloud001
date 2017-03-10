@@ -17,7 +17,7 @@ from django.db.models import Count,Max, Min, Sum, Avg
 
 from .models import Flowchart
 from .models import Flowchartprocess
-from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata
+from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata, Drill, Prog, Drillstep
 
 def index(request):
     # if not request.user.is_authenticated:
@@ -588,6 +588,18 @@ def sopdept_selected(request,dept_id):
     context = {'item_list': item_list, 'dept':dept}
     return render(request, 'projectnote/sopdept_selected.html', context)
 
+def drill_selected(request,dept_id):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Drill.objects.filter(id = dept_id).order_by('code')[:500]
+    # dept = Dept.objects.filter(id = dept_id)
+
+    # context = {'item_list': item_list, 'dept':dept}
+    context = {'item_list': item_list}
+
+    return render(request, 'projectnote/drill_selected.html', context)
 
 
 def sopbpm(request):

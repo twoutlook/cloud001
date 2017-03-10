@@ -1,0 +1,122 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+  <h1> Drill </h1>
+
+{% if item_list %}
+    <a class="btn btn-primary " href='/projectnote/sopdept'> SOP按部門查看</a>
+{% for x in dept %}
+  <h1> {{x}} </h1>
+{% endfor %}
+ <table class="table table-bordered text-center ">
+<tr class="bg-primary" >
+  <td></td>
+  <td>基本信息</td>
+
+<td>作業說明</td>
+<td>流程圖</td>
+
+
+</tr>
+
+    {% for item in item_list %}
+    <tr>
+      <td  class="bg-primary" >{{ forloop.counter }}</td>
+       <!-- <td>{{ item.cat }} </td>          -->
+
+  <td>
+<table>
+  <tr>  <td  class="bg-primary" >分類</td>  </tr>
+ <tr><td>{{ item.cat }} </td></tr>
+  <tr>  <td  class="bg-primary" >流程编号</td>  </tr>
+ <tr><td>{{ item.code }} </td></tr>
+ <tr> <td  class="bg-primary" >流程名称</td> </tr>
+  <tr>       <td class=" text-left"><a href='../../sop/format2/{{ item.id }}' >{{ item.title }} </a >  </td></tr>
+
+ <tr> <td  class="bg-primary" >版本</td>  </tr>
+  <tr>     <td>ver {{ item.ver}} </td></tr>
+
+ <tr> <td  class="bg-primary" >修订日期</td>  </tr>
+ <tr><td>{{ item.ver_date | date:"Y-m-d" }} </td> </tr>
+
+ <tr> <td  class="bg-primary" >负责单位</td>  </tr>
+  <tr> <td>{{ item.dept }} </td> </tr>
+ <tr> <td  class="bg-primary" >修改人员</td>  </tr>
+<tr>  <td>{{ item.editor }} </td></tr>
+    <tr> <td  class="bg-primary" >审核人员</td>  </tr>   
+  <tr><td>{{ item.by2 }} </td></tr>
+      
+ <tr> <td  class="bg-primary" >流程定义</td>  </tr>
+ <tr>       <td class=" text-left">{{ item.intro }} </td> </tr>
+
+ <tr><td  class="bg-primary" >流程圖編輯</td></tr>
+
+<tr> <td class=" text-left"><a target="_blank" href='/static/projectnote/ver01/{{ item.code }}.xml' >{{ item.code }}.xml </a >  </td></tr>    
+         
+       <!-- <td>{{ item.title }} </td> -->
+      
+    
+     
+
+
+
+
+</table>
+</td>
+
+
+
+
+
+
+<td >
+<!-- <table class="table table-bordered text-center "> -->
+<table >
+{% for item2 in item.sopitem_set.all %}
+    <tr> <td class="bg-primary">     {{ item2.item_seq }}       </td></tr>
+    <tr><td  class="text-left">     {{ item2.item_text }}        </td> </tr>
+{% endfor %}
+
+
+</table>
+</td>
+
+       <td  class="text-left">
+<img src="/static/projectnote/ver01/{{ item.code }}.svg"  alt="{{ item.code }}.svg" />
+
+</td>
+
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+
+
+
+    <p>
+      <!-- {{dept}} -->
+{% for x in dept %}
+  <b> {{x}} </b>
+{% endfor %}
+
+
+
+      目前还没有流程图.</p>
+{% endif %}
+
+<!--  code = models.CharField('流程编号',max_length=16)
+    ver = models.CharField('版本',max_length=8)
+    ver_date = models.DateField('修订日期')
+    title = models.CharField(max_length=200)
+    dept = models.CharField('负责单位',max_length=16)
+    editor = models.CharField('修改人员',max_length=16)
+    page_num = models.CharField('页次',max_length=16)
+    intro = models.CharField('流程定义',max_length=200)
+    diagram = models.ImageField('流程图',null=True)
+    is_active=models.BooleanField("是否活躍", default=True ) -->
+{% endblock %}
