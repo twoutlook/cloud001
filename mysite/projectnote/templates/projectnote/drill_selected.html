@@ -19,12 +19,15 @@
   <td class="bg-primary"> seq </td>
   <td class="bg-primary"> 運行程式 </td>
   <td class="bg-primary"> 筆記要點 </td>
+  <td class="bg-primary"> 範例單號 </td>
+
   </tr>
  
 {% for item2 in item.drillstep_set.all %}
     <tr> <td class="bg-primary">     {{ item2.seq }}       </td>
       <td  class="text-left">     {{ item2.prog }}        </td> 
       <td  class="text-left">     {{ item2.note }}        </td>
+      <td  class="text-left">     {{ item2.sample }}        </td>
 {% endfor %}
 
 
