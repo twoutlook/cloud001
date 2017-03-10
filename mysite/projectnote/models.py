@@ -356,7 +356,8 @@ class Prog(models.Model):
     code = models.CharField('運行程序',max_length=16, unique=True)
     name = models.CharField('運行程序名稱',max_length=64)
     def __str__(self):
-        return "【"+self.code+"】"+self.name
+        # return "【"+self.code+"】"+self.name
+        return self.code+self.name
         # 【品保】
 
 
