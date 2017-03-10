@@ -370,5 +370,5 @@ class Drillstep (models.Model):
     seq = models.IntegerField(default=0)
     prog= models.ForeignKey(Prog, models.SET_NULL, null=True)
     note = models.CharField('筆記',max_length=512)
-    sample = models.CharField('單號',max_length=512)
+    sample = models.CharField('單號',max_length=512,default='...')
     
