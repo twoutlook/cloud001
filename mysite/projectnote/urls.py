@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^sop/(?P<sop_id>[0-9]+)/$', views.sop_detail, name='sop_detail'),
     url(r'^sop/format2/(?P<sop_id>[0-9]+)/$', views.sop_detail_v2, name='sop_detail_v2'),
     url(r'^sopdept/(?P<dept_id>[0-9]+)/$', views.sopdept_selected, name='sopdept_selected'),
-    url(r'^drill/(?P<dept_id>[0-9]+)/$', views.drill_selected2, name='drill_selected2'),
+    url(r'^drill/(?P<dept_id>[0-9]+)/$', views.drill_selected, name='drill_selected'),
     # url(r'^drill2/(?P<dept_id>[0-9]+)/$', views.drill_selected2, name='drill_selected2'),
     url(r'^drilllist$', views.drill_list, name='drill_list'),
 

@@ -357,7 +357,7 @@ class Prog(models.Model):
     name = models.CharField('運行程序名稱',max_length=64)
     def __str__(self):
         # return "【"+self.code+"】"+self.name
-        return self.code+self.name
+        return self.code+" "+self.name
         # 【品保】
 
 
@@ -372,4 +372,6 @@ class Drillstep (models.Model):
     note = models.CharField('筆記',max_length=512)
     problem = models.CharField('異常',max_length=512,default='...')
     sample = models.CharField('單號',max_length=512,default='...')
-    
+
+    class Meta:
+        ordering = ('drill','seq',)    
