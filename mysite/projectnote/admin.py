@@ -14,6 +14,13 @@ from import_export.admin import ImportExportModelAdmin
 from .models import  Note
 from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100,T100item,Prog, Drill, Drillstep, Dailywork
 
+# 2017-0-3-20
+# 唐婷婷/叶盼
+from  .models import Bpm
+
+
+
+
 class TransResource(resources.ModelResource):
     class Meta:
         model = Trans
@@ -129,6 +136,14 @@ class DailyworkAdmin(ImportExportModelAdmin):
   
 admin.site.register(Dailywork,DailyworkAdmin)   
 
+# 2017-0-3-20
+# 唐婷婷/叶盼
+class BpmAdmin(ImportExportModelAdmin):
+    list_display = ('dept_name','sop_name')
+    list_filter = ('dept_name','sop_name')
+    search_fields = ('dept_name','sop_name')
+  
+admin.site.register(Bpm,BpmAdmin) 
 
 class SopdataAdmin(ImportExportModelAdmin):
     list_display = ('cat','seq','sys','procedure')

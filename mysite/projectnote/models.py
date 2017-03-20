@@ -343,6 +343,14 @@ class Dailywork(models.Model):
     def __str__(self):
         return self.empe_name+"_"+self.work_brief
 
+class Bpm(models.Model):
+    dept_name = models.CharField('部门',max_length=16)
+    sop_name = models.CharField('SOP名称',max_length=512)
+    class Meta:
+        verbose_name = "BPM列表"
+        verbose_name_plural = "BPM列表"
+    def __str__(self):
+        return self.dept_name+"_"+self.sop_name
 
 
 class Sopitem(models.Model):
