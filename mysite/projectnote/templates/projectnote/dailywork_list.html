@@ -13,9 +13,11 @@
 <table class="table table-bordered text-center ">
   <tr class="bg-primary" >
     <td></td>
-    <td>111</td>
-    <td>222</td>
-    <td>333</td>
+    <td>姓名</td>
+    <td>日期</td>
+    <td>TODO</td>
+    <td>工作要點</td>
+    <td>工作內容</td>
   </tr>
 
   {% for item in item_list %}
@@ -23,7 +25,9 @@
     <td  class="bg-primary" >{{ forloop.counter }}</td>
     <td>{{ item.empe_name}} </td>
     <td>{{ item.work_date | date:"Y-m-d" }} </td>
-    <td>{{ item.work_brief }} </td>
+    <td class="text-left">{{ item.remarks }} </td>
+    <td class="text-left">{{ item.work_brief }} </td>
+    <td class="text-left">{{ item.work_desc }} </td>
   </tr>   
   {% endfor %}
 </table>
