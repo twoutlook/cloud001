@@ -11,7 +11,9 @@ from . import views
 
 urlpatterns = [
     # url(r'^bpm$', views.bpm, name='bpm'),
+    url(r'^dailywork$', views.dailywork, name='dailywork'),
     url(r'^sop$', views.sop, name='sop'),
+
     url(r'^initdata$', views.initdata, name='initdata'),
     url(r'^initdata2$', views.initdata2, name='initdata2'),
     url(r'^initdata/(?P<is_required>[yn])/$', views.initdata_yn, name='initdata_yn'),

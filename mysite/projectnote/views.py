@@ -17,7 +17,7 @@ from django.db.models import Count,Max, Min, Sum, Avg
 
 from .models import Flowchart
 from .models import Flowchartprocess
-from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata, Drill, Prog, Drillstep
+from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata, Drill, Prog, Drillstep,Dailywork
 
 def index(request):
     # if not request.user.is_authenticated:
@@ -497,6 +497,20 @@ def sop(request):
     
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list.html', context)
+
+def dailywork(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = Dailywork.objects.order_by('empe_name','work_date')[:500]
+    
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/dailywork_list.html', context)
+
+
 
 def initdata(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()

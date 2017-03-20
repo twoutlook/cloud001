@@ -337,10 +337,6 @@ class Dailywork(models.Model):
     work_brief = models.CharField('工作要點',max_length=512)
     work_desc = models.CharField('工作內容',max_length=512)
     remarks = models.CharField('備註',max_length=512)
-    # 2017-02-17
-    # 和吳楠協議,流程圖命名以 FT_XXX.svg
-    # 因此直接使用流程编号
-    # diagram = models.CharField('流程图',max_length=200,default="mark002.svg")
     class Meta:
         verbose_name = "每人每日工作記要"
         verbose_name_plural = "每人每日工作記要"

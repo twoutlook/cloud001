@@ -14,7 +14,8 @@
 <td><h3>员工</h3></td>
 <td><h3>材料价格</h3></td> -->
 <td><h3>SOP</h3></td>
-<td><h3>BPM</h3></td>
+<td><h3>Daily</h3></td>
+<!-- <td><h3>BPM</h3></td> -->
 </tr>
 
 <tr>
@@ -74,7 +75,8 @@
  <a class="btn btn-primary " href='/projectnote/sopbpm'> SOP with BPM</a>
  <a class="btn btn-primary " href='/projectnote/sopnotactive'> 不啟用的SOP </a>
 <a class="btn btn-primary " href='/projectnote/initdata'> 基本数据建置进度计划表 </a>
-
+  <hr>
+  <a class="btn btn-primary " href='/projectnote/dailywork'> B組每人每天工作 </a>
 
 {% else %}
 
@@ -89,7 +91,8 @@
 {% if is_grp006 %}
   <!-- 登入用戶俱有權限繼續訪問 -->
   
-  <a class="btn btn-primary " href='/projectnote/bpm'> BPM列表 </a>
+
+ <a class="btn btn-primary " href='/projectnote/bpm'> BPM列表 </a>
 
 {% else %}
 

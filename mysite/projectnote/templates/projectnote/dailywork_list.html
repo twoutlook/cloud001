@@ -1,0 +1,33 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+{% if item_list %}
+   
+
+<table class="table table-bordered text-center ">
+  <tr class="bg-primary" >
+    <td></td>
+    <td>111</td>
+    <td>222</td>
+    <td>333</td>
+  </tr>
+
+  {% for item in item_list %}
+  <tr>
+    <td  class="bg-primary" >{{ forloop.counter }}</td>
+    <td>{{ item.empe_name}} </td>
+    <td>{{ item.work_date | date:"Y-m-d" }} </td>
+    <td>{{ item.work_brief }} </td>
+  </tr>   
+  {% endfor %}
+</table>
+{% else %}
+    <p>No Dailywork are available.</p>
+{% endif %}
+{% endblock %}
