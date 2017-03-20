@@ -336,7 +336,7 @@ class Dailywork(models.Model):
     work_date = models.DateField('日期')
     work_brief = models.CharField('工作要點',max_length=512)
     work_desc = models.CharField('工作內容',max_length=512)
-    remarks = models.CharField('備註',max_length=512)
+    remarks = models.CharField('TODO',max_length=512)
     class Meta:
         verbose_name = "每人每日工作記要"
         verbose_name_plural = "每人每日工作記要"

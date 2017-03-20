@@ -123,7 +123,10 @@ admin.site.register(Dept,DeptAdmin)
  #    work_desc = models.CharField('工作內容',max_length=512)
  #    remarks = models.CharField('備註',max_length=512)
 class DailyworkAdmin(ImportExportModelAdmin):
-    list_display = ('work_date','empe_name','work_brief','work_desc','remarks')
+    list_display = ('work_date','empe_name','remarks','work_brief','work_desc')
+    list_filter = ('work_date','empe_name')
+    search_fields = ('remarks','work_brief', 'work_desc')
+  
 admin.site.register(Dailywork,DailyworkAdmin)   
 
 
