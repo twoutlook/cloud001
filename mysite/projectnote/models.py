@@ -343,14 +343,20 @@ class Dailywork(models.Model):
     def __str__(self):
         return self.empe_name+"_"+self.work_brief
 
+ 
+# 2017-03-20 
+# woring together with 盼盼 & 婷婷
 class Bpm(models.Model):
     dept_name = models.CharField('部门',max_length=16)
     sop_name = models.CharField('SOP名称',max_length=512)
+    bpm_type = models.CharField('单据类型',max_length=512, default=".")
     class Meta:
         verbose_name = "BPM列表"
         verbose_name_plural = "BPM列表"
     def __str__(self):
         return self.dept_name+"_"+self.sop_name
+    class Meta:
+        ordering = ('dept_name','sop_name',)  
 
 
 class Sopitem(models.Model):

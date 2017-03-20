@@ -1,0 +1,33 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+{% if item_list %}
+<h1>BPM List</h1>   
+
+<table class="table table-bordered text-center ">
+  <tr class="bg-primary" >
+    <td></td>
+    <td>部门</td>
+    <td>表单名称</td>
+    <td>单据类型</td>
+  </tr>
+
+  {% for item in item_list %}
+  <tr>
+    <td  class="bg-primary" >{{ forloop.counter }}</td>
+    <td>{{ item.dept_name}} </td>
+    <td class="text-left">{{ item.sop_name}} </td>
+    <td>{{ item.bpm_type}} </td>
+  </tr>   
+  {% endfor %}
+</table>
+{% else %}
+    <p>No Dailywork are available.</p>
+{% endif %}
+{% endblock %}

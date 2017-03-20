@@ -139,8 +139,8 @@ admin.site.register(Dailywork,DailyworkAdmin)
 # 2017-0-3-20
 # 唐婷婷/叶盼
 class BpmAdmin(ImportExportModelAdmin):
-    list_display = ('dept_name','sop_name')
-    list_filter = ('dept_name','sop_name')
+    list_display = ('dept_name','sop_name','bpm_type')
+    list_filter = ('dept_name','bpm_type')
     search_fields = ('dept_name','sop_name')
   
 admin.site.register(Bpm,BpmAdmin) 

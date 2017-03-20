@@ -11,7 +11,14 @@ from . import views
 
 urlpatterns = [
     # url(r'^bpm$', views.bpm, name='bpm'),
+    
+    # 2017-03-20 
+    # woring together with 盼盼 & 婷婷
+    url(r'^bpm$', views.bpm, name='bpm'),
+    
     url(r'^dailywork$', views.dailywork, name='dailywork'),
+    
+
     url(r'^sop$', views.sop, name='sop'),
 
     url(r'^initdata$', views.initdata, name='initdata'),

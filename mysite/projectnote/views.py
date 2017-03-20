@@ -19,6 +19,10 @@ from .models import Flowchart
 from .models import Flowchartprocess
 from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata, Drill, Prog, Drillstep,Dailywork
 
+# 2017-03-20 
+# woring together with 盼盼 & 婷婷
+from .models import Bpm
+
 def index(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')
@@ -509,6 +513,19 @@ def dailywork(request):
     
     context = {'item_list': item_list}
     return render(request, 'projectnote/dailywork_list.html', context)
+
+# 2017-03-20 
+# woring together with 盼盼 & 婷婷
+def bpm(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Bpm.objects.order_by('dept_name','sop_name')[:500]
+    
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/bpm_list.html', context)
+
 
 
 
