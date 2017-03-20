@@ -18,6 +18,12 @@
     <td>单据类型</td>
     <td>建议开发人员</td>
     <td>预估实施工时（h）</td>
+    <td>表单名称</td>
+    <td>流程名称</td>
+    <td>UI</td>
+    <td>JS</td>
+    <td>流程外形</td>
+    <td>流程代码</td>
   </tr>
 
   {% for item in item_list %}
@@ -28,6 +34,13 @@
     <td>{{ item.bpm_type}} </td>
     <td>{{ item.dev_by}} </td>
     <td>{{ item.man_hr}} </td>
+    <td>{{ item.form_name}} </td>
+    <td>{{ item.process_name}} </td>
+    <td>{{ item.step1_by}} </td>
+    <td>{{ item.step2_by}} </td>
+    <td>{{ item.step3_by}} </td>
+    <td>{{ item.step4_by}} </td>
+
   </tr>   
   {% endfor %}
 </table>

@@ -353,6 +353,13 @@ class Bpm(models.Model):
     dev_by= models.CharField('建议开发人员',max_length=512, default=".")
     man_hr = models.IntegerField('预估实施工时（h）',default=0)
 
+    form_name= models.CharField('表单名称',max_length=512, default=".")
+    process_name= models.CharField('流程名称',max_length=512, default=".")
+    step1_by= models.CharField('UI',max_length=512, default=".")
+    step2_by= models.CharField('JS',max_length=512, default=".")
+    step3_by= models.CharField('流程外形',max_length=512, default=".")
+    step4_by= models.CharField('流程代码',max_length=512, default=".")
+    # complete_date = models.DateField("行情日期")
     class Meta:
         verbose_name = "BPM列表"
         verbose_name_plural = "BPM列表"
