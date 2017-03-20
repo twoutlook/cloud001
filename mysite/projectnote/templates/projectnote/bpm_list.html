@@ -17,6 +17,7 @@
     <td>表单名称</td>
     <td>单据类型</td>
     <td>建议开发人员</td>
+    <td>预估实施工时（h）</td>
   </tr>
 
   {% for item in item_list %}
@@ -26,6 +27,7 @@
     <td class="text-left">{{ item.sop_name}} </td>
     <td>{{ item.bpm_type}} </td>
     <td>{{ item.dev_by}} </td>
+    <td>{{ item.man_hr}} </td>
   </tr>   
   {% endfor %}
 </table>

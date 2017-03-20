@@ -351,6 +351,8 @@ class Bpm(models.Model):
     sop_name = models.CharField('SOP名称',max_length=512)
     bpm_type = models.CharField('单据类型',max_length=512, default=".")
     dev_by= models.CharField('建议开发人员',max_length=512, default=".")
+    man_hr = models.IntegerField('预估实施工时（h）',default=0)
+
     class Meta:
         verbose_name = "BPM列表"
         verbose_name_plural = "BPM列表"
