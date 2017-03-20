@@ -10,17 +10,17 @@
 
 <table class="table table-bordered text-center ">
 <tr>
-<!-- <td><h3>实施记要</h3></td>
+<td><h3>实施记要</h3></td>
 <td><h3>员工</h3></td>
-<td><h3>材料价格</h3></td> -->
+<td><h3>材料价格</h3></td>
 <td><h3>SOP</h3></td>
-<td><h3>BPM</h3></td>
 </tr>
 
 <tr>
-<!-- <td>
+<td>
   
 {% if is_grp001 %}
+  <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/test1'> 實施記要 </a>
 
 {% else %}
@@ -33,11 +33,13 @@
 
 
 </td>
- -->
-<!-- <td>
+
+<td>
 
 {% if is_grp002 %}
+  <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/flowchart'> 生产工艺流程卡 </a>
+  <!-- <a class="btn btn-primary " href='/projectnote/employee'> 員工 </a> -->
   <a class="btn btn-primary " href='/projectnote/employeev2'> 員工 </a>
 {% else %}
 
@@ -46,9 +48,9 @@
 
 {% endif %}
 </td>
- -->
-<!--  <td>
+<td>
 {% if is_grp003 %}
+  <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/step3'> 材料價格 </a>
   <a class="btn btn-primary " href='/projectnote/step3ext/2016-11-17'> 材料價格（可設定截止日期） </a>
   <a class="btn btn-primary " target="_blank" href='http://fulltech-metal.org/project-rfq'> RFQ 報價自動化 </a>
@@ -60,8 +62,7 @@
 
 {% endif %}
 </td>
- -->
- <td>
+<td>
 {% if is_grp005 %}
   <!-- 登入用戶俱有權限繼續訪問 -->
   <a class="btn btn-primary " href='/projectnote/drilllist'> 演練</a>

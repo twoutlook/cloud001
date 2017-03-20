@@ -12,7 +12,7 @@ from import_export.admin import ImportExportModelAdmin
 #     pass
 
 from .models import  Note
-from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100,T100item,Prog, Drill, Drillstep
+from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100,T100item,Prog, Drill, Drillstep, Dailywork
 
 class TransResource(resources.ModelResource):
     class Meta:
@@ -115,6 +115,17 @@ class T100itemInline(admin.TabularInline):
 class DeptAdmin(ImportExportModelAdmin):
     list_display = ('dept_name','order_seq')
 admin.site.register(Dept,DeptAdmin)   
+
+
+ # empe_name = models.CharField('姓名',max_length=16)
+ #    work_date = models.DateField('日期')
+ #    work_brief = models.CharField('工作要點',max_length=512)
+ #    work_desc = models.CharField('工作內容',max_length=512)
+ #    remarks = models.CharField('備註',max_length=512)
+class DailyworkAdmin(ImportExportModelAdmin):
+    list_display = ('work_date','empe_name','work_brief')
+admin.site.register(Dailywork,DailyworkAdmin)   
+
 
 class SopdataAdmin(ImportExportModelAdmin):
     list_display = ('cat','seq','sys','procedure')
