@@ -16,6 +16,7 @@
     <td>部门</td>
     <td>表单名称</td>
     <td>单据类型</td>
+    <td>建议开发人员</td>
   </tr>
 
   {% for item in item_list %}
@@ -24,6 +25,7 @@
     <td>{{ item.dept_name}} </td>
     <td class="text-left">{{ item.sop_name}} </td>
     <td>{{ item.bpm_type}} </td>
+    <td>{{ item.dev_by}} </td>
   </tr>   
   {% endfor %}
 </table>

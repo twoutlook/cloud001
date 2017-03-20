@@ -350,6 +350,7 @@ class Bpm(models.Model):
     dept_name = models.CharField('部门',max_length=16)
     sop_name = models.CharField('SOP名称',max_length=512)
     bpm_type = models.CharField('单据类型',max_length=512, default=".")
+    dev_by= models.CharField('建议开发人员',max_length=512, default=".")
     class Meta:
         verbose_name = "BPM列表"
         verbose_name_plural = "BPM列表"
