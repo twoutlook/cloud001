@@ -352,14 +352,21 @@ class Bpm(models.Model):
     bpm_type = models.CharField('单据类型',max_length=512, default=".")
     dev_by= models.CharField('建议开发人员',max_length=512, default=".")
     man_hr = models.IntegerField('预估实施工时（h）',default=0)
-
+    
+    # 
+    to_print= models.CharField('打印需求',max_length=512, default=".")
+    qry_t100= models.CharField('查询T100数据',max_length=512, default=".")
+    wait_t100= models.CharField('需待T100客制',max_length=512, default=".")
+    concern= models.CharField('BPM-T100集成相关问题',max_length=512, default=".")
+  
     form_name= models.CharField('表单名称',max_length=512, default=".")
     process_name= models.CharField('流程名称',max_length=512, default=".")
     step1_by= models.CharField('UI',max_length=512, default=".")
     step2_by= models.CharField('JS',max_length=512, default=".")
     step3_by= models.CharField('流程外形',max_length=512, default=".")
     step4_by= models.CharField('流程代码',max_length=512, default=".")
-    # complete_date = models.DateField("行情日期")
+  
+    complete_date = models.DateField("完成日期", null=True)
     class Meta:
         verbose_name = "BPM列表"
         verbose_name_plural = "BPM列表"

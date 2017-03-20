@@ -16,6 +16,10 @@
     <td>部门</td>
     <td>表单名称</td>
     <td>单据类型</td>
+    <td>打印需求</td>
+    <td>查询T100数据</td>
+    <td>需待T100客制</td>
+    <td>T100集成相关问题</td>
     <td>建议开发人员</td>
     <td>预估实施工时（h）</td>
     <td>表单名称</td>
@@ -24,6 +28,7 @@
     <td>JS</td>
     <td>流程外形</td>
     <td>流程代码</td>
+    <td>完成日期</td>
   </tr>
 
   {% for item in item_list %}
@@ -32,6 +37,10 @@
     <td>{{ item.dept_name}} </td>
     <td class="text-left">{{ item.sop_name}} </td>
     <td>{{ item.bpm_type}} </td>
+    <td>{{ item.to_print}} </td>
+    <td>{{ item.qry_t100}} </td>
+    <td>{{ item.wait_t100}} </td>
+    <td>{{ item.concern}} </td>
     <td>{{ item.dev_by}} </td>
     <td>{{ item.man_hr}} </td>
     <td>{{ item.form_name}} </td>
@@ -40,6 +49,7 @@
     <td>{{ item.step2_by}} </td>
     <td>{{ item.step3_by}} </td>
     <td>{{ item.step4_by}} </td>
+    <td>{{ item.complete_date| date:"Y-m-d"}} </td>
 
   </tr>   
   {% endfor %}
