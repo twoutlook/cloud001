@@ -705,6 +705,15 @@ def sop_detail_v2(request, sop_id):
     sop = get_object_or_404(Sop, pk=sop_id)
     return render(request, 'projectnote/sop_detail_v2.html', {'sop': sop})
 
+def sop_detail_v3(request, sop_code):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    sop = get_object_or_404(Sop, code=sop_code)
+    return render(request, 'projectnote/sop_detail_v2.html', {'sop': sop})
+
+
 def sopitem(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
