@@ -350,6 +350,11 @@ class Bpm(models.Model):
     dept_name = models.CharField('部门',max_length=16)
     sop_name = models.CharField('SOP名称',max_length=512)
     bpm_type = models.CharField('单据类型',max_length=512, default=".")
+    note1 = models.CharField('SOP',max_length=512, default=".")
+    note2 = models.CharField('TIOO运行程序',max_length=512, default=".")
+    note3 = models.CharField('T100表单名称',max_length=512, default=".")
+    
+
     dev_by= models.CharField('建议开发人员',max_length=512, default=".")
     man_hr = models.IntegerField('预估实施工时（h）',default=0)
     
@@ -359,7 +364,7 @@ class Bpm(models.Model):
     wait_t100= models.CharField('需待T100客制',max_length=512, default=".")
     concern= models.CharField('BPM-T100集成相关问题',max_length=512, default=".")
   
-    form_name= models.CharField('表单名称',max_length=512, default=".")
+    form_name= models.CharField('BPM表单名称',max_length=512, default=".")
     process_name= models.CharField('流程名称',max_length=512, default=".")
     step1_by= models.CharField('UI',max_length=512, default=".")
     step2_by= models.CharField('JS',max_length=512, default=".")
