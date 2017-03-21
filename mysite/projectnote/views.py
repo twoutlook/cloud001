@@ -527,6 +527,16 @@ def bpm(request):
     return render(request, 'projectnote/bpm_list.html', context)
 
 
+def bpm2(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Bpm.objects.filter(bpm_type='T100送签').order_by('dept_name','sop_name')[:500]
+    
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/bpm_list.html', context)
+
 
 
 def initdata(request):

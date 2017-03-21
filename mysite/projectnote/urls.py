@@ -15,6 +15,7 @@ urlpatterns = [
     # 2017-03-20 
     # woring together with 盼盼 & 婷婷
     url(r'^bpm$', views.bpm, name='bpm'),
+    url(r'^bpm2$', views.bpm2, name='bpm2'),
     
     url(r'^dailywork$', views.dailywork, name='dailywork'),
     
