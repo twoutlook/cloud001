@@ -545,7 +545,7 @@ def bpm3(request):
     item_list = Bpm.objects.filter(bpm_type='纯BPM').order_by('dept_name','sop_name')[:500]
     
     context = {'item_list': item_list}
-    return render(request, 'projectnote/bpm_list.html', context)
+    return render(request, 'projectnote/bpm_list3.html', context)
 
 
 def initdata(request):

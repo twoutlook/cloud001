@@ -1,0 +1,69 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+{% if item_list %}
+<h1>BPM 纯BPM</h1>   
+<h3><a target='_blank' href="http://10.10.0.41:8086/NaNaWeb">测试环境链接</a></h3>   
+<h3><a target='_blank' href="http://10.10.0.33:8086/NaNaWeb">正式环境链接</a> 
+</h3>   
+  
+ 
+
+
+<table class="table table-bordered text-center ">
+  <tr class="bg-primary" >
+    <td></td>
+    <td>部门</td>
+    <td>表单名称</td>
+    <td>单据类型</td>
+    <!-- <td>SOP</td> -->
+    <!-- <td>TIOO运行程序</td> -->
+    <!-- <td>T100表单名称</td> -->
+    <td>打印需求</td>
+    <td>查询T100数据</td>
+    <td>需待T100客制</td>
+    <td>T100集成相关问题</td>
+    <td>建议开发人员</td>
+    <td>预估实施工时（h）</td>
+    <td>表单名称</td>
+    <td>流程名称</td>
+    <td>UI</td>
+    <td>JS</td>
+    <td>流程外形</td>
+    <td>流程代码</td>
+    <td>完成日期</td>
+  </tr>
+
+  {% for item in item_list %}
+  <tr>
+    <td  class="bg-primary" >{{ forloop.counter }}</td>
+    <td>{{ item.dept_name}} </td>
+    <td class="text-left">{{ item.sop_name}} </td>
+    <td>{{ item.bpm_type}} </td>
+    <td>{{ item.to_print}} </td>
+    <td>{{ item.qry_t100}} </td>
+    <td>{{ item.wait_t100}} </td>
+    <td>{{ item.concern}} </td>
+    <td>{{ item.dev_by}} </td>
+    <td>{{ item.man_hr}} </td>
+    <td>{{ item.form_name}} </td>
+    <td>{{ item.process_name}} </td>
+    <td>{{ item.step1_by}} </td>
+    <td>{{ item.step2_by}} </td>
+    <td>{{ item.step3_by}} </td>
+    <td>{{ item.step4_by}} </td>
+    <td>{{ item.complete_date| date:"Y-m-d"}} </td>
+
+  </tr>   
+  {% endfor %}
+</table>
+{% else %}
+    <p>No Dailywork are available.</p>
+{% endif %}
+{% endblock %}
