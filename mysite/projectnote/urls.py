@@ -16,6 +16,7 @@ urlpatterns = [
     # woring together with 盼盼 & 婷婷
     url(r'^bpm$', views.bpm, name='bpm'),
     url(r'^bpm2$', views.bpm2, name='bpm2'),
+    url(r'^bpm3$', views.bpm3, name='bpm3'),
     
     url(r'^dailywork$', views.dailywork, name='dailywork'),
     
