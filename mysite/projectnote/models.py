@@ -366,7 +366,9 @@ class Bpm(models.Model):
     step3_by= models.CharField('流程外形',max_length=512, default=".")
     step4_by= models.CharField('流程代码',max_length=512, default=".")
   
-    complete_date = models.DateField("完成日期", null=True)
+    # NOTE
+    # 2017-03-21 婷婷 feedback: on page admin, failed to save if date is blank 
+    complete_date = models.DateField("完成日期", null=True,blank=True)
     class Meta:
         verbose_name = "BPM列表"
         verbose_name_plural = "BPM列表"
