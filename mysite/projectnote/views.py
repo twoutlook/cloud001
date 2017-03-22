@@ -537,6 +537,21 @@ def bpm2(request):
     context = {'item_list': item_list}
     return render(request, 'projectnote/bpm_list.html', context)
 
+# 2017-03-22
+# bpm4
+# (1) view.py, def bpm3(request):
+# (2) projectnote/bpm_list3.html
+# (3) urls.py, url(r'^bpm3$', views.bpm3, name='bpm3'),
+# (4)在index加按钮
+def bpm4(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = Bpm.objects.filter(dept_name='人事').order_by('dept_name','sop_name')[:500]
+    
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/bpm_list4.html', context)
 def bpm3(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:

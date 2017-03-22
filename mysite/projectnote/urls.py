@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^bpm$', views.bpm, name='bpm'),
     url(r'^bpm2$', views.bpm2, name='bpm2'),
     url(r'^bpm3$', views.bpm3, name='bpm3'),
+    url(r'^bpm4$', views.bpm4, name='bpm4'),
     
     url(r'^dailywork$', views.dailywork, name='dailywork'),
     
