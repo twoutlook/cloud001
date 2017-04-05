@@ -14,4 +14,7 @@ lbl_19= new Array("DEPT_ID", "DEPT_NAME", "EMPE_ID","EMPE_NAME","JOB","LEAVE_DAT
 // lbl_array.push(new Array("DEPT_ID", "DEPT_NAME", "EMPE_ID","EMPE_NAME","JOB","LEAVE_DATE","SUP_NAME"););//19
 
 
-
+var myLblArray = new Array();
+    myLblArray[0] = 1;
+    myLblArray[1] = 2;
+    myLblArray[19] = new Array("DEPT_ID", "DEPT_NAME", "EMPE_ID","EMPE_NAME","JOB","LEAVE_DATE","SUP_NAME");
