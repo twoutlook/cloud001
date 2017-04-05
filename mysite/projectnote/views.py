@@ -714,7 +714,8 @@ def js(request):
     # context = {'item_list': item_list}
     context = {'item_list': "testing"}
 
-    return render(request, 'projectnote/js.html', context)
+    # return render(request, 'projectnote/js.html', context)
+    return render(request, 'projectnote/js.js', context)
 
 
 
