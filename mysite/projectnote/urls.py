@@ -12,6 +12,12 @@ from . import views
 urlpatterns = [
     # url(r'^bpm$', views.bpm, name='bpm'),
     
+
+    # 2017-04-05 
+    # by Mark, 希望能在django的環境提供SQL的語句甚至智能維護下拉的內容.
+    url(r'^js$', views.js, name='js'),
+    
+
     # 2017-03-20 
     # woring together with 盼盼 & 婷婷
     url(r'^bpm$', views.bpm, name='bpm'),
