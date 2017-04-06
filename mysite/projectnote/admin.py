@@ -14,9 +14,13 @@ from import_export.admin import ImportExportModelAdmin
 from .models import  Note
 from  .models import Smm, Employee,Trans,Rpt,Sop,Sopitem, Dept, Cat,Sopdata, T100,T100item,Prog, Drill, Drillstep, Dailywork
 
-# 2017-0-3-20
+# 2017-03-20
 # 唐婷婷/叶盼
 from  .models import Bpm
+
+# 2017-04-06
+# 唐婷婷/叶盼
+from  .models import SqlStatement
 
 
 
@@ -191,6 +195,14 @@ class ProgAdmin(ImportExportModelAdmin):
     list_display=['code','name']
     ordering = ['code']
 admin.site.register(Prog,ProgAdmin)
+
+
+#  2017-04-06, Mark
+
+class SqlStatementAdmin(ImportExportModelAdmin):
+    list_display=['prj','seq','title']
+    ordering = ['prj','seq',]
+admin.site.register(SqlStatement,SqlStatementAdmin)
 
 
 class DrillstepInline(admin.TabularInline):

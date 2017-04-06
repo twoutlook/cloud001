@@ -423,4 +423,22 @@ class Drillstep (models.Model):
     sample = models.CharField('單號',max_length=512,default='...')
 
     class Meta:
-        ordering = ('drill','seq',)    
+        ordering = ('drill','seq',)  
+
+class SqlStatement(models.Model):
+    prj = models.CharField('項目',default="monitor001",max_length=512)
+    seq = models.IntegerField('序號',default=0)
+    title = models.CharField('標題',max_length=512,default=".")
+    sql = models.CharField('SQL語句',max_length=512,default=".")
+    lbl_en = models.CharField('Label英文',max_length=512,default=".")
+    lbl_zh = models.CharField('Label中文',max_length=512,default=".")
+    remarks = models.CharField('備註',max_length=512,default="...")
+    class Meta:
+        ordering = ('prj','seq',)  
+    def __str__(self):
+        # return "【"+self.code+"】"+self.name
+        return self.prj+" "+str(self.seq)+" "+self.title
+        # 【品保】
+
+
+
