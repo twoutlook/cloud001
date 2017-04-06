@@ -11,3 +11,22 @@
 
     {% endfor  %}
    )  ; 
+
+
+    ddlSql=Array(
+    {% for item in item_list %}
+         "{{ item.sql}}",      
+    {% endfor  %}
+   )  ; 
+
+    ddlLbl_en=Array(
+    {% for item in item_list %}
+         "{{ item.lbl_en}}",      
+    {% endfor  %}
+   )  ; 
+
+        ddlLbl_zh=Array(
+    {% for item in item_list %}
+         "{{ item.lbl_zh}}",      
+    {% endfor  %}
+   )  ; 
