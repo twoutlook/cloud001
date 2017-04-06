@@ -23,6 +23,10 @@ from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata, Drill, 
 # woring together with 盼盼 & 婷婷
 from .models import Bpm
 
+# 2017-04-06
+from .models import SqlStatement
+
+
 def index(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')
@@ -712,11 +716,28 @@ def js(request):
 
     # item_list = Sop.objects.filter(is_bpm = True).order_by('code')[:500]
     # context = {'item_list': item_list}
-    context = {'item_list': "testing"}
+    
+    item_list = SqlStatement.objects.filter(prj = 'monitor001').order_by('prj','seq')[:500]
+    context = {'item_list': item_list}
+    # context = {'item_list': "testing"}
 
     # return render(request, 'projectnote/js.html', context)
     return render(request, 'projectnote/js.js', context)
 
+def js2(request):
+    # is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    # if not is_grpxxx:
+    #    return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_bpm = True).order_by('code')[:500]
+    # context = {'item_list': item_list}
+    
+    item_list = SqlStatement.objects.filter(prj = 'monitor001').order_by('prj','seq')[:500]
+    context = {'item_list': item_list}
+    # context = {'item_list': "testing"}
+
+    # return render(request, 'projectnote/js.html', context)
+    return render(request, 'projectnote/js2.js', context)
 
 
 def sopnotactive(request):

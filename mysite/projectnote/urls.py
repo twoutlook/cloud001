@@ -16,6 +16,7 @@ urlpatterns = [
     # 2017-04-05 
     # by Mark, 希望能在django的環境提供SQL的語句甚至智能維護下拉的內容.
     url(r'^js$', views.js, name='js'),
+    url(r'^js2$', views.js2, name='js2'),
     
 
     # 2017-03-20 
