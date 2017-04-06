@@ -429,11 +429,12 @@ class SqlStatement(models.Model):
     prj = models.CharField('項目',default="monitor001",max_length=512)
     seq = models.IntegerField('序號',default=0)
     title = models.CharField('標題',max_length=512,default=".")
-    sql = models.CharField('SQL語句',max_length=512,default=".")
-    lbl_en = models.CharField('Label英文',max_length=512,default=".")
-    lbl_zh = models.CharField('Label中文',max_length=512,default=".")
+    sql = models.CharField('SQL語句',max_length=512,default=".",null=True, blank=True)
+    vname = models.CharField('View Name',max_length=512,default=".",null=True, blank=True)
+    lbl = models.CharField('Label',max_length=512,default=".",null=True, blank=True)
+    # lbl_zh = models.CharField('Label中文',max_length=512,default=".",null=True, blank=True)
     remarks = models.CharField('備註',max_length=512,default="...")
-    is_active = models.BooleanField('是',default=False)
+    is_active = models.BooleanField('是否活躍',default=False)
     class Meta:
         ordering = ('prj','seq',)  
     def __str__(self):

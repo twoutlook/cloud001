@@ -1,3 +1,11 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
 
 
   ddlResult=Array(
@@ -10,17 +18,26 @@
       {% endif %} 
 
     {% endfor  %}
-   )  ; 
+   )  ; <br>
 
 
     ddlSql=Array(
     {% for item in item_list %}
          "{{ item.sql}}",      
     {% endfor  %}
-   )  ; 
+   )  ;  <br>
 
     ddlLbl_en=Array(
     {% for item in item_list %}
-         "{{ item.lbl_en}}",      
+         Array({{ item.lbl_en}}),      
     {% endfor  %}
-   )  ; 
+   )  ;  <br>
+
+ddlLbl_zh=Array(
+    {% for item in item_list %}
+         Array({{ item.lbl_zh}}),      
+    {% endfor  %}
+   )  ;  <br>
+
+
+{% endblock %}
