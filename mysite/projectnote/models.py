@@ -433,6 +433,7 @@ class SqlStatement(models.Model):
     lbl_en = models.CharField('Label英文',max_length=512,default=".")
     lbl_zh = models.CharField('Label中文',max_length=512,default=".")
     remarks = models.CharField('備註',max_length=512,default="...")
+    is_active = models.BooleanField('是',default=False)
     class Meta:
         ordering = ('prj','seq',)  
     def __str__(self):

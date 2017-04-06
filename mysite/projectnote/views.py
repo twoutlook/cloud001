@@ -732,7 +732,7 @@ def js2(request):
     # item_list = Sop.objects.filter(is_bpm = True).order_by('code')[:500]
     # context = {'item_list': item_list}
     
-    item_list = SqlStatement.objects.filter(prj = 'monitor001').order_by('prj','seq')[:500]
+    item_list = SqlStatement.objects.filter(prj = 'monitor001').filter(is_active=True).order_by('prj','seq')[:500]
     context = {'item_list': item_list}
     # context = {'item_list': "testing"}
 
