@@ -27,6 +27,6 @@
 
         ddlLbl_zh=Array(
     {% for item in item_list %}
-         "{{ item.lbl_zh}}",      
+         Array({{ item.lbl_zh}}),      
     {% endfor  %}
    )  ; 
