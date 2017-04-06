@@ -21,12 +21,6 @@
 
     ddlLbl_en=Array(
     {% for item in item_list %}
-         Array({{ item.lbl_en}}),      
-    {% endfor  %}
-   )  ; 
-
-        ddlLbl_zh=Array(
-    {% for item in item_list %}
-         Array({{ item.lbl_zh}}),      
+         "{{ item.lbl_en}}",      
     {% endfor  %}
    )  ; 
