@@ -200,7 +200,7 @@ admin.site.register(Prog,ProgAdmin)
 #  2017-04-06, Mark
 
 class SqlStatementAdmin(ImportExportModelAdmin):
-    list_display=['prj','seq','title']
+    list_display=['prj','seq','title','vcode','prog']
     ordering = ['prj','seq',]
 admin.site.register(SqlStatement,SqlStatementAdmin)
 
