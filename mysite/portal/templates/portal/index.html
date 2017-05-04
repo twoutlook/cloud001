@@ -2,90 +2,110 @@
 {% load bootstrap3 %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>portal</title>
-<!-- Latest compiled and minified CSS -->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>portal</title>
+        <!-- Latest compiled and minified CSS -->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
 
-<!-- Optional theme -->
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+        <!-- Optional theme -->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
 
-<!-- Latest compiled and minified JavaScript -->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+        <!-- Latest compiled and minified JavaScript -->
+        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
 
-    <link rel="stylesheet" type="text/css" href="{% static 'app001/dist-bootstrap-jquery/css/bootstrap.min.css' %}" />
-
-
-</head>
+        <link rel="stylesheet" type="text/css" href="{% static 'app001/dist-bootstrap-jquery/css/bootstrap.min.css' %}" />
 
 
-  <body>
-    <div class="container">
-     <h1>企業入口網站 (2017-01-05 重新部署) </h1>
-     <ul>
-       <li>域名訪問 &nbsp;<a href='http://portal.fulltech-metal.com/'>http://portal.fulltech-metal.com</a> </li>
-
-       <li>公網IP訪問 &nbsp;<a href='http://222.92.254.197/'>http://222.92.254.197/</a> </li>
-       <li>局網IP訪問 &nbsp;<a href='http://10.10.0.70/'>http://10.10.0.70/</a> </li>
+    </head>
 
 
-     </ul>
+    <body>
+        <div class="container">
+            <h1>企業入口網站 (2017-01-05 重新部署) </h1>
+            <ul>
+                <li>域名訪問 &nbsp;<a href='http://portal.fulltech-metal.com/'>http://portal.fulltech-metal.com</a> </li>
 
-      <table class="table">
-        <tr><td>   <a class="btn  btn-primary btn-lg" href='app001'>APP001雲端佈告欄</a>
-
-        &nbsp;  <a class="btn  btn-primary  btn-lg" href='app001/index_bootstrap'>APP001雲端佈告欄 (手機版)</a>
-
-      </td></tr>
-
-      <tr><td>   <a class="btn  btn-primary btn-lg" href='projectnote'>全制程追踪系統---輔助系統</a>
+                <li>公網IP訪問 &nbsp;<a href='http://222.92.254.197/'>http://222.92.254.197/</a> </li>
+                <li>局網IP訪問 &nbsp;<a href='http://10.10.0.70/'>http://10.10.0.70/</a> </li>
 
 
+            </ul>
 
-    </td></tr>
+            <table class="table">
+             <tr>
+                    <td>   
+                        <a class="btn  btn-primary btn-lg" href='http://10.10.0.30/'>T100 ***只限區網訪問，必需使用IE***</a>
+
+                        &nbsp;  <a class="btn  btn-primary  btn-lg" href='http://10.10.0.41:8086/NaNaWeb/'>BPM ***只限區網訪問***</a>
+
+                    </td>
+                </tr>
+                <tr><td>   
+                        <a class="btn  btn-primary btn-lg" href='projectnote'>全制程追踪系統---輔助系統 (Python/Django)</a>
+                    </td>
+                </tr>
+                <tr><td>  
+                        <a class="btn  btn-primary btn-lg" href='http://10.10.1.80:8080/ft/'>FT全製程追踪 速查T100數據 (JavaWeb)***只限區網訪問***</a>
+                    </td>
+                </tr>
+                <tr><td>   
+                        <a class="btn  btn-primary btn-lg" href='http://10.10.1.0/wordpress/'>全製程追踪系統實施記要 (WordPress)***只限區網訪問***</a>
+                    </td>
+                </tr>
+                <tr><td>   
+          <!--               <a class="btn  btn-primary btn-lg" href='http://10.10.0.67/project-rfq/'>RFQ (JavaScript+PHP)</a> -->
+                          <a class="btn  btn-primary btn-lg" href='http://rfq.fulltech-metal.com/project-rfq/'>RFQ (JavaScript+PHP)</a>
+                </td></tr>
+                     <tr>
+                    <td>   
+                        <a class="btn  btn-primary btn-lg" href='app001'>雲端佈告欄</a>
+
+                        &nbsp;  <a class="btn  btn-primary  btn-lg" href='app001/index_bootstrap'>雲端佈告欄 (手機版)</a>
+
+                    </td>
+                </tr>
+
+            </table>
+
+            <!-- <h3>待辦事項︰</h3>
+           <table class="table">
+                <tr><th> 優先等級</th><th>需求說明</th></tr>
+                <tr><td> 最低</td><td>客製 壓鑄機 資料維護頁面</td></tr>
+        
+        
+              </table>
+        
+           <hr>
+        
+        
+            <h3>完成事項︰</h3>
+           <table class="table">
+                <tr><th> 日期</th><th>完成事項說明</th></tr>
+                <tr><td> 2016-09-22 </td><td>新增 ITEM012-富鈦-压铸在制订单。 <br>取消 ITEM011-富鈦-压铸在制订单。</td></tr>
+                <tr><td> 2016-09-20 </td><td>新增 ITEM011-富鈦-压铸在制订单。<br>ITEM008-富甲-壓鑄機，機台狀態使用顏色標示。<br>ITEM009-富鈦-壓鑄機，使用同模版同時生效。 </td></tr>
+                <tr><td> 2016-09-19 </td><td>啟用域名訪問  http://cloud.skyrock-casting.org/ 指向 http://210.61.46.44/。</td></tr>
+                <tr><td> 2016-09-11 </td><td>新增 ITEM010-富甲-压铸在制订单。</td></tr>
+                <tr><td> 2016-09-04 </td><td>啟用正式環境 http://210.61.46.44/。</td></tr>
+                <tr><td> 2016-08-16 </td><td>使用 c9.io開發環境建立原型。</td></tr>
+                <tr><td> 2016-08-13 </td><td>啟動雲端佈告欄項目 。</td></tr>
+        
+              </table>
+        
+            </div>
+            </div> -->
 
 
-      </table>
+            <!-- Bootstrap core JavaScript
+           ================================================== -->
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+            <script src="{% static "portal/dist-bootstrap-jquery/jquery/jquery.min.js" %}"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
 
-    <!-- <h3>待辦事項︰</h3>
-   <table class="table">
-        <tr><th> 優先等級</th><th>需求說明</th></tr>
-        <tr><td> 最低</td><td>客製 壓鑄機 資料維護頁面</td></tr>
-
-
-      </table>
-
-   <hr>
-
-
-    <h3>完成事項︰</h3>
-   <table class="table">
-        <tr><th> 日期</th><th>完成事項說明</th></tr>
-        <tr><td> 2016-09-22 </td><td>新增 ITEM012-富鈦-压铸在制订单。 <br>取消 ITEM011-富鈦-压铸在制订单。</td></tr>
-        <tr><td> 2016-09-20 </td><td>新增 ITEM011-富鈦-压铸在制订单。<br>ITEM008-富甲-壓鑄機，機台狀態使用顏色標示。<br>ITEM009-富鈦-壓鑄機，使用同模版同時生效。 </td></tr>
-        <tr><td> 2016-09-19 </td><td>啟用域名訪問  http://cloud.skyrock-casting.org/ 指向 http://210.61.46.44/。</td></tr>
-        <tr><td> 2016-09-11 </td><td>新增 ITEM010-富甲-压铸在制订单。</td></tr>
-        <tr><td> 2016-09-04 </td><td>啟用正式環境 http://210.61.46.44/。</td></tr>
-        <tr><td> 2016-08-16 </td><td>使用 c9.io開發環境建立原型。</td></tr>
-        <tr><td> 2016-08-13 </td><td>啟動雲端佈告欄項目 。</td></tr>
-
-      </table>
-
-    </div>
-    </div> -->
-
-
-     <!-- Bootstrap core JavaScript
-    ================================================== -->
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <script src="{% static "portal/dist-bootstrap-jquery/jquery/jquery.min.js" %}"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-   <script src="{% static "portal/dist-bootstrap-jquery/js/bootstrap.min.js" %}"></script>
-  </body>
+            <script src="{% static "portal/dist-bootstrap-jquery/js/bootstrap.min.js" %}"></script>
+    </body>
 </html>
