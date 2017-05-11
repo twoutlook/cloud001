@@ -22,6 +22,10 @@ from  .models import Bpm
 # 唐婷婷/叶盼
 from  .models import SqlStatement
 
+# 2017-05-011
+# by Mark,  together with 张韬 韜, 張 张一翔
+from  .models import TechNote
+
 
 
 
@@ -37,6 +41,14 @@ class RptResource(resources.ModelResource):
 class EmployeeResource(resources.ModelResource):
     class Meta:
         model = Employee
+
+class TechNoteResource(resources.ModelResource):
+    class Meta:
+        model = TechNote
+
+
+
+
 class SmmResource(resources.ModelResource):
     class Meta:
         model = Smm
@@ -53,6 +65,25 @@ class EmployeeAdmin(ImportExportModelAdmin):
     search_fields = ('a', 'b', 'e')
     resource_class = EmployeeResource
 admin.site.register(Employee,EmployeeAdmin)
+
+
+
+class TechNoteAdmin(ImportExportModelAdmin):
+    list_display=['a','b','c']
+
+    # https://www.djangoproject.com/start/
+    list_filter = ('c',)
+
+    ordering = ['a','b','c']
+
+    # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+    search_fields = ('a', 'b', 'e')
+    resource_class = TechNoteResource
+admin.site.register(TechNote,TechNoteAdmin)
+
+
+
+
 
 class SmmAdmin(ImportExportModelAdmin):
     list_display=['designation','pricedate','priceavg','yearnum','monthnum','quarternum']

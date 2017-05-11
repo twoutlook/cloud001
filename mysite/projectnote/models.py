@@ -1,5 +1,26 @@
 from django.db import models
 
+
+
+# 2017-05-11 技術梗…
+class TechNote(models.Model):
+    # num = models.IntegerField(default=0,verbose_name="第幾式")
+    # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
+    # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
+    a = models.CharField(default = 'BPM開發', max_length=32,verbose_name="類別")
+    b = models.CharField(default = '.', max_length=32,verbose_name="姓名")
+    c = models.CharField(max_length=512,verbose_name="內容")
+
+
+    # remarks = models.CharField(max_length=200)
+    def __str__(self):
+        return self.c
+    class Meta:
+        verbose_name = "技術梗"
+        verbose_name_plural = "技術梗"
+
+
+
 class Smm(models.Model):
     DESIGNATION_CHOICES = (
        ('A356','A356'),
