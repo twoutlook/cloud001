@@ -538,9 +538,10 @@ def technote(request):
     if not is_grpxxx:
        return redirect('/projectnote')
 
+    ip_list = TechNote.objects.filter(a='开发者服务器')
     item_list = TechNote.objects.order_by('a','b')[:500]
     
-    context = {'item_list': item_list}
+    context = {'item_list': item_list,'ip_list': ip_list}
     return render(request, 'projectnote/technote_list.html', context)
 
 
