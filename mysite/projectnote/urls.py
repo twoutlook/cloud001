@@ -19,9 +19,13 @@ urlpatterns = [
     url(r'^js2$', views.js2, name='js2'),
     
 
+    url(r'^technote$', views.technote, name='technote'),
+    
+
     # 2017-03-20 
     # woring together with 盼盼 & 婷婷
     url(r'^bpm$', views.bpm, name='bpm'),
+
     url(r'^bpm2$', views.bpm2, name='bpm2'),
     url(r'^bpm3$', views.bpm3, name='bpm3'),
     url(r'^bpm4$', views.bpm4, name='bpm4'),

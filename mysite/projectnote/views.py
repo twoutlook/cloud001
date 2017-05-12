@@ -23,6 +23,9 @@ from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata, Drill, 
 # woring together with 盼盼 & 婷婷
 from .models import Bpm
 
+from .models import TechNote
+
+
 # 2017-04-06
 from .models import SqlStatement
 
@@ -529,6 +532,17 @@ def bpm(request):
     
     context = {'item_list': item_list}
     return render(request, 'projectnote/bpm_list.html', context)
+
+def technote(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    item_list = TechNote.objects.order_by('a','b')[:500]
+    
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/technote_list.html', context)
+
 
 
 def bpm2(request):
