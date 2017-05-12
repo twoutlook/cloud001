@@ -77,7 +77,7 @@ class TechNoteAdmin(ImportExportModelAdmin):
     ordering = ['a','b','c']
 
     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
-    search_fields = ('a', 'b', 'e')
+    search_fields = ('a', 'b', 'c')
     resource_class = TechNoteResource
 admin.site.register(TechNote,TechNoteAdmin)
 
