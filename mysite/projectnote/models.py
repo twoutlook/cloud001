@@ -19,6 +19,34 @@ class TechNote(models.Model):
         verbose_name = "技術梗"
         verbose_name_plural = "技術梗"
 
+# 2017-05-27 …T100问题处理进度追踪
+class T100Todo(models.Model):
+    # 项次	提报时间	富鈦提报人	问题类型		问题点
+
+    # num = models.IntegerField(default=0,verbose_name="第幾式")
+    # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
+    # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
+    a = models.IntegerField(default = '.', max_length=32,verbose_name="项次")
+    b = models.DateField(blank=True, null=True, max_length=32,verbose_name="提报时间")
+    c = models.CharField(default = '.', max_length=32,verbose_name="富鈦提报人")
+    d=models.CharField(default = '.', max_length=32,verbose_name="问题类型")
+    e=models.CharField(default = '.', max_length=32,verbose_name="鼎捷责任人")
+    f = models.CharField(default = '.',max_length=512,verbose_name="问题点")
+    i = models.CharField(default = '.',max_length=512,verbose_name="顾问回复处理结果")
+    j = models.CharField(default = '.',max_length=512,verbose_name="验证结果")
+    # k = models.CharField(default = '.', max_length=32,verbose_name="计划完成日期")
+    # l = models.CharField(default = '.', max_length=32,verbose_name="实际完成日期")
+    k = models.DateField(blank=True, null=True, max_length=32,verbose_name="计划完成日期")
+    l = models.DateField(blank=True, null=True, max_length=32,verbose_name="实际完成日期")
+    m = models.CharField(default = '.', max_length=32,verbose_name="用户确认")
+
+
+    # remarks = models.CharField(max_length=200)
+    def __str__(self):
+        return self.f
+    class Meta:
+        verbose_name = "T100问题处理进度追踪"
+        verbose_name_plural = "T100问题处理进度追踪"
 
 
 class Smm(models.Model):
@@ -190,7 +218,7 @@ class Trans(models.Model):
 
     # cat= models.IntegerField("类型",default=2,choices = CAT_CHOICES)
     cat=  models.CharField("类型",default='购进',  max_length=2,choices =CAT_CHOICES)
-    
+
     a = models.DateField(blank=False, null=False,verbose_name="日期")
     b = models.CharField(default = '.', max_length=32,verbose_name="产品代码")
     c = models.CharField(default = '.', max_length=32,verbose_name="产品品名")
@@ -238,7 +266,7 @@ class Rpt(models.Model):
 
     # cat= models.IntegerField("类型",default=2,choices = CAT_CHOICES)
     # cat=  models.CharField("类型",default='购进',  max_length=2,choices =CAT_CHOICES)
-    
+
     # a = models.DateField(blank=False, null=False,verbose_name="日期")
     # b = models.CharField(default = '.', max_length=32,verbose_name="产品代码")
     # c = models.CharField(default = '.', max_length=32,verbose_name="产品品名")
@@ -251,7 +279,7 @@ class Rpt(models.Model):
     g=models.DecimalField("购进", max_digits=10, decimal_places=2)
     i =models.DecimalField("领用", max_digits=10, decimal_places=2)
     k =models.DecimalField("结存", max_digits=10, decimal_places=2)
-    
+
     # g =models.DecimalField("数量",default =0, max_digits=10, decimal_places=2)
     # remarks = models.CharField(max_length=200)
     def __str__(self):
@@ -298,7 +326,7 @@ class Sopdata(models.Model):
     method = models.CharField('建置方式',max_length=16,null=True)
     remarks = models.CharField('备注',max_length=255,null=True)
     by_default = models.CharField('建议负责人员',max_length=64, null=True)
-    
+
 
 
 
@@ -328,9 +356,9 @@ class Cat(models.Model):
 class Sop(models.Model):
     dept2= models.ForeignKey(Dept, models.SET_NULL, null=True)
     cat2= models.ForeignKey(Cat, models.SET_NULL, null=True)
-  
+
     cat = models.CharField(default='???', choices = CAT_CHOICES, max_length=32,verbose_name="CAT")
-   
+
     code = models.CharField('流程编号',max_length=16)
     ver = models.CharField('版本',max_length=8)
     ver_date = models.DateField('修订日期')
@@ -364,8 +392,8 @@ class Dailywork(models.Model):
     def __str__(self):
         return self.empe_name+"_"+self.work_brief
 
- 
-# 2017-03-20 
+
+# 2017-03-20
 # woring together with 盼盼 & 婷婷
 class Bpm(models.Model):
     dept_name = models.CharField('部门',max_length=16)
@@ -374,26 +402,26 @@ class Bpm(models.Model):
     note1 = models.CharField('SOP',max_length=512, default=".")
     note2 = models.CharField('TIOO运行程序',max_length=512, default=".")
     note3 = models.CharField('T100表单名称',max_length=512, default=".")
-    
+
 
     dev_by= models.CharField('建议开发人员',max_length=512, default=".")
     man_hr = models.IntegerField('预估实施工时（h）',default=0)
-    
-    # 
+
+    #
     to_print= models.CharField('打印需求',max_length=512, default=".")
     qry_t100= models.CharField('查询T100数据',max_length=512, default=".")
     wait_t100= models.CharField('需待T100客制',max_length=512, default=".")
     concern= models.CharField('BPM-T100集成相关问题',max_length=512, default=".")
-  
+
     form_name= models.CharField('BPM表单名称',max_length=512, default=".")
     process_name= models.CharField('流程名称',max_length=512, default=".")
     step1_by= models.CharField('UI',max_length=512, default=".")
     step2_by= models.CharField('JS',max_length=512, default=".")
     step3_by= models.CharField('流程外形',max_length=512, default=".")
     step4_by= models.CharField('流程代码',max_length=512, default=".")
-  
+
     # NOTE
-    # 2017-03-21 婷婷 feedback: on page admin, failed to save if date is blank 
+    # 2017-03-21 婷婷 feedback: on page admin, failed to save if date is blank
     complete_date = models.DateField("完成日期", null=True,blank=True)
     class Meta:
         verbose_name = "BPM列表"
@@ -401,14 +429,14 @@ class Bpm(models.Model):
     def __str__(self):
         return self.dept_name+"_"+self.sop_name
     class Meta:
-        ordering = ('dept_name','sop_name',)  
+        ordering = ('dept_name','sop_name',)
 
 
 class Sopitem(models.Model):
     sop= models.ForeignKey(Sop, models.SET_NULL, null=True)
     item_seq = models.IntegerField(default=0)
     item_text = models.CharField(max_length=600)
-# 2017-02-17 SOP end    
+# 2017-02-17 SOP end
 
 
 
@@ -416,7 +444,7 @@ class T100(models.Model):
     sop= models.ForeignKey(Sop, models.SET_NULL, null=True)
     code = models.CharField('運行程序',max_length=16)
     name = models.CharField('運行程序名稱',max_length=64)
-    
+
 class T100item(models.Model):
     t100= models.ForeignKey(T100, models.SET_NULL, null=True)
     item_seq = models.IntegerField(default=0)
@@ -444,7 +472,7 @@ class Drillstep (models.Model):
     sample = models.CharField('單號',max_length=512,default='...')
 
     class Meta:
-        ordering = ('drill','seq',)  
+        ordering = ('drill','seq',)
 
 class SqlStatement(models.Model):
     prj = models.CharField('項目',default="monitor001",max_length=512)
@@ -459,11 +487,8 @@ class SqlStatement(models.Model):
     remarks = models.CharField('備註',max_length=512,default="...")
     is_active = models.BooleanField('是否活躍',default=False)
     class Meta:
-        ordering = ('prj','seq',)  
+        ordering = ('prj','seq',)
     def __str__(self):
         # return "【"+self.code+"】"+self.name
         return self.prj+" "+str(self.seq)+" "+self.title
         # 【品保】
-
-
-

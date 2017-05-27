@@ -19,11 +19,14 @@ from .models import Flowchart
 from .models import Flowchartprocess
 from .models import Smm, Employee, Trans,Rpt,Sop,Sopitem, Dept, Sopdata, Drill, Prog, Drillstep,Dailywork
 
-# 2017-03-20 
+# 2017-03-20
 # woring together with 盼盼 & 婷婷
 from .models import Bpm
 
 from .models import TechNote
+
+from .models import T100Todo
+
 
 
 # 2017-04-06
@@ -346,7 +349,7 @@ def rpt(request):
     context = {'current_user':request.user,'page_title':'收发存统计表-原材料(V2)',
     'item_list': item_list,
     # 'sub0': sub0,
-    
+
 
     # 'byquarter': byquarter
     }
@@ -363,7 +366,7 @@ def rptdetail(request,item001_id):
 
     item_list = Rpt.objects.order_by('yrmonth','a', 'b')[:3000]
     item_list2 = Rpt.objects.filter(yrmonth=item001_id).order_by('yrmonth','a', 'b')[:3000]
-    
+
 
     # sub1=Trans.objects.values('yrmonth', 'd','e').annotate(sum=Sum('f'))
     # subtotal=Trans.objects.values('yrmonth','cat', 'd','e').annotate(sum=Sum('f'))
@@ -376,7 +379,7 @@ def rptdetail(request,item001_id):
     'item_list2': item_list2,
 
     # 'sub0': sub0,
-    
+
 
     # 'byquarter': byquarter
     }
@@ -505,7 +508,7 @@ def sop(request):
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = Sop.objects.order_by('code')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list.html', context)
 
@@ -517,11 +520,11 @@ def dailywork(request):
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = Dailywork.objects.order_by('empe_name','work_date')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/dailywork_list.html', context)
 
-# 2017-03-20 
+# 2017-03-20
 # woring together with 盼盼 & 婷婷
 def bpm(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
@@ -529,7 +532,7 @@ def bpm(request):
        return redirect('/projectnote')
 
     item_list = Bpm.objects.order_by('dept_name','sop_name')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/bpm_list.html', context)
 
@@ -540,9 +543,21 @@ def technote(request):
 
     ip_list = TechNote.objects.filter(a='开发者服务器')
     item_list = TechNote.objects.order_by('a','b')[:500]
-    
+
     context = {'item_list': item_list,'ip_list': ip_list}
     return render(request, 'projectnote/technote_list.html', context)
+
+
+def t100todo(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # ip_list = TechNote.objects.filter(a='开发者服务器')
+    item_list = T100Todo.objects.order_by('a')[:500]
+
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/t100todo_list.html', context)
 
 
 
@@ -552,7 +567,7 @@ def bpm2(request):
        return redirect('/projectnote')
 
     item_list = Bpm.objects.filter(bpm_type='T100送签').order_by('dept_name','sop_name')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/bpm_list.html', context)
 
@@ -568,7 +583,7 @@ def bpm4(request):
        return redirect('/projectnote')
 
     item_list = Bpm.objects.filter(dept_name='人事').order_by('dept_name','sop_name')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/bpm_list4.html', context)
 def bpm3(request):
@@ -577,7 +592,7 @@ def bpm3(request):
        return redirect('/projectnote')
 
     item_list = Bpm.objects.filter(bpm_type='纯BPM').order_by('dept_name','sop_name')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/bpm_list3.html', context)
 
@@ -590,7 +605,7 @@ def initdata(request):
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = Sopdata.objects.order_by('cat','seq')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/initdata.html', context)
 def initdata2(request):
@@ -601,7 +616,7 @@ def initdata2(request):
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = Sopdata.objects.order_by('cat','seq')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/initdata2.html', context)
 
@@ -617,7 +632,7 @@ def initdata_yn(request, is_required):
         item_list = Sopdata.objects.filter(is_required = True).order_by('cat','seq')[:500]
     if is_required == 'n':
         item_list = Sopdata.objects.filter(is_required = False).order_by('cat','seq')[:500]
-        
+
 
     context = {'item_list': item_list}
     return render(request, 'projectnote/initdata_yn.html', context)
@@ -630,7 +645,7 @@ def sopdept(request):
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = Dept.objects.order_by('order_seq')[:500]
-    
+
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_dept.html', context)
 
@@ -703,7 +718,7 @@ def drill_selected2(request,dept_id):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
        return redirect('/projectnote')
-  
+
     item_list = Drill.objects.filter(id = dept_id).order_by('code')[:500]
     item_list2 = Drillstep.objects.filter(drill_id = dept_id).order_by('seq')[:500]
     # dept = Dept.objects.filter(id = dept_id)
@@ -731,7 +746,7 @@ def js(request):
 
     # item_list = Sop.objects.filter(is_bpm = True).order_by('code')[:500]
     # context = {'item_list': item_list}
-    
+
     item_list = SqlStatement.objects.filter(prj = 'monitor001').order_by('prj','seq')[:500]
     context = {'item_list': item_list}
     # context = {'item_list': "testing"}
@@ -746,7 +761,7 @@ def js2(request):
 
     # item_list = Sop.objects.filter(is_bpm = True).order_by('code')[:500]
     # context = {'item_list': item_list}
-    
+
     item_list = SqlStatement.objects.filter(prj = 'monitor001').filter(is_active=True).order_by('prj','seq')[:500]
     context = {'item_list': item_list}
     # context = {'item_list': "testing"}
@@ -796,7 +811,7 @@ def sopitem(request):
 
     # sop = get_object_or_404(Sop, pk=sop_id)
     item_list = Sopitem.objects.order_by('sop','itemseq',)[:500]
-   
+
     return render(request, 'projectnote/sopitem.html', {'item_list': item_list})
 
 def sopcat(request):
@@ -808,7 +823,7 @@ def sopcat(request):
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = Sop.objects.order_by('code')[:500]
     cat_cnt=Sop.objects.order_by('dept','cat').values('cat','dept').annotate(cnt=Count('code'))
-    
+
     context = {'item_list': item_list,'cat_cnt':cat_cnt}
     return render(request, 'projectnote/sop_cat.html', context)
 
@@ -821,6 +836,6 @@ def sopcat2(request):
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = Sop.objects.order_by('code')[:500]
     cat_cnt=Sop.objects.order_by('dept2','cat2').values('cat2','dept2').annotate(cnt=Count('code'))
-    
+
     context = {'item_list': item_list,'cat_cnt':cat_cnt}
     return render(request, 'projectnote/sop_cat2.html', context)

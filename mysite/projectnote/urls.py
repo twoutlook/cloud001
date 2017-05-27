@@ -11,27 +11,30 @@ from . import views
 
 urlpatterns = [
     # url(r'^bpm$', views.bpm, name='bpm'),
-    
 
-    # 2017-04-05 
+
+    # 2017-04-05
     # by Mark, 希望能在django的環境提供SQL的語句甚至智能維護下拉的內容.
     url(r'^js$', views.js, name='js'),
     url(r'^js2$', views.js2, name='js2'),
-    
+
 
     url(r'^technote$', views.technote, name='technote'),
-    
 
-    # 2017-03-20 
+    # //2017-05-27
+    url(r'^t100todo$', views.t100todo, name='t100todo'),
+
+
+    # 2017-03-20
     # woring together with 盼盼 & 婷婷
     url(r'^bpm$', views.bpm, name='bpm'),
 
     url(r'^bpm2$', views.bpm2, name='bpm2'),
     url(r'^bpm3$', views.bpm3, name='bpm3'),
     url(r'^bpm4$', views.bpm4, name='bpm4'),
-    
+
     url(r'^dailywork$', views.dailywork, name='dailywork'),
-    
+
 
     url(r'^sop$', views.sop, name='sop'),
 
@@ -47,10 +50,10 @@ urlpatterns = [
     url(r'^sopdept$', views.sopdept, name='sopdept'),
     url(r'^sopnotactive$', views.sopnotactive, name='sopnotactive'),
     url(r'^sop/(?P<sop_id>[0-9]+)/$', views.sop_detail, name='sop_detail'),
-    
+
     url(r'^sop/format2/(?P<sop_id>[0-9]+)/$', views.sop_detail_v2, name='sop_detail_v2'),
     url(r'^sop/format3/(?P<sop_code>[A-Z0-9]+)/$', views.sop_detail_v3, name='sop_detail_v3'),
-    
+
     url(r'^sopdept/(?P<dept_id>[0-9]+)/$', views.sopdept_selected, name='sopdept_selected'),
     url(r'^drill/(?P<dept_id>[0-9]+)/$', views.drill_selected, name='drill_selected'),
     # url(r'^drill2/(?P<dept_id>[0-9]+)/$', views.drill_selected2, name='drill_selected2'),

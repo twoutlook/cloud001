@@ -22,9 +22,13 @@ from  .models import Bpm
 # 唐婷婷/叶盼
 from  .models import SqlStatement
 
-# 2017-05-011
+# 2017-05-11
 # by Mark,  together with 张韬 韜, 張 张一翔
 from  .models import TechNote
+
+# 2017-05-27
+# by Mark,  together with 张韬 韜, 張 张一翔
+from  .models import T100Todo
 
 
 
@@ -45,6 +49,10 @@ class EmployeeResource(resources.ModelResource):
 class TechNoteResource(resources.ModelResource):
     class Meta:
         model = TechNote
+
+class T100TodoResource(resources.ModelResource):
+    class Meta:
+        model = T100Todo
 
 
 
@@ -82,7 +90,18 @@ class TechNoteAdmin(ImportExportModelAdmin):
 admin.site.register(TechNote,TechNoteAdmin)
 
 
+class T100TodoAdmin(ImportExportModelAdmin):
+    list_display=['a','b','c','d','e','f']
 
+    # https://www.djangoproject.com/start/
+    # list_filter = ('f',)
+
+    ordering = ['a','b','c','d','e']
+
+    # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+    # search_fields = ('f')
+    resource_class = T100TodoResource
+admin.site.register(T100Todo,T100TodoAdmin)
 
 
 class SmmAdmin(ImportExportModelAdmin):
@@ -156,7 +175,7 @@ class T100itemInline(admin.TabularInline):
 
 class DeptAdmin(ImportExportModelAdmin):
     list_display = ('dept_name','order_seq')
-admin.site.register(Dept,DeptAdmin)   
+admin.site.register(Dept,DeptAdmin)
 
 
  # empe_name = models.CharField('姓名',max_length=16)
@@ -168,29 +187,29 @@ class DailyworkAdmin(ImportExportModelAdmin):
     list_display = ('empe_name','work_date','remarks','work_brief','work_desc')
     list_filter = ('work_date','empe_name')
     search_fields = ('remarks','work_brief', 'work_desc')
-  
-admin.site.register(Dailywork,DailyworkAdmin)   
+
+admin.site.register(Dailywork,DailyworkAdmin)
 
 # 2017-0-3-20
 # 唐婷婷/叶盼
 class BpmAdmin(ImportExportModelAdmin):
-    
+
     list_display = ('dept_name','sop_name','bpm_type','note1','note2','note3','to_print','qry_t100','wait_t100','concern','dev_by','man_hr','form_name','process_name','step1_by','step2_by','step3_by','step4_by','complete_date')
     list_filter = ('dept_name','bpm_type','dev_by')
     search_fields = ('dept_name','sop_name')
-  
-admin.site.register(Bpm,BpmAdmin) 
+
+admin.site.register(Bpm,BpmAdmin)
 
 class SopdataAdmin(ImportExportModelAdmin):
     list_display = ('cat','seq','sys','procedure')
-admin.site.register(Sopdata,SopdataAdmin)   
+admin.site.register(Sopdata,SopdataAdmin)
 
 
 
 
 class CatAdmin(ImportExportModelAdmin):
     list_display = ('cat_name','cat_seq')
-admin.site.register(Cat,CatAdmin)   
+admin.site.register(Cat,CatAdmin)
 
 class SopAdmin(ImportExportModelAdmin):
     list_display = ('dept2','cat2','cat','code', 'ver', 'ver_date','title','dept','editor','by2','is_active','is_bpm')
@@ -243,5 +262,5 @@ class DrillstepInline(admin.TabularInline):
 class DrillAdmin(ImportExportModelAdmin):
     list_display=['code','name']
     inlines = [DrillstepInline]
-    
+
 admin.site.register(Drill,DrillAdmin)

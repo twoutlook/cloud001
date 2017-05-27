@@ -8,18 +8,18 @@
 {% block content %}
 
 {% if item_list %}
-<h1>技術梗</h1>   
-<!-- <h3><a target='_blank' href="http://10.10.0.41:8086/NaNaWeb">测试环境链接</a></h3>   
+<h1>技術梗</h1>
+<!-- <h3><a target='_blank' href="http://10.10.0.41:8086/NaNaWeb">测试环境链接</a></h3>
 <h3><a target='_blank' href="http://10.10.0.33:8086/NaNaWeb">正式环境链接</a>  -->
 <!-- </h3>    -->
 <!--    <a class="btn btn-info" href='http://192.168.62.18/bpm/'> 開發者的服務器(注意,這個IP是寫成固定)</a>&nbsp;&nbsp; -->
- 
+
 <!-- {{ item_list}} -->
 <!-- {{ ip_list}} -->
   {% for item in ip_list %}
         <!-- {{item}} -->
  <a class="btn btn-info" href='{{item.c}}'> {{item.b}} </a>&nbsp;&nbsp;
- 
+
   {% endfor %}
 
 
@@ -38,7 +38,7 @@
     <td class="text-left">{{ item.a}} </td>
     <td class="text-left">{{ item.b}} </td>
     <td class="text-left">{{ item.c}} </td>
-  </tr>   
+  </tr>
   {% endfor %}
 </table>
 {% else %}

@@ -1,0 +1,68 @@
+{% extends 'projectnote/base_projectnote.html' %}
+{% load bootstrap3 %}
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+{% if item_list %}
+<h1>T100XXXX</h1>
+<!-- <h3><a target='_blank' href="http://10.10.0.41:8086/NaNaWeb">测试环境链接</a></h3>
+<h3><a target='_blank' href="http://10.10.0.33:8086/NaNaWeb">正式环境链接</a>  -->
+<!-- </h3>    -->
+<!--    <a class="btn btn-info" href='http://192.168.62.18/bpm/'> 開發者的服務器(注意,這個IP是寫成固定)</a>&nbsp;&nbsp; -->
+
+<!-- {{ item_list}} -->
+<!-- {{ ip_list}} -->
+  {% for item in ip_list %}
+        <!-- {{item}} -->
+ <a class="btn btn-info" href='{{item.c}}'> {{item.b}} </a>&nbsp;&nbsp;
+
+  {% endfor %}
+
+
+
+<table class="table table-bordered text-center ">
+  <tr class="bg-primary" >
+    <!-- <th></th> -->
+    <th>A 项次</th>
+    <th>B 提报时间</th>
+    <th>C 富鈦提报人</th>
+    <th>D 问题类型</th>
+<th>E 鼎捷责任人</th>
+<th>F 问题点</th>
+
+<th>G 问题点示例</th>
+<th>H 讨论结果</th>
+    <th>I 顾问回复处理结果</th>
+    <th>J 验证结果</th>
+    <th>K 计划完成日期</th>
+    <th>L 实际完成日期</th>
+    <th>M 用户确认</th>
+  </tr>
+
+  {% for item in item_list %}
+  <tr>
+    <!-- <td  class="bg-primary" >{{ forloop.counter }}</td> -->
+    <td class="bg-primary">{{ item.a}} </td>
+    <td class="text-left">{{ item.b | date:"Y-m-d" }} </td>
+    <td class="text-left">{{ item.c}} </td>
+    <td class="text-left">{{ item.d}} </td>
+    <td class="text-left">{{ item.e}} </td>
+    <td class="text-left">{{ item.f}} </td>
+    <td class="text-left">{{ item.g}} </td>
+    <td class="text-left">{{ item.h}} </td>
+    <td class="text-left">{{ item.i}} </td>
+    <td class="text-left">{{ item.j}} </td>
+    <td class="text-left">{{ item.k | date:"Y-m-d" }} </td>
+    <td class="text-left">{{ item.l | date:"Y-m-d" }} </td>
+    <td class="text-left">{{ item.m}} </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+    <p>No Dailywork are available.</p>
+{% endif %}
+{% endblock %}
