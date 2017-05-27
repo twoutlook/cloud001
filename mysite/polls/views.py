@@ -3,7 +3,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .models import Choice, Question,Feedback,Sop
 from django.views import generic
-from django.utils import timezone 
+from django.utils import timezone
+
 import time
 
 # def index(request):
@@ -45,10 +46,10 @@ def detail(request, question_id):
 #     return HttpResponse(response % question_id)
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/results.html', {'question': question})    
+    return render(request, 'polls/results.html', {'question': question})
 
 # def vote(request, question_id):
-#     return HttpResponse("You're voting on question %s." % question_id)    
+#     return HttpResponse("You're voting on question %s." % question_id)
 
 # ...
 def vote(request, question_id):
@@ -76,18 +77,18 @@ def vote(request, question_id):
     #     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     # username = models.CharField(max_length=200)
     # choice_text = models.IntegerField(default=0)
-    # debug     
+    # debug
                                   # feeback_textfeeback_text
-        # f=Feedback(question="XXX",feedback="YYY",username="ZZZ") 
-        f=Feedback(question=question,feedback=selected_choice,username=user_info) 
+        # f=Feedback(question="XXX",feedback="YYY",username="ZZZ")
+        f=Feedback(question=question,feedback=selected_choice,username=user_info)
 
         f.save()
-        # choice2.save()   
+        # choice2.save()
         selected_choice.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))    
+        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
 
 # class IndexView(generic.ListView):
@@ -120,5 +121,3 @@ def vote(request, question_id):
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
-
-
