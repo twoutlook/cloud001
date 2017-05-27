@@ -32,6 +32,8 @@ class T100Todo(models.Model):
     d=models.CharField(default = '.', max_length=32,verbose_name="问题类型")
     e=models.CharField(default = '.', max_length=32,verbose_name="鼎捷责任人")
     f = models.CharField(default = '.',max_length=512,verbose_name="问题点")
+    g = models.CharField(default = '.',max_length=512,verbose_name="问题点示例")	
+    h = models.CharField(default = '.',max_length=512,verbose_name="讨论结果")
     i = models.CharField(default = '.',max_length=512,verbose_name="顾问回复处理结果")
     j = models.CharField(default = '.',max_length=512,verbose_name="验证结果")
     # k = models.CharField(default = '.', max_length=32,verbose_name="计划完成日期")
