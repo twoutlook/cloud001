@@ -24,6 +24,9 @@ urlpatterns = [
     # //2017-05-27
     url(r'^t100todo$', views.t100todo, name='t100todo'),
 
+    # //2017-05-27
+    url(r'^t100todo2$', views.t100todo2, name='t100todo2'),
+
 
     # 2017-03-20
     # woring together with 盼盼 & 婷婷

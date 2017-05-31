@@ -30,6 +30,10 @@ from  .models import TechNote
 # by Mark,  together with 张韬 韜, 張 张一翔
 from  .models import T100Todo
 
+# 2017-05-27
+# by Mark,  together with 张韬 韜, 張 张一翔
+from  .models import T100Todo2
+
 
 
 
@@ -53,6 +57,10 @@ class TechNoteResource(resources.ModelResource):
 class T100TodoResource(resources.ModelResource):
     class Meta:
         model = T100Todo
+
+class T100Todo2Resource(resources.ModelResource):
+    class Meta:
+        model = T100Todo2
 
 
 
@@ -102,6 +110,19 @@ class T100TodoAdmin(ImportExportModelAdmin):
     # search_fields = ('f')
     resource_class = T100TodoResource
 admin.site.register(T100Todo,T100TodoAdmin)
+
+class T100Todo2Admin(ImportExportModelAdmin):
+    list_display=['a','b','c','d','e','f']
+
+    # https://www.djangoproject.com/start/
+    # list_filter = ('f',)
+
+    ordering = ['a','b','c','d','e']
+
+    # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+    # search_fields = ('f')
+    resource_class = T100Todo2Resource
+admin.site.register(T100Todo2,T100Todo2Admin)
 
 
 class SmmAdmin(ImportExportModelAdmin):

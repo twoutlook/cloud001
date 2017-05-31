@@ -32,7 +32,7 @@ class T100Todo(models.Model):
     d=models.CharField(default = '.', max_length=32,verbose_name="问题类型")
     e=models.CharField(default = '.', max_length=32,verbose_name="鼎捷责任人")
     f = models.CharField(default = '.',max_length=512,verbose_name="问题点")
-    g = models.CharField(default = '.',max_length=512,verbose_name="问题点示例")	
+    g = models.CharField(default = '.',max_length=512,verbose_name="问题点示例")
     h = models.CharField(default = '.',max_length=512,verbose_name="讨论结果")
     i = models.CharField(default = '.',max_length=512,verbose_name="顾问回复处理结果")
     j = models.CharField(default = '.',max_length=512,verbose_name="验证结果")
@@ -49,6 +49,37 @@ class T100Todo(models.Model):
     class Meta:
         verbose_name = "T100问题处理进度追踪"
         verbose_name_plural = "T100问题处理进度追踪"
+
+# 2017-05-27 …T100问题处理进度追踪
+class T100Todo2(models.Model):
+    # 项次	提报时间	富鈦提报人	问题类型		问题点
+
+    # num = models.IntegerField(default=0,verbose_name="第幾式")
+    # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
+    # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
+    a = models.IntegerField(default = '.', max_length=32,verbose_name="项次")
+    b = models.DateField(blank=True, null=True, max_length=32,verbose_name="提报日期")
+    c = models.CharField(default = '.', max_length=32,verbose_name="提报人员")
+    d=models.CharField(default = '.', max_length=32,verbose_name="鼎捷责任人")
+    e=models.CharField(default = '.', max_length=32,verbose_name="需求类型")
+    f = models.CharField(default = '.',max_length=512,verbose_name="需求")
+    g = models.CharField(default = '.',max_length=512,verbose_name="表单格式打包")
+    h = models.CharField(default = '.',max_length=512,verbose_name="讨论结果")
+    i = models.CharField(default = '.',max_length=512,verbose_name="顾问回复处理结果")
+    j = models.CharField(default = '.',max_length=512,verbose_name="计划需求确认完成日期")
+    # k = models.CharField(default = '.', max_length=32,verbose_name="计划完成日期")
+    # l = models.CharField(default = '.', max_length=32,verbose_name="实际完成日期")
+    k = models.DateField(blank=True, null=True, max_length=32,verbose_name="计划开发完成日期")
+    l = models.DateField(blank=True, null=True, max_length=32,verbose_name="实际完成日期")
+    m = models.CharField(default = '.', max_length=32,verbose_name="备注")
+
+
+    # remarks = models.CharField(max_length=200)
+    def __str__(self):
+        return self.f
+    class Meta:
+        verbose_name = "各部门需求处理进度追踪"
+        verbose_name_plural = "各部门需求处理进度追踪"
 
 
 class Smm(models.Model):
