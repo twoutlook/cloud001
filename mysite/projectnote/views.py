@@ -26,6 +26,8 @@ from .models import Bpm
 from .models import TechNote
 
 from .models import T100Todo
+from .models import TrackReport00
+
 
 # from .models import T100Todo2
 
@@ -513,6 +515,20 @@ def sop(request):
 
     context = {'item_list': item_list}
     return render(request, 'projectnote/sop_list.html', context)
+
+def t100_report_list(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = TrackReport00.objects.order_by('dept','a')[:1500]
+
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/t100_report_list.html', context)
+
+
 
 def dailywork(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()

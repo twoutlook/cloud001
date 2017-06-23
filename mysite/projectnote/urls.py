@@ -40,6 +40,7 @@ urlpatterns = [
 
 
     url(r'^sop$', views.sop, name='sop'),
+    url(r'^t100_report_list$', views.t100_report_list, name='t100_report_list'),
 
     url(r'^initdata$', views.initdata, name='initdata'),
     url(r'^initdata2$', views.initdata2, name='initdata2'),
