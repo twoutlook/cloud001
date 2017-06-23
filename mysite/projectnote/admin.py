@@ -32,8 +32,19 @@ from  .models import T100Todo
 
 # 2017-05-27
 # by Mark,  together with 张韬 韜, 張 张一翔
-from  .models import T100Todo2
+# from  .models import T100Todo2
 
+# 2017-06-23
+# by 張 张一翔,  together with  Mark,张韬 韜, 吴楠
+from  .models import TrackT100
+
+# 2017-06-23
+# by 吴楠,  together with  Mark,张韬 韜,张一翔
+from  .models import TrackPda
+
+# 2017-06-23
+# by 张韬,  together with  Mark,张韬 韜,张一翔
+from  .models import TrackT100Report
 
 
 
@@ -58,11 +69,21 @@ class T100TodoResource(resources.ModelResource):
     class Meta:
         model = T100Todo
 
-class T100Todo2Resource(resources.ModelResource):
+# class T100Todo2Resource(resources.ModelResource):
+#     class Meta:
+#         model = T100Todo2
+
+class TrackT100Resource(resources.ModelResource):
     class Meta:
-        model = T100Todo2
+        model = TrackT100
 
+class TrackT100ReportResource(resources.ModelResource):
+    class Meta:
+        model = TrackT100Report
 
+class TrackPdaResource(resources.ModelResource):
+    class Meta:
+        model = TrackPda
 
 
 class SmmResource(resources.ModelResource):
@@ -111,7 +132,20 @@ class T100TodoAdmin(ImportExportModelAdmin):
     resource_class = T100TodoResource
 admin.site.register(T100Todo,T100TodoAdmin)
 
-class T100Todo2Admin(ImportExportModelAdmin):
+# class T100Todo2Admin(ImportExportModelAdmin):
+#     list_display=['a','b','c','d','e','f']
+#
+#     # https://www.djangoproject.com/start/
+#     # list_filter = ('f',)
+#
+#     ordering = ['a','b','c','d','e']
+#
+#     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+#     # search_fields = ('f')
+#     resource_class = T100Todo2Resource
+# admin.site.register(T100Todo2,T100Todo2Admin)
+
+class TrackT100Admin(ImportExportModelAdmin):
     list_display=['a','b','c','d','e','f']
 
     # https://www.djangoproject.com/start/
@@ -121,8 +155,34 @@ class T100Todo2Admin(ImportExportModelAdmin):
 
     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
     # search_fields = ('f')
-    resource_class = T100Todo2Resource
-admin.site.register(T100Todo2,T100Todo2Admin)
+    resource_class = TrackT100Resource
+admin.site.register(TrackT100,TrackT100Admin)
+
+class TrackT100ReportAdmin(ImportExportModelAdmin):
+    list_display=['a','b','c','d','e','f']
+
+    # https://www.djangoproject.com/start/
+    # list_filter = ('f',)
+
+    ordering = ['a','b','c','d','e']
+
+    # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+    # search_fields = ('f')
+    resource_class = TrackT100ReportResource
+admin.site.register(TrackT100Report,TrackT100ReportAdmin)
+
+class TrackPdaAdmin(ImportExportModelAdmin):
+    list_display=['a','b','c','d','e','f']
+
+    # https://www.djangoproject.com/start/
+    # list_filter = ('f',)
+
+    ordering = ['a','b','c','d','e']
+
+    # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+    # search_fields = ('f')
+    resource_class = TrackPdaResource
+admin.site.register(TrackPda,TrackPdaAdmin)
 
 
 class SmmAdmin(ImportExportModelAdmin):

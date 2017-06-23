@@ -27,7 +27,7 @@ from .models import TechNote
 
 from .models import T100Todo
 
-from .models import T100Todo2
+# from .models import T100Todo2
 
 
 
@@ -561,16 +561,16 @@ def t100todo(request):
     context = {'item_list': item_list}
     return render(request, 'projectnote/t100todo_list.html', context)
 
-def t100todo2(request):
-    is_grpxxx=request.user.groups.filter(name='grp005').exists()
-    if not is_grpxxx:
-       return redirect('/projectnote')
-
-    # ip_list = TechNote.objects.filter(a='开发者服务器')
-    item_list = T100Todo2.objects.order_by('a')[:500]
-
-    context = {'item_list': item_list}
-    return render(request, 'projectnote/t100todo2_list.html', context)
+# def t100todo2(request):
+#     is_grpxxx=request.user.groups.filter(name='grp005').exists()
+#     if not is_grpxxx:
+#        return redirect('/projectnote')
+#
+#     # ip_list = TechNote.objects.filter(a='开发者服务器')
+#     item_list = T100Todo2.objects.order_by('a')[:500]
+#
+#     context = {'item_list': item_list}
+#     return render(request, 'projectnote/t100todo2_list.html', context)
 
 
 
