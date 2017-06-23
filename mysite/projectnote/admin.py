@@ -136,12 +136,12 @@ admin.site.register(TechNote,TechNoteAdmin)
 
 
 class T100TodoAdmin(ImportExportModelAdmin):
-    list_display=['dept','a','b','c','d','e','f']
+    list_display=['a','b','c','d','e','f']
 
     # https://www.djangoproject.com/start/
     # list_filter = ('f',)
 
-    ordering = ['dept','a']
+    ordering = ['a','b','c','d','e']
 
     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
     # search_fields = ('f')
@@ -201,12 +201,12 @@ class TrackReport01Admin(ImportExportModelAdmin):
 admin.site.register(TrackReport01,TrackReport01Admin)
 
 class TrackReport00Admin(ImportExportModelAdmin):
-    list_display=['a','b','c','d','e','f']
+    list_display=['dept','a','b','c','d','e','f']
 
     # https://www.djangoproject.com/start/
     # list_filter = ('f',)
 
-    ordering = ['a','b','c','d','e']
+    ordering = ['dept','a']
 
     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
     # search_fields = ('f')
