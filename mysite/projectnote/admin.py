@@ -50,6 +50,10 @@ from  .models import TrackT100Report
 # by 张韬,  together with  Mark,张韬 韜
 from  .models import TrackReport01
 
+# 2017-06-23
+# by 张韬,  together with  Mark,张韬 韜
+from  .models import TrackReport00
+
 
 
 class TransResource(resources.ModelResource):
@@ -88,6 +92,10 @@ class TrackT100ReportResource(resources.ModelResource):
 class TrackReport01Resource(resources.ModelResource):
     class Meta:
         model = TrackReport01
+
+class TrackReport00Resource(resources.ModelResource):
+    class Meta:
+        model = TrackReport00
 
 class TrackPdaResource(resources.ModelResource):
     class Meta:
@@ -191,6 +199,19 @@ class TrackReport01Admin(ImportExportModelAdmin):
     # search_fields = ('f')
     resource_class = TrackReport01Resource
 admin.site.register(TrackReport01,TrackReport01Admin)
+
+class TrackReport00Admin(ImportExportModelAdmin):
+    list_display=['a','b','c','d','e','f']
+
+    # https://www.djangoproject.com/start/
+    # list_filter = ('f',)
+
+    ordering = ['a','b','c','d','e']
+
+    # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
+    # search_fields = ('f')
+    resource_class = TrackReport00Resource
+admin.site.register(TrackReport00,TrackReport00Admin)
 
 class TrackPdaAdmin(ImportExportModelAdmin):
     list_display=['a','b','c','d','e','f']
