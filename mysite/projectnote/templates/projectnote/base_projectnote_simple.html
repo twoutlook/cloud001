@@ -1,0 +1,36 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>cust report</title>
+<link rel="stylesheet" type="text/css" href="http://10.10.1.80:8080/static/t100/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="http://10.10.1.80:8080/static/t100/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/projectnote/style.css" /></head>
+<body>
+
+    <div class="container-fluid">
+        <h1>{% block title %}全制程追踪系統---輔助系統 (simple style){% endblock %}</h1>
+
+        <p>
+          <a class="btn btn-primary " href='/projectnote'> 回到目錄 </a>
+      <span class="btn btn-info ">  用戶: {{current_user}}</span>
+            <a class="btn btn-warning " href='/admin/logout/?next=/projectnote'> 登出 </a>
+          <!-- <a href="/admin">登入登出</a> -->
+          <!-- <a href="/projectnote/test1">test1</a> -->
+            <!-- <a href="{% url 'home' %}">home</a>
+            <a href="{% url 'formset_default' %}">formset</a>
+            <a href="{% url 'form_default' %}">form</a>
+            <a href="{% url 'form_by_field' %}">form_by_field</a>
+            <a href="{% url 'form_horizontal' %}">form_horizontal</a>
+            <a href="{% url 'form_inline' %}">form_inline</a>
+            <a href="{% url 'form_with_files' %}">form_with_files</a>
+            <a href="{% url 'pagination' %}">pagination</a>
+            <a href="{% url 'misc' %}">miscellaneous</a> -->
+        </p>
+
+
+
+<h2>{% block page_title %}(no content){% endblock %}</h2>
+        {% block content %}(no content){% endblock %}
+    </div>
+
+</body>
+</html>
