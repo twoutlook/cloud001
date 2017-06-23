@@ -83,6 +83,38 @@ class TrackT100(models.Model):
 
 # 2017-06-23 …
 # 张一翔/张韬/吴楠
+class TrackReport01(models.Model):
+    	# 项次	需求类型	作业程序	业务需求	讨论结果	讨论日期	确认日期	客制否	BPM	工时	备注	客制状态	客制完成否
+
+
+    # 项次	提报时间	富鈦提报人	问题类型		问题点
+    # num = models.IntegerField(default=0,verbose_name="第幾式")
+    # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
+    # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
+    a = models.IntegerField(default = 0,verbose_name="项次")
+    b = models.CharField(default = '.', max_length=32,verbose_name="需求类型")
+    c = models.CharField(default = '.', max_length=32,verbose_name="作业程序")
+    d = models.CharField(default = '.', max_length=32,verbose_name="业务需求")
+    e = models.CharField(default = '.', max_length=32,verbose_name="讨论结果")
+    f = models.DateField(blank=True, null=True, max_length=32,verbose_name="讨论日期")
+    g = models.DateField(blank=True, null=True, max_length=32,verbose_name="确认日期")
+    h = models.CharField(default = '.',max_length=512,verbose_name="客制否")
+    i = models.CharField(default = '.',max_length=512,verbose_name="BPM")
+    j = models.IntegerField(default = 0,verbose_name="工时")
+    k = models.CharField(default = '.',max_length=512,verbose_name="备注")
+    l = models.CharField(default = '.',max_length=512,verbose_name="客制状态")
+    m = models.CharField(default = '.', max_length=32,verbose_name="客制完成否")
+
+
+    # remarks = models.CharField(max_length=200)
+    def __str__(self):
+        return self.f
+    class Meta:
+        verbose_name = "全制程--报表-业务"
+        verbose_name_plural = "全制程--报表-业务"
+
+# 2017-06-23 …
+# 张一翔/张韬/吴楠
 class TrackPda(models.Model):
     # 项次	提报时间	富鈦提报人	问题类型		问题点
     # num = models.IntegerField(default=0,verbose_name="第幾式")
