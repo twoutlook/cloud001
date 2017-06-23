@@ -129,7 +129,7 @@ class TrackT100Report(models.Model):
     j = models.DateField(blank=True, null=True, max_length=32,verbose_name="实际完成时间")
     k = models.CharField(default = '.',max_length=512,verbose_name="进度状态")
     l = models.CharField(default = '.',max_length=512,verbose_name="用户确认")
-    m = models.CharField(default = '.', max_length=32,verbose_name="备注")
+    m = models.CharField(default = '备注', max_length=512,verbose_name="备注")
 
 
     # remarks = models.CharField(max_length=200)
