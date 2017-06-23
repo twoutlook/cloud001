@@ -108,7 +108,7 @@ class TrackReport01(models.Model):
 
     # remarks = models.CharField(max_length=200)
     def __str__(self):
-        return self.f
+        return self.d
     class Meta:
         verbose_name = "全制程--报表-业务"
         verbose_name_plural = "全制程--报表-业务"
