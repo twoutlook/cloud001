@@ -37,6 +37,9 @@ from django.db.models import Count
 from .models import SqlStatement
 
 
+# 2017-06-26
+from .models import TrackT100
+
 def index(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')
@@ -539,6 +542,21 @@ def t100_report_list2(request):
 
     context = {'item_list': item_list}
     return render(request, 'projectnote/t100_report_list2.html', context)
+
+def trackt100(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/projectnote')
+
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = TrackT100.objects.order_by('a')[:1500]
+
+    context = {'item_list': item_list}
+    return render(request, 'projectnote/trackt100.html', context)
+
+
+
 
 # https://stackoverflow.com/questions/629551/how-to-query-as-group-by-in-django
 def t100_report_sum(request):

@@ -1,6 +1,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>cust report</title>
+<title>{% block head_title %}...{% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="http://10.10.1.80:8080/static/t100/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="http://10.10.1.80:8080/static/t100/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" />
 <link rel="stylesheet" type="text/css" href="/static/projectnote/style.css" /></head>
@@ -10,7 +10,7 @@
         <h1>{% block title %}全制程追踪系統---輔助系統 (simple style){% endblock %}</h1>
 
         <p>
-          <a class="btn btn-primary " href='/projectnote'> 回到目錄 </a>
+          <a class="btn btn-primary " href='/'> 回到目錄 </a>
       <span class="btn btn-info ">  用戶: {{current_user}}</span>
             <a class="btn btn-warning " href='/admin/logout/?next=/projectnote'> 登出 </a>
           <!-- <a href="/admin">登入登出</a> -->

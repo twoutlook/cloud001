@@ -19,6 +19,10 @@ urlpatterns = [
     url(r'^js2$', views.js2, name='js2'),
 
 
+    # 2017-06-26
+    url(r'^trackt100$', views.trackt100, name='trackt100'),
+
+
     url(r'^technote$', views.technote, name='technote'),
 
     # //2017-05-27
