@@ -21,6 +21,7 @@ urlpatterns = [
 
     # 2017-06-26
     url(r'^trackt100$', views.trackt100, name='trackt100'),
+    url(r'^trackpda$', views.trackpda, name='trackpda'),
 
 
     url(r'^technote$', views.technote, name='technote'),
