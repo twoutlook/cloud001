@@ -1,0 +1,50 @@
+{% extends 'projectnote/base_projectnote_simple.html' %}
+<!-- {% load bootstrap3 %} -->
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+{% if item_list %}
+
+
+
+
+<h2>T100 DEPT </h2>
+ <table class="gridtable ">
+<tr  >
+  <th></th>
+  <th>部门ID</th>
+  <th>部门 NAME</th>
+
+
+
+</tr>
+
+    {% for item in item_list %}
+    <tr>
+      <th  >{{ forloop.counter }}</th>
+      <td>{{ item.t100DeptId }} </td>
+      <td>{{  item.t100DeptName }} </td>
+
+
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No SOP are available.</p>
+{% endif %}
+
+<!--  code = models.CharField('流程编号',max_length=16)
+    ver = models.CharField('版本',max_length=8)
+    ver_date = models.DateField('修订日期')
+    title = models.CharField(max_length=200)
+    dept = models.CharField('负责单位',max_length=16)
+    editor = models.CharField('修改人员',max_length=16)
+    page_num = models.CharField('页次',max_length=16)
+    intro = models.CharField('流程定义',max_length=200)
+    diagram = models.ImageField('流程图',null=True)
+    is_active=models.BooleanField("是否活躍", default=True ) -->
+{% endblock %}

@@ -40,6 +40,9 @@ from .models import SqlStatement
 # 2017-06-26
 from .models import TrackT100,TrackPda
 
+from .models import T100Dept
+
+
 def index(request):
     # if not request.user.is_authenticated:
     #      return redirect('/')
@@ -596,6 +599,18 @@ def t100_report_sum2(request):
     context = {'item_list': item_list,'current_user':current_user}
     return render(request, 'projectnote/t100_report_sum2.html', context)
 
+
+def t100_dept(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/admin/login/?next=/projectnote/t100_dept')
+    current_user=request.user.username
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = T100Dept.objects.order_by("t100DeptId")
+    # subtotal =Receiving.objects.values("").annotate(Count('FG')).
+    context = {'item_list': item_list,'current_user':current_user}
+    return render(request, 'projectnote/t100_dept.html', context)
 
 
 def dailywork(request):
