@@ -7,6 +7,7 @@
 
 {% block content %}
 
+<a class="btn btn-default " href='..'> ..回到上層</a>
 {% if item_list %}
 
 
@@ -18,6 +19,8 @@
   <th></th>
   <th>DEPT ID</th>
   <th>部门</th>
+  <th>盤點現況</th>
+
   <th>笔数</th>
 
 
@@ -26,8 +29,9 @@
     {% for item in item_list %}
     <tr>
       <th  >{{ forloop.counter }}</th>
-      <td><a class='btn btn-primary' href='{{ item.deptId }}/'>{{ item.deptId }} </a></td>
+      <td>{{ item.deptId }} </td>
       <td>{{ item.dept }} </td>
+      <td>{{ item.h }} </td>
       <td>{{ item.a__count }} </td>
 
 
@@ -36,7 +40,7 @@
     {% endfor %}
     </table>
 {% else %}
-    <p>No SOP are available.</p>
+    <p>（ DEPT_ID = {{ dept_id}},  無資料）</p>
 {% endif %}
 
 <!--  code = models.CharField('流程编号',max_length=16)

@@ -598,6 +598,35 @@ def t100_report_sum2(request):
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
     context = {'item_list': item_list,'current_user':current_user}
     return render(request, 'projectnote/t100_report_sum2.html', context)
+def t100_report_sum_dept_id(request,dept_id):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+    #    return redirect('/projectnote')
+       return redirect('/admin/login/?next=/projectnote/t100_report_sum2')
+    current_user=request.user.username
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = TrackReport00.objects.filter(deptId=dept_id).values("deptId","dept","h").annotate(Count('a'))
+
+    # subtotal =Receiving.objects.values("").annotate(Count('FG')).
+    context = {'item_list': item_list,'current_user':current_user,'dept_id':dept_id}
+    return render(request, 'projectnote/t100_report_sum_dept_id.html', context)
+
+
+def t100_report_sum_dept_id_status(request,dept_id,status):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+    #    return redirect('/projectnote')
+       return redirect('/admin/login/?next=/projectnote/t100_report_sum2')
+    current_user=request.user.username
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = TrackReport00.objects.filter(deptId=dept_id)
+
+    # subtotal =Receiving.objects.values("").annotate(Count('FG')).
+    context = {'item_list': item_list,'current_user':current_user,'dept_id':dept_id,'status':status}
+    return render(request, 'projectnote/t100_report_sum_dept_id_status.html', context)
+
 
 
 def t100_dept(request):

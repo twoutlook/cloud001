@@ -46,9 +46,11 @@ urlpatterns = [
 
     url(r'^sop$', views.sop, name='sop'),
     url(r'^t100_report_list$', views.t100_report_list, name='t100_report_list'),
-    url(r'^t100_report_list2$', views.t100_report_list2, name='t100_report_list2'),
-    url(r'^t100_report_sum$', views.t100_report_sum, name='t100_report_sum'),
-    url(r'^t100_report_sum2$', views.t100_report_sum2, name='t100_report_sum2'),
+    url(r'^t100_report_list2/$', views.t100_report_list2, name='t100_report_list2'),
+    url(r'^t100_report_sum/$', views.t100_report_sum, name='t100_report_sum'),
+    url(r'^t100_report_sum2/$', views.t100_report_sum2, name='t100_report_sum2'),
+    url(r'^t100_report_sum/(?P<dept_id>[0-9A-Z.-]+)/$', views.t100_report_sum_dept_id, name='t100_report_sum_dept_id'),
+    url(r'^t100_report_sum/(?P<dept_id>[0-9A-Z.-]+)/(?P<status>[0-9A-Z.-\\%]+)/$', views.t100_report_sum_dept_id_status, name='t100_report_sum_dept_id_status'),
     url(r'^t100_dept$', views.t100_dept, name='t100_dept'),
 
     url(r'^initdata$', views.initdata, name='initdata'),
