@@ -9,27 +9,18 @@
 
 {% if item_list %}
 
-<h2>T100 cust report list </h2>
+
+
+
+<h2>T100 cust report sum by dept </h2>
  <table class="gridtable ">
 <tr  >
   <th></th>
   <th>部门</th>
-  <th>项次</th>
- <th>需求类型</th>
+  <th>盤點現況</th>
 
+  <th>笔数</th>
 
- <th>作业程序</th>
- <th>业务需求</th>
- <!-- <td>讨论结果</td> -->
- <!-- <th>讨论日期</th> -->
- <th>确认日期</th>
- <!-- <td>流程定义</td> -->
- <th>盤點現況</th>
- <!-- <td>BPM</td> -->
- <!-- <th>工时</th> -->
- <th>备注</th>
- <!-- <th>客制状态</th>
- <th>客制完成否</th> -->
 
 </tr>
 
@@ -37,19 +28,9 @@
     <tr>
       <th  >{{ forloop.counter }}</th>
       <td>{{ item.dept }} </td>
-      <td>{{ item.a }} </td>
-      <td> {{ item.b}} </td>
-      <td> {{ item.c}} </td>
-      <td> {{ item.d}} </td>
-      <!-- <td> {{ item.e}} </td> -->
-      <!-- <td>{{ item.f | date:"Y-m-d" }} </td> -->
-      <td>{{ item.g | date:"Y-m-d" }} </td>
-      <td> {{ item.h}} </td>
-      <!-- <td> {{ item.i}} </td> -->
-      <!-- <td> {{ item.j}} </td> -->
-      <td> {{ item.k}} </td>
-      <!-- <td> {{ item.l}} </td>
-      <td> {{ item.m}} </td> -->
+      <td>{{ item.h }} </td>
+      <td>{{ item.a__count }} </td>
+
 
 
     </tr>

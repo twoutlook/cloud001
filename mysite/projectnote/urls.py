@@ -48,6 +48,7 @@ urlpatterns = [
     url(r'^t100_report_list$', views.t100_report_list, name='t100_report_list'),
     url(r'^t100_report_list2$', views.t100_report_list2, name='t100_report_list2'),
     url(r'^t100_report_sum$', views.t100_report_sum, name='t100_report_sum'),
+    url(r'^t100_report_sum2$', views.t100_report_sum2, name='t100_report_sum2'),
 
     url(r'^initdata$', views.initdata, name='initdata'),
     url(r'^initdata2$', views.initdata2, name='initdata2'),

@@ -583,6 +583,18 @@ def t100_report_sum(request):
     context = {'item_list': item_list,'current_user':current_user}
     return render(request, 'projectnote/t100_report_sum.html', context)
 
+def t100_report_sum2(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+    #    return redirect('/projectnote')
+       return redirect('/admin/login/?next=/projectnote/t100_report_sum2')
+    current_user=request.user.username
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    item_list = TrackReport00.objects.values("dept","h").annotate(Count('a'))
+    # subtotal =Receiving.objects.values("").annotate(Count('FG')).
+    context = {'item_list': item_list,'current_user':current_user}
+    return render(request, 'projectnote/t100_report_sum2.html', context)
 
 
 
