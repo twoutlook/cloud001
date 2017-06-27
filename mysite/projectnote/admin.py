@@ -201,7 +201,7 @@ class TrackReport01Admin(ImportExportModelAdmin):
 admin.site.register(TrackReport01,TrackReport01Admin)
 
 class TrackReport00Admin(ImportExportModelAdmin):
-    list_display=['dept','a','b','c','d','e','f']
+    list_display=['deptId','dept','a','b','c','d','e','f','h','k']
 
     # https://www.djangoproject.com/start/
     # list_filter = ('f',)

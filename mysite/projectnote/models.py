@@ -125,7 +125,9 @@ class TrackReport00(models.Model):
     # num = models.IntegerField(default=0,verbose_name="第幾式")
     # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
     # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
+    deptId = models.CharField(default = '0000', max_length=16,verbose_name="DEPT_ID")
     dept = models.CharField(default = '.', max_length=16,verbose_name="DEPT")
+
     a = models.IntegerField(default = 0,verbose_name="项次")
     b = models.CharField(default = '.', max_length=32,verbose_name="需求类型")
     c = models.CharField(default = '.', max_length=32,verbose_name="作业程序")
@@ -133,7 +135,7 @@ class TrackReport00(models.Model):
     e = models.CharField(default = '.', max_length=32,verbose_name="讨论结果")
     f = models.DateField(blank=True, null=True, max_length=32,verbose_name="讨论日期")
     g = models.DateField(blank=True, null=True, max_length=32,verbose_name="确认日期")
-    h = models.CharField(default = '.',max_length=512,verbose_name="客制否")
+    h = models.CharField(default = '.',max_length=512,verbose_name="盤點現況")
     i = models.CharField(default = '.',max_length=512,verbose_name="BPM")
     j = models.IntegerField(default = 0,verbose_name="工时")
     k = models.CharField(default = '.',max_length=512,verbose_name="备注")
