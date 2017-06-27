@@ -58,14 +58,14 @@ from  .models import TrackReport00
 # by Mark
 # from  .models import T100Dept
 #
-# class T100DeptResource(resources.ModelResource):
-#     class Meta:
-#         model = T100Dept
-# class T100DeptAdmin(ImportExportModelAdmin):
-#     list_display=['t100DeptId','t100DeptName']
-#     ordering = ['t100DeptId']
-#     resource_class = T100DeptResource
-# admin.site.register(T100Dept,T100DeptAdmin)
+class T100DeptResource(resources.ModelResource):
+    class Meta:
+        model = T100Dept
+class T100DeptAdmin(ImportExportModelAdmin):
+    list_display=['t100DeptId','t100DeptName']
+    ordering = ['t100DeptId']
+    resource_class = T100DeptResource
+admin.site.register(T100Dept,T100DeptAdmin)
 
 
 

@@ -113,9 +113,9 @@ class TrackReport01(models.Model):
         verbose_name = "全制程--报表-业务"
         verbose_name_plural = "全制程--报表-业务"
 
-# class T100Dept(models.Model):
-#     t100DeptId = models.CharField(default='0000' , max_length=16,verbose_name="T100 DEPT_ID")
-#     t100DeptName = models.CharField(default = '.', max_length=16,verbose_name="T100 DEPT NAME")
+class T100Dept(models.Model):
+    t100DeptId = models.CharField(default='0000' , max_length=16,verbose_name="T100 DEPT_ID")
+    t100DeptName = models.CharField(default = '.', max_length=16,verbose_name="T100 DEPT NAME")
 
 
 # 2017-06-23 …
