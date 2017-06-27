@@ -57,6 +57,8 @@ from  .models import TrackReport00
 # 2017-06-27
 # by Mark
 from  .models import T100Dept
+from  .models import T100DeptTEST
+
 #
 class T100DeptResource(resources.ModelResource):
     class Meta:
@@ -66,6 +68,16 @@ class T100DeptAdmin(ImportExportModelAdmin):
     ordering = ['t100DeptId']
     resource_class = T100DeptResource
 admin.site.register(T100Dept,T100DeptAdmin)
+
+#
+class T100DeptTESTResource(resources.ModelResource):
+    class Meta:
+        model = T100DeptTEST
+class T100DeptTESTAdmin(ImportExportModelAdmin):
+    list_display=['t100Dept','note']
+    ordering = ['t100Dept']
+    resource_class = T100DeptTESTResource
+admin.site.register(T100DeptTEST,T100DeptTESTAdmin)
 
 
 

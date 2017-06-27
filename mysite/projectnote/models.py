@@ -116,7 +116,17 @@ class TrackReport01(models.Model):
 class T100Dept(models.Model):
     t100DeptId = models.CharField(default='0000' , max_length=16,verbose_name="T100 DEPT_ID")
     t100DeptName = models.CharField(default = '.', max_length=16,verbose_name="T100 DEPT NAME")
+    def __str__(self):
+        # Note use of django.utils.encoding.smart_str() here because
+        # first_name and last_name will be unicode strings.
+        return '[{0:s}] {1:s}'.format (self.t100DeptId, self.t100DeptName)
 
+class T100DeptTEST(models.Model):
+    t100Dept = models.ForeignKey(
+        'T100Dept',
+    #     # on_delete=models.CASCADE,
+    )
+    note = models.CharField(default = '.', max_length=32,verbose_name="NOTE")
 
 # 2017-06-23 …
 # 张一翔/张韬/吴楠
