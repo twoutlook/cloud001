@@ -56,7 +56,7 @@ from  .models import TrackReport00
 
 # 2017-06-27
 # by Mark
-# from  .models import T100Dept
+from  .models import T100Dept
 #
 class T100DeptResource(resources.ModelResource):
     class Meta:
