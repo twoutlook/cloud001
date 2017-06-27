@@ -54,6 +54,22 @@ from  .models import TrackReport01
 # by 张韬,  together with  Mark,张韬 韜
 from  .models import TrackReport00
 
+# 2017-06-27
+# by Mark
+# from  .models import T100Dept
+#
+# class T100DeptResource(resources.ModelResource):
+#     class Meta:
+#         model = T100Dept
+# class T100DeptAdmin(ImportExportModelAdmin):
+#     list_display=['t100DeptId','t100DeptName']
+#     ordering = ['t100DeptId']
+#     resource_class = T100DeptResource
+# admin.site.register(T100Dept,T100DeptAdmin)
+
+
+
+
 
 
 class TransResource(resources.ModelResource):
@@ -201,6 +217,7 @@ class TrackReport01Admin(ImportExportModelAdmin):
 admin.site.register(TrackReport01,TrackReport01Admin)
 
 class TrackReport00Admin(ImportExportModelAdmin):
+    # list_display=['t100DeptId','deptId','dept','a','b','c','d','e','f','h','k']
     list_display=['deptId','dept','a','b','c','d','e','f','h','k']
 
     # https://www.djangoproject.com/start/
@@ -239,6 +256,8 @@ class TransAdmin(ImportExportModelAdmin):
     ordering = ['yrmonth','cat','a','b']
     resource_class = TransResource
 admin.site.register(Trans,TransAdmin)
+
+
 class RptAdmin(ImportExportModelAdmin):
     list_display=['yrmonth','a','b','e','g','i','k']
     ordering = ['yrmonth','a','b']

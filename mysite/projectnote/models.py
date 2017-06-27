@@ -113,6 +113,9 @@ class TrackReport01(models.Model):
         verbose_name = "全制程--报表-业务"
         verbose_name_plural = "全制程--报表-业务"
 
+# class T100Dept(models.Model):
+#     t100DeptId = models.CharField(default='0000' , max_length=16,verbose_name="T100 DEPT_ID")
+#     t100DeptName = models.CharField(default = '.', max_length=16,verbose_name="T100 DEPT NAME")
 
 
 # 2017-06-23 …
@@ -125,14 +128,18 @@ class TrackReport00(models.Model):
     # num = models.IntegerField(default=0,verbose_name="第幾式")
     # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
     # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
+    # t100DeptId = models.ForeignKey(
+    #     'T100Dept',
+    #     # on_delete=models.CASCADE,
+    # )
     deptId = models.CharField(default = '0000', max_length=16,verbose_name="DEPT_ID")
     dept = models.CharField(default = '.', max_length=16,verbose_name="DEPT")
 
     a = models.IntegerField(default = 0,verbose_name="项次")
     b = models.CharField(default = '.', max_length=32,verbose_name="需求类型")
     c = models.CharField(default = '.', max_length=32,verbose_name="作业程序")
-    d = models.CharField(default = '.', max_length=32,verbose_name="业务需求")
-    e = models.CharField(default = '.', max_length=32,verbose_name="讨论结果")
+    d = models.CharField(default = '.', max_length=512,verbose_name="业务需求")
+    e = models.CharField(default = '.', max_length=512,verbose_name="讨论结果")
     f = models.DateField(blank=True, null=True, max_length=32,verbose_name="讨论日期")
     g = models.DateField(blank=True, null=True, max_length=32,verbose_name="确认日期")
     h = models.CharField(default = '.',max_length=512,verbose_name="盤點現況")
