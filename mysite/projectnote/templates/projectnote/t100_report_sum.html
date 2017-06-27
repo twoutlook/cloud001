@@ -20,7 +20,7 @@
  <table class="gridtable ">
 <tr  >
   <th></th>
-  <!-- <th>DEPT ID</th> -->
+  <th>DEPT ID</th>
   <th>部门</th>
   <th>笔数</th>
 
@@ -30,6 +30,7 @@
     {% for item in item_list %}
     <tr>
       <th  >{{ forloop.counter }}</th>
+      <td>{{ item.deptId }} </td>
       <td><a class='btn btn-primary' href='{{ item.deptId }}/'>{{ item.dept }} </a></td>
       <!-- <td> </td> -->
       <td>{{ item.a__count }} </td>
