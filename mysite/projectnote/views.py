@@ -643,6 +643,21 @@ def t100_dept(request):
     context = {'item_list': item_list,'current_user':current_user}
     return render(request, 'projectnote/t100_dept.html', context)
 
+def t100_dept_report(request):
+    is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    if not is_grpxxx:
+       return redirect('/admin/login/?next=/projectnote/t100_dept')
+    current_user=request.user.username
+    # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
+    # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+    # item_list = T100Dept.objects.order_by("t100DeptId")
+
+    #  D0 >0
+    item_list = T100Dept.objects.filter(D0__gt = 0).order_by("t100DeptId")
+    # subtotal =Receiving.objects.values("").annotate(Count('FG')).
+    context = {'item_list': item_list,'current_user':current_user}
+    return render(request, 'projectnote/t100_dept_report.html', context)
+
 
 def dailywork(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
