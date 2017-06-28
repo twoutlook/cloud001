@@ -554,7 +554,7 @@ def t100_dept_report_list(request, dept_id):
     current_user=request.user.username
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
-    item_list = TrackReport00.objects.filter(deptId = dept_id).order_by('dept','h','a')[:1500]
+    item_list = TrackReport00.objects.filter(deptId = dept_id).order_by('dept','a')[:1500]
 
     context = {'item_list': item_list,'current_user':current_user,'dept_id':dept_id}
     return render(request, 'projectnote/t100_dept_report_list.html', context)

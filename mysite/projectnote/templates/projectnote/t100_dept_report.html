@@ -15,7 +15,7 @@
 
 
 <h2>各部門 T100 客製表單報表統計表  </h2>
-<i>說明: 表單是指空白表格。報表是有T100的數據，通常以使用多少張數據庫的表當成第一個難度係數。</i><br><br>
+<i>說明: <strong>表單</strong>是指空白表格。<strong>報表</strong>是有T100的數據，通常以使用多少張數據庫的表當成第一個難度係數。</i><br><br>
 <table class="gridtable_all_center ">
   <!-- <table class="xxxgridtable "> -->
 
@@ -54,8 +54,8 @@
       <th  >{{ forloop.counter }}</th>
       <!-- <td>{{ item.id }} </td> -->
       <td>{{ item.t100DeptId }} </td>
-      <td><a class="btn btn-default " href='../t100_dept_report_list/{{ item.t100DeptId }}/'>{{  item.t100DeptName }}</a> </td>
-      <td>{{  item.D0 }} </td>
+      <td>{{  item.t100DeptName }} </td>
+      <td><a class="btn btn-info " href='../t100_dept_report_list/{{ item.t100DeptId }}/'>{{  item.D0 }}</a> </td>
       <td><a class="btn btn-default " href='../t100_dept_report_list/{{ item.t100DeptId }}/1/'>{{  item.D1 }}</a> </td>
       <td><a class="btn btn-default " href='../t100_dept_report_list/{{ item.t100DeptId }}/2/'>{{  item.D2 }}</a> </td>
       <td><a class="btn btn-success " href='../t100_dept_report_list/{{ item.t100DeptId }}/3/'>{{  item.D3 }}</a> </td>
