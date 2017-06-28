@@ -693,8 +693,10 @@ def t100_dept_report(request):
 
     #  D0 >0
     item_list = T100Dept.objects.filter(D0__gt = 0).order_by("t100DeptId")
+    item_list2 = T100Dept.objects.filter(D0__gt = 0).aggregate(sumd0=Sum('D0'),sumd1=Sum('D1'),sumd2=Sum('D2'),sumd3=Sum('D3'),sumd4=Sum('D4'),sumd5=Sum('D5'),sumd6=Sum('D6'))
+
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
-    context = {'item_list': item_list,'current_user':current_user}
+    context = {'item_list': item_list,'item_list2': item_list2,'current_user':current_user}
     return render(request, 'projectnote/t100_dept_report.html', context)
 
 

@@ -7,13 +7,15 @@
 
 {% block content %}
 
+
+
 {% if item_list %}
 
 
 
 
 <h2>各部門 T100 客製表單報表統計表  </h2>
-<i>說明: 表單是指空白表格。報表是有T100的數據，通常以使用多少張數據庫的表當成第一個難度係數。</i>
+<i>說明: 表單是指空白表格。報表是有T100的數據，通常以使用多少張數據庫的表當成第一個難度係數。</i><br><br>
 <table class="gridtable_all_center ">
   <!-- <table class="xxxgridtable "> -->
 
@@ -66,6 +68,22 @@
 
     </tr>
     {% endfor %}
+
+    <tr>
+      <td colspan="3"  style="background-color:white;border-style:none"></td>
+
+      <th>{{  item_list2.sumd0 }} </th>
+      <th>{{  item_list2.sumd1 }} </th>
+      <th>{{  item_list2.sumd2 }} </th>
+      <th>{{  item_list2.sumd3 }} </th>
+      <th>{{  item_list2.sumd4 }} </th>
+      <th>{{  item_list2.sumd5 }} </th>
+      <th>{{  item_list2.sumd6 }} </th>
+
+
+
+    </tr>
+
     </table>
 {% else %}
     <p>No SOP are available.</p>
