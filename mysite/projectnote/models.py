@@ -116,6 +116,27 @@ class TrackReport01(models.Model):
 class T100Dept(models.Model):
     t100DeptId = models.CharField(default='0000' , max_length=16,verbose_name="T100 DEPT_ID")
     t100DeptName = models.CharField(default = '.', max_length=16,verbose_name="T100 DEPT NAME")
+    # D 鼎捷
+    D1 = models.IntegerField(default = 0,verbose_name="鼎捷開發未开工")
+    D2 = models.IntegerField(default = 0,verbose_name="鼎捷開發在制")
+    D3 = models.IntegerField(default = 0,verbose_name="鼎捷開發完成待验收")
+    D4 = models.IntegerField(default = 0,verbose_name="鼎捷開發完成已验收")
+    D5 = models.IntegerField(default = 0,verbose_name="鼎捷開發取消")
+    D6 = models.IntegerField(default = 0,verbose_name="鼎捷開發状态不明")
+    D7 = models.IntegerField(default = 0,verbose_name="工时")
+    D8 = models.IntegerField(default = 0,verbose_name="工时")
+
+    # F 富鈦
+    F1 = models.IntegerField(default = 0,verbose_name="工时")
+    F2 = models.IntegerField(default = 0,verbose_name="工时")
+    F3 = models.IntegerField(default = 0,verbose_name="工时")
+    F4 = models.IntegerField(default = 0,verbose_name="工时")
+    F5 = models.IntegerField(default = 0,verbose_name="工时")
+    F6 = models.IntegerField(default = 0,verbose_name="工时")
+    F7 = models.IntegerField(default = 0,verbose_name="工时")
+    F8 = models.IntegerField(default = 0,verbose_name="工时")
+
+
     def __str__(self):
         # Note use of django.utils.encoding.smart_str() here because
         # first_name and last_name will be unicode strings.

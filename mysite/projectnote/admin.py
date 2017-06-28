@@ -64,7 +64,7 @@ class T100DeptResource(resources.ModelResource):
     class Meta:
         model = T100Dept
 class T100DeptAdmin(ImportExportModelAdmin):
-    list_display=['id','t100DeptId','t100DeptName']
+    list_display=['id','t100DeptId','t100DeptName','D1','D2','D3','D4','D5','D6']
     ordering = ['t100DeptId']
     resource_class = T100DeptResource
 admin.site.register(T100Dept,T100DeptAdmin)

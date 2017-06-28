@@ -606,7 +606,9 @@ def t100_report_sum_dept_id(request,dept_id):
     current_user=request.user.username
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
+
     item_list = TrackReport00.objects.filter(deptId=dept_id).values("deptId","dept","h").annotate(Count('a'))
+    # item_list = TrackReport00.objects.values("deptId","dept","h").annotate(Count('a')).filter(deptId=dept_id)
 
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
     context = {'item_list': item_list,'current_user':current_user,'dept_id':dept_id}
