@@ -686,6 +686,9 @@ def t100_dept_report(request):
     return render(request, 'projectnote/t100_dept_report.html', context)
 
 
+
+
+
 def dailywork(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
