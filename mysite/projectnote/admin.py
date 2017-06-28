@@ -235,9 +235,9 @@ class TrackReport00Admin(ImportExportModelAdmin):
 
 
     # https://www.djangoproject.com/start/
-    list_filter = ('dept','h')
+    list_filter = ('dept','status','h')
 
-    ordering = ['dept','h','a']
+    ordering = ['dept','status','h','a']
 
     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
     # search_fields = ('f')
