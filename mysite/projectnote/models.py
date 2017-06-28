@@ -153,17 +153,15 @@ class T100DeptTEST(models.Model):
 # 2017-06-23 …
 # 张一翔/张韬/吴楠
 class TrackReport00(models.Model):
-    	# 项次	需求类型	作业程序	业务需求	讨论结果	讨论日期	确认日期	客制否	BPM	工时	备注	客制状态	客制完成否
-
-
-    # 项次	提报时间	富鈦提报人	问题类型		问题点
-    # num = models.IntegerField(default=0,verbose_name="第幾式")
-    # flowchart = models.ForeignKey(Flowchart, on_delete=models.CASCADE)
-    # a = models.IntegerField(blank=True, null=True,verbose_name="序號")
-    # t100DeptId = models.ForeignKey(
-    #     'T100Dept',
-    #     # on_delete=models.CASCADE,
-    # )
+    CATEGORY_CHOICES = (
+        (0,'---'),
+        (1,'鼎捷開發未开工'),
+        (2,'鼎捷開發在制'),
+        (3,'鼎捷開發完成待验收'),
+        (4,'鼎捷開發完成已验收'),
+        (5,'鼎捷開發取消'),
+        (6,'鼎捷開發状态不明'),
+    )
     deptId = models.CharField(default = '0000', max_length=16,verbose_name="DEPT_ID")
     dept = models.CharField(default = '.', max_length=16,verbose_name="DEPT")
 
@@ -174,7 +172,9 @@ class TrackReport00(models.Model):
     e = models.CharField(default = '.', max_length=512,verbose_name="讨论结果")
     f = models.DateField(blank=True, null=True, max_length=32,verbose_name="讨论日期")
     g = models.DateField(blank=True, null=True, max_length=32,verbose_name="确认日期")
+    status = models.IntegerField(default = 0,choices = CATEGORY_CHOICES,verbose_name="6/28清点")
     h = models.CharField(default = '.',max_length=512,verbose_name="盤點現況")
+
     i = models.CharField(default = '.',max_length=512,verbose_name="BPM")
     j = models.IntegerField(default = 0,verbose_name="工时")
     k = models.CharField(default = '.',max_length=512,verbose_name="备注")

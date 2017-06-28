@@ -17,6 +17,7 @@
 <tr  >
   <th></th>
   <th>部门</th>
+  <th>6/28清查</th>
   <th>盤點現況</th>
 
   <th>笔数</th>
@@ -28,6 +29,7 @@
     <tr>
       <th  >{{ forloop.counter }}</th>
       <td>{{ item.dept }} </td>
+      <td>{{ item.status }} {{ item.get_status_display }} </td>
       <td>{{ item.h }} </td>
       <td>{{ item.a__count }} </td>
 

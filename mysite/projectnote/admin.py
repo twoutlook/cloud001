@@ -231,7 +231,7 @@ admin.site.register(TrackReport01,TrackReport01Admin)
 class TrackReport00Admin(ImportExportModelAdmin):
     # list_display=['deptId','dept','a','b','c','d','e','f','h','k']
 #  not to show 讨论结果
-    list_display=['deptId','dept','a','b','c','d','f','h','k']
+    list_display=['deptId','dept','a','b','c','d','f','status','h','k']
 
 
     # https://www.djangoproject.com/start/
