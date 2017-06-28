@@ -9,7 +9,7 @@
 
  <a class="btn btn-default " href='../../../t100_dept_report/'> ..回到 各部門 T100 客製表單報表統計表</a>
 
- <h2>部門ID = {{ dept_id}},狀態 = {{ status}}{{ get_status_display}}, T100 客製表單報表列表  </h2>
+ <h2>部門ID = {{ dept_id}},狀態 = {{ status}}, T100 客製表單報表列表  </h2>
 {% if item_list %}
 
  <table class="gridtable ">
@@ -25,7 +25,7 @@
  <!-- <td>讨论结果</td> -->
  <!-- <th>讨论日期</th> -->
  <th>确认日期</th>
- <!-- <td>流程定义</td> -->
+ <td>6/28清點</td>
  <th>盤點現況</th>
  <!-- <td>BPM</td> -->
  <!-- <th>工时</th> -->
@@ -46,6 +46,7 @@
       <!-- <td> {{ item.e}} </td> -->
       <!-- <td>{{ item.f | date:"Y-m-d" }} </td> -->
       <td>{{ item.g | date:"Y-m-d" }} </td>
+      <td> {{ item.status}}:{{ item.get_status_display}} </td>
       <td> {{ item.h}} </td>
       <!-- <td> {{ item.i}} </td> -->
       <!-- <td> {{ item.j}} </td> -->
