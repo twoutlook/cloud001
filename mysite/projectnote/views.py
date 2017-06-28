@@ -673,7 +673,7 @@ def t100_dept(request):
 def t100_dept_report(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
-       return redirect('/admin/login/?next=/projectnote/t100_dept')
+       return redirect('/admin/login/?next=/projectnote/t100_dept_report')
     current_user=request.user.username
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
