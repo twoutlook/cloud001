@@ -27,18 +27,27 @@ status04='鼎捷開發完成已验收'
 status05='鼎捷開發取消'
 status06='鼎捷開發状态不明'
 
-dept_list= T100Dept.objects.filter(D0__gt = 0).order_by("t100DeptId")
+# dept_list= T100Dept.objects.filter(D0__gt = 0).order_by("t100DeptId")
+
+dept_list= T100Dept.objects.order_by("t100DeptId")
 for d in dept_list:
     print('--- before ---',d.t100DeptId, d.t100DeptName, d.D0,d.D1,d.D2,d.D3,d.D4,d.D5,d.D6)
     # https://stackoverflow.com/questions/629551/how-to-query-as-group-by-in-django
     # item_list = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status01).values('h').annotate(cnt=models.Count('h'))
 
-    d.D1 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status01).count()
-    d.D2 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status02).count()
-    d.D3 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status03).count()
-    d.D4 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status04).count()
-    d.D5 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status05).count()
-    d.D6 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status06).count()
+    # d.D1 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status01).count()
+    # d.D2 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status02).count()
+    # d.D3 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status03).count()
+    # d.D4 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status04).count()
+    # d.D5 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status05).count()
+    # d.D6 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(h = status06).count()
+    d.D1 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 1).count()
+    d.D2 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 2).count()
+    d.D3 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 3).count()
+    d.D4 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 4).count()
+    d.D5 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 5).count()
+    d.D6 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 6).count()
+
     print('   ',d.t100DeptId, d.t100DeptName, status01, d.D1)
     print('   ',d.t100DeptId, d.t100DeptName, status02, d.D2)
     print('   ',d.t100DeptId, d.t100DeptName, status03, d.D3)
