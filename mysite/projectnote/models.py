@@ -117,6 +117,7 @@ class T100Dept(models.Model):
     t100DeptId = models.CharField(default='0000' , max_length=16,verbose_name="T100 DEPT_ID")
     t100DeptName = models.CharField(default = '.', max_length=16,verbose_name="T100 DEPT NAME")
     # D 鼎捷
+    D0 = models.IntegerField(default = 0,verbose_name="总笔数")
     D1 = models.IntegerField(default = 0,verbose_name="鼎捷開發未开工")
     D2 = models.IntegerField(default = 0,verbose_name="鼎捷開發在制")
     D3 = models.IntegerField(default = 0,verbose_name="鼎捷開發完成待验收")
