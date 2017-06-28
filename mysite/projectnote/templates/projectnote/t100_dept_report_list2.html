@@ -1,0 +1,74 @@
+{% extends 'projectnote/base_projectnote_simple.html' %}
+<!-- {% load bootstrap3 %} -->
+
+{% block page_title %}
+{{ page_title}}
+{% endblock %}
+
+{% block content %}
+
+ <a class="btn btn-default " href='../../../t100_dept_report/'> ..回到 各部門 T100 客製表單報表統計表</a>
+
+ <h2>部門ID = {{ dept_id}},狀態 = {{ status}}, T100 客製表單報表列表  </h2>
+{% if item_list %}
+
+ <table class="gridtable ">
+<tr  >
+  <th></th>
+  <th>部门</th>
+  <th>项次</th>
+ <th>需求类型</th>
+
+
+ <th>作业程序</th>
+ <th>业务需求</th>
+ <!-- <td>讨论结果</td> -->
+ <!-- <th>讨论日期</th> -->
+ <th>确认日期</th>
+ <!-- <td>流程定义</td> -->
+ <th>盤點現況</th>
+ <!-- <td>BPM</td> -->
+ <!-- <th>工时</th> -->
+ <th>备注</th>
+ <!-- <th>客制状态</th>
+ <th>客制完成否</th> -->
+
+</tr>
+
+    {% for item in item_list %}
+    <tr>
+      <th  >{{ forloop.counter }}</th>
+      <td>{{ item.dept }} </td>
+      <td>{{ item.a }} </td>
+      <td> {{ item.b}} </td>
+      <td> {{ item.c}} </td>
+      <td> {{ item.d}} </td>
+      <!-- <td> {{ item.e}} </td> -->
+      <!-- <td>{{ item.f | date:"Y-m-d" }} </td> -->
+      <td>{{ item.g | date:"Y-m-d" }} </td>
+      <td> {{ item.h}} </td>
+      <!-- <td> {{ item.i}} </td> -->
+      <!-- <td> {{ item.j}} </td> -->
+      <td> {{ item.k}} </td>
+      <!-- <td> {{ item.l}} </td>
+      <td> {{ item.m}} </td> -->
+
+
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>(無)</p>
+{% endif %}
+
+<!--  code = models.CharField('流程编号',max_length=16)
+    ver = models.CharField('版本',max_length=8)
+    ver_date = models.DateField('修订日期')
+    title = models.CharField(max_length=200)
+    dept = models.CharField('负责单位',max_length=16)
+    editor = models.CharField('修改人员',max_length=16)
+    page_num = models.CharField('页次',max_length=16)
+    intro = models.CharField('流程定义',max_length=200)
+    diagram = models.ImageField('流程图',null=True)
+    is_active=models.BooleanField("是否活躍", default=True ) -->
+{% endblock %}

@@ -13,6 +13,7 @@
 
 
 <h2>各部門 T100 客製表單報表統計表  </h2>
+<i>說明: 表單是指空白表格。報表是有T100的數據，通常以使用多少張數據庫的表當成第一個難度係數。</i>
 <table class="gridtable_all_center ">
   <!-- <table class="xxxgridtable "> -->
 
@@ -51,14 +52,14 @@
       <th  >{{ forloop.counter }}</th>
       <!-- <td>{{ item.id }} </td> -->
       <td>{{ item.t100DeptId }} </td>
-      <td>{{  item.t100DeptName }} </td>
+      <td><a class="btn btn-default " href='../t100_dept_report_list/{{ item.t100DeptId }}/'>{{  item.t100DeptName }}</a> </td>
       <td>{{  item.D0 }} </td>
-      <td>{{  item.D1 }} </td>
-      <td>{{  item.D2 }} </td>
-      <td>{{  item.D3 }} </td>
-      <td>{{  item.D4 }} </td>
-      <td>{{  item.D5 }} </td>
-      <td>{{  item.D6 }} </td>
+      <td><a class="btn btn-default " href='../t100_dept_report_list/{{ item.t100DeptId }}/鼎捷開發未开工/'>{{  item.D1 }}</a> </td>
+      <td><a class="btn btn-default " href='../t100_dept_report_list/{{ item.t100DeptId }}/鼎捷開發在制/'>{{  item.D2 }}</a> </td>
+      <td><a class="btn btn-success " href='../t100_dept_report_list/{{ item.t100DeptId }}/鼎捷開發完成待验收/'>{{  item.D3 }}</a> </td>
+      <td><a class="btn btn-primary " href='../t100_dept_report_list/{{ item.t100DeptId }}/鼎捷開發完成已验收/'>{{  item.D4 }}</a> </td>
+      <td><a class="btn btn-warning " href='../t100_dept_report_list/{{ item.t100DeptId }}/鼎捷開發取消/'>{{  item.D5 }}</a> </td>
+      <td><a class="btn btn-danger " href='../t100_dept_report_list/{{ item.t100DeptId }}/鼎捷開發状态不明/'>{{  item.D6 }}</a> </td>
 
 
 
