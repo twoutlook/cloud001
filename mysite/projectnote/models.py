@@ -168,7 +168,7 @@ class TrackReport00(models.Model):
         (20,'單據打印'),
         (30,'清單式報表'),
         (40,'統計分析類報表'),
-        (50,'BPM'),
+        (50,'BPM表單及流程'),
     )
 
     EASY_CHOICES = (
