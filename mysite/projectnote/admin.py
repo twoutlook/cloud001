@@ -231,13 +231,13 @@ admin.site.register(TrackReport01,TrackReport01Admin)
 class TrackReport00Admin(ImportExportModelAdmin):
     # list_display=['deptId','dept','a','b','c','d','e','f','h','k']
 #  not to show 讨论结果
-    list_display=['deptId','dept','a','b','c','d','f','status','h','k']
+    list_display=['deptId','dept','a','b','c','d','f','status','rpt_type','easy_level','k']
 
 
     # https://www.djangoproject.com/start/
-    list_filter = ('dept','status','h')
+    list_filter = ('dept','status','rpt_type','easy_level')
 
-    ordering = ['dept','status','h','a']
+    ordering = ['dept','status','a']
 
     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
     # search_fields = ('f')
