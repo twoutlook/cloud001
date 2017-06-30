@@ -240,7 +240,7 @@ class TrackReport00Admin(ImportExportModelAdmin):
     ordering = ['dept','status','a']
 
     # http://stackoverflow.com/questions/28512710/how-to-add-custom-search-box-in-django-admin
-    # search_fields = ('f')
+    search_fields = ['k']
     resource_class = TrackReport00Resource
 admin.site.register(TrackReport00,TrackReport00Admin)
 
