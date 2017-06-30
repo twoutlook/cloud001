@@ -26,6 +26,8 @@ status03='鼎捷開發完成待验收'
 status04='鼎捷開發完成已验收'
 status05='鼎捷開發取消'
 status06='鼎捷開發状态不明'
+status07='富鈦開發未开工'
+status08='富鈦開發在制'
 
 # dept_list= T100Dept.objects.filter(D0__gt = 0).order_by("t100DeptId")
 
@@ -47,6 +49,8 @@ for d in dept_list:
     d.D4 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 4).count()
     d.D5 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 5).count()
     d.D6 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 6).count()
+    d.D7 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 7).count()
+    d.D8 = TrackReport00.objects.filter(deptId = d.t100DeptId).filter(status = 8).count()
 
     print('   ',d.t100DeptId, d.t100DeptName, status01, d.D1)
     print('   ',d.t100DeptId, d.t100DeptName, status02, d.D2)
@@ -54,11 +58,13 @@ for d in dept_list:
     print('   ',d.t100DeptId, d.t100DeptName, status04, d.D4)
     print('   ',d.t100DeptId, d.t100DeptName, status05, d.D5)
     print('   ',d.t100DeptId, d.t100DeptName, status06, d.D6)
+    print('   ',d.t100DeptId, d.t100DeptName, status05, d.D7)
+    print('   ',d.t100DeptId, d.t100DeptName, status06, d.D8)
 
 
-    d.D0=d.D1+d.D2+d.D3+d.D4+d.D5+d.D6
+    d.D0=d.D1+d.D2+d.D3+d.D4+d.D5+d.D6+d.D7+d.D8
     d.save()
-    print('--- after ---',d.t100DeptId, d.t100DeptName, d.D0,d.D1,d.D2,d.D3,d.D4,d.D5,d.D6)
+    print('--- after ---',d.t100DeptId, d.t100DeptName, d.D0,d.D1,d.D2,d.D3,d.D4,d.D5,d.D6,d.D7,d.D8)
     print()
 
 

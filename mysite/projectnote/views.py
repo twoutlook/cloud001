@@ -586,27 +586,35 @@ def t100_dept_report_list_status(request, dept_id,status):
 
 
 def trackt100(request):
+    # is_grpxxx=request.user.groups.filter(name='grp005').exists()
+    # if not is_grpxxx:
+    #    return redirect('/projectnote')
+
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
-       return redirect('/projectnote')
+    #    return redirect('/projectnote')
+       return redirect('/admin/login/?next=/')
+    current_user=request.user.username
 
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = TrackT100.objects.order_by('a')[:1500]
 
-    context = {'item_list': item_list}
+    context = {'item_list': item_list,'current_user':current_user}
     return render(request, 'projectnote/trackt100.html', context)
 
 def trackpda(request):
     is_grpxxx=request.user.groups.filter(name='grp005').exists()
     if not is_grpxxx:
-       return redirect('/projectnote')
+    #    return redirect('/projectnote')
+       return redirect('/admin/login/?next=/')
+    current_user=request.user.username
 
     # item_list = Sop.objects.filter(is_active = True).order_by('code')[:500]
     # TO SHOW ALL , INCLUDING ACTIVE OR NOT
     item_list = TrackPda.objects.order_by('a')[:1500]
 
-    context = {'item_list': item_list}
+    context = {'item_list': item_list,'current_user':current_user}
     return render(request, 'projectnote/trackpda.html', context)
 
 
@@ -693,7 +701,7 @@ def t100_dept_report(request):
 
     #  D0 >0
     item_list = T100Dept.objects.filter(D0__gt = 0).order_by("t100DeptId")
-    item_list2 = T100Dept.objects.filter(D0__gt = 0).aggregate(sumd0=Sum('D0'),sumd1=Sum('D1'),sumd2=Sum('D2'),sumd3=Sum('D3'),sumd4=Sum('D4'),sumd5=Sum('D5'),sumd6=Sum('D6'))
+    item_list2 = T100Dept.objects.filter(D0__gt = 0).aggregate(sumd0=Sum('D0'),sumd1=Sum('D1'),sumd2=Sum('D2'),sumd3=Sum('D3'),sumd4=Sum('D4'),sumd5=Sum('D5'),sumd6=Sum('D6'),sumd7=Sum('D7'),sumd8=Sum('D7'))
 
     # subtotal =Receiving.objects.values("").annotate(Count('FG')).
     context = {'item_list': item_list,'item_list2': item_list2,'current_user':current_user}

@@ -124,8 +124,8 @@ class T100Dept(models.Model):
     D4 = models.IntegerField(default = 0,verbose_name="鼎捷開發完成已验收")
     D5 = models.IntegerField(default = 0,verbose_name="鼎捷開發取消")
     D6 = models.IntegerField(default = 0,verbose_name="鼎捷開發状态不明")
-    D7 = models.IntegerField(default = 0,verbose_name="工时")
-    D8 = models.IntegerField(default = 0,verbose_name="工时")
+    D7 = models.IntegerField(default = 0,verbose_name="富鈦開發未开工")
+    D8 = models.IntegerField(default = 0,verbose_name="富鈦開發在制")
 
     # F 富鈦
     F1 = models.IntegerField(default = 0,verbose_name="工时")
@@ -161,6 +161,14 @@ class TrackReport00(models.Model):
         (4,'鼎捷開發完成已验收'),
         (5,'鼎捷開發取消'),
         (6,'鼎捷開發状态不明'),
+
+        (7,'富鈦開發未开工'),
+        (8,'富鈦開發在制'),
+        # (9,'富鈦開發完成待验收'),
+        # (10,'富鈦開發完成已验收'),
+        # (11,'富鈦開發取消'),
+        # (12,'富鈦開發状态不明'),
+
     )
     TYPE_CHOICES = (
         (0,'(未定)'),

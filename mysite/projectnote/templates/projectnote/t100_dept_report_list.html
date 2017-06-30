@@ -12,25 +12,26 @@
  <h2>部門ID={{ dept_id}}, T100 客製表單報表列表  </h2>
 {% if item_list %}
 
- <table class="gridtable ">
+ <table class="gridtable " width="100%">
 <tr  >
   <th ></th>
-  <th>部门</th>
-  <th>项次</th>
- <th>需求类型</th>
+  <th width="5%">部门</th>
+  <th width="5%">项次</th>
+  <th width="5%">客製分類</th>
+  <th width="5%">需求类型</th>
 
 
- <th>作业程序</th>
- <th>业务需求</th>
- <th>讨论结果</th>
+ <th  width="10%">作业程序</th>
+ <th  width="20%">业务需求</th>
+ <th  width="30%">讨论结果</th>
  <!-- <th>讨论日期</th> -->
- <th>确认日期</th>
+ <th  width="5%">确认日期</th>
  <!-- <td>流程定义</td> -->
- <th>6/28清點</th>
+ <th  width="5%">6/28清點</th>
  <!-- <th>盤點現況</th> -->
  <!-- <td>BPM</td> -->
  <!-- <th>工时</th> -->
- <th>备注</th>
+ <th  width="10%">备注</th>
  <!-- <th>客制状态</th>
  <th>客制完成否</th> -->
 
@@ -41,6 +42,7 @@
       <th  >{{ forloop.counter }}</th>
       <td>{{ item.dept }} </td>
       <td>{{ item.a }} </td>
+      <td>{{ item.get_rpt_type_display }} </td>
       <td> {{ item.b}} </td>
       <td> {{ item.c}} </td>
       <td> {{ item.d}} </td>

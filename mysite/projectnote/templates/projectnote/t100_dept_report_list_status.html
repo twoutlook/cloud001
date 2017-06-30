@@ -17,6 +17,7 @@
   <th></th>
   <th>部门</th>
   <th>项次</th>
+    <th>客製分類</th>
  <th>需求类型</th>
 
 
@@ -40,6 +41,9 @@
       <th  >{{ forloop.counter }}</th>
       <td>{{ item.dept }} </td>
       <td>{{ item.a }} </td>
+      <!-- <td>{{ item.rpt_type }}:{{ item.get_rpt_type_display }} </td> -->
+
+      <td>{{ item.get_rpt_type_display }} </td>
       <td> {{ item.b}} </td>
       <td> {{ item.c}} </td>
       <td> {{ item.d}} </td>
